@@ -4,10 +4,15 @@
 Este projeto tem como objetivo desenvolver uma plataforma web inovadora para descoberta, recomendação e análise de filmes brasileiros. A plataforma contará com funcionalidades avançadas, incluindo algoritmos de recomendação, gamificação e curadoria especializada.
 
 **Tecnologias Utilizadas**
+
 Back-end: Java, Spring Boot, JPA
+
 Front-end: Angular
+
 Banco de Dados: Banco relacional
+
 Metodologias: Domain-Driven Design (DDD) com os níveis estratégico, tático e operacional
+
 Testes e Automação: Cenários BDD automatizados
 
 **Funcionalidades Principais**
