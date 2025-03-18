@@ -60,16 +60,16 @@ Cenários BDD e sua automação.
 Implementação inicial baseada na Arquitetura Limpa.
 
 ### Integrantes da Equipe:
-- **[Cláudio Alves]** 
-- **[Eduardo Lins]** 
-- **[Gabriel Lima]** 
-- **[João Ferraz]** 
-- **[Kaique Alves]**
-- **[Leticia Lopes]** 
-- **[Maria Augusta Gois]** 
-- **[Maria Júlia Pessoa]** 
-- **[Victor Guerra]** 
-- **[Vinicius Ventura]** 
+- **Cláudio Alves** 
+- **Eduardo Lins** 
+- **Gabriel Lima** 
+- **João Ferraz** 
+- **Kaique Alves**
+- **Letícia Lopes** 
+- **Maria Augusta Gois** 
+- **Maria Júlia Pessoa** 
+- **Victor Guerra** 
+- **Vinícius Ventura** 
 
 Licença
 Este projeto está sob a licença Apache 2.0. Consulte o arquivo LICENSE para mais detalhes.
