@@ -4,24 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1edcf67e-711c-40c6-8d84-dc4b0627e602" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/bracine/src/main/java/com/cesar/bracine/config/JwtRequestFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bracine/src/main/java/com/cesar/bracine/config/SecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bracine/src/main/java/com/cesar/bracine/config/WebConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bracine/src/main/java/com/cesar/bracine/controller/AuthController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bracine/src/main/java/com/cesar/bracine/controller/UserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bracine/src/main/java/com/cesar/bracine/exception/GlobalExceptionHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bracine/src/main/java/com/cesar/bracine/model/user/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bracine/src/main/java/com/cesar/bracine/model/user/UserRole.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bracine/src/main/java/com/cesar/bracine/model/user/dto/LoginRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bracine/src/main/java/com/cesar/bracine/model/user/dto/RegisterRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bracine/src/main/java/com/cesar/bracine/model/user/dto/UserResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bracine/src/main/java/com/cesar/bracine/repository/UserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bracine/src/main/java/com/cesar/bracine/service/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bracine/src/main/java/com/cesar/bracine/util/JwtUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bracine/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/bracine/pom.xml" afterDir="false" />
-    </list>
+    <list default="true" id="1edcf67e-711c-40c6-8d84-dc4b0627e602" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
