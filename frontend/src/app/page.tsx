@@ -1,9 +1,11 @@
-import Image from "next/image";
+import { Header } from "@/components/Header";
+import { Hero } from "@/components/ui/animated-hero";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-between p-24">
-      <h1 className="text-4xl font-bold">Bracine</h1>
-    </div>
+    <main className="min-h-screen bg-gradient-to-br from-[#050224] via-[#0A0538] to-[#0F0842]">
+      <Header />
+      <Hero />
+    </main>
   );
 }
