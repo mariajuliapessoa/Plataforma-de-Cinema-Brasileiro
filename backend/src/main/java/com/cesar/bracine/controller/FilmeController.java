@@ -1,30 +1,30 @@
 package com.cesar.bracine.controller;
 
 import com.cesar.bracine.model.Filme;
-import com.cesar.bracine.repository.FilmeRepository;
+import com.cesar.bracine.service.FilmeService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/filmes")
+@RequestMapping("/api/filmes")
 public class FilmeController {
 
-    private final FilmeRepository filmeRepository;
+    private final FilmeService filmeService;
 
-    public FilmeController(FilmeRepository filmeRepository) {
-        this.filmeRepository = filmeRepository;
+    public FilmeController(FilmeService filmeService) {
+        this.filmeService = filmeService;
     }
 
     @GetMapping
     public List<Filme> listarTodos(@RequestParam(required = false) String busca) {
-        return filmeRepository.findAll(); // implementar filtro depois
+        return filmeService.listarFilmes(busca);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Filme> buscarPorId(@PathVariable Long id) {
-        return filmeRepository.findById(id)
+        return filmeService.buscarPorId(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
