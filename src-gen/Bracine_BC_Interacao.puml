@@ -1,0 +1,36 @@
+@startuml
+
+skinparam componentStyle uml2
+
+package "'Usuario' Aggregate" <<Rectangle>> {
+	class Usuario <<(A,#fffab8) Aggregate Root>> {
+		String nome
+		String null
+		List<FilmeId> filmesAssistidos
+		List<Avaliacao> avaliacoes
+		UsuarioId id
+		void adicionarFilmeAssistido(FilmeId filmeId)
+		void adicionarAvaliacao(Avaliacao avaliacao)
+	}
+	class UsuarioId <<(V,DarkSeaGreen) Value Object>> {
+		int id
+	}
+	class Avaliacao <<(V,DarkSeaGreen) Value Object>> {
+		int nota
+		String comentario
+	}
+	class Comentario <<(V,DarkSeaGreen) Value Object>> {
+		String texto
+	}
+	class UsuarioService <<(S,DarkSeaGreen) Service>> {
+		void avaliarFilme(FilmeId filmeId, null nota)
+		void comentarFilme(FilmeId filmeId, Comentario comentario)
+	}
+}
+Usuario --> UsuarioId : id
+legend left
+  This bounded context implements the subdomain 'Interacao'.
+end legend
+
+
+@enduml

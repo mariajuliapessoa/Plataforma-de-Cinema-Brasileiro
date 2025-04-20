@@ -1,0 +1,21 @@
+@startuml
+
+skinparam componentStyle uml2
+
+package "'Tendencia' Aggregate" <<Rectangle>> {
+	class Tendencia <<(A,#fffab8) Aggregate Root>> {
+		List<FilmeId> filmesEmAlta
+		TendenciaId id
+		void adicionarFilmeEmAlta(FilmeId filmeId)
+	}
+	class TendenciaId <<(V,DarkSeaGreen) Value Object>> {
+		int id
+	}
+	class TendenciaService <<(S,DarkSeaGreen) Service>> {
+		List<Filme> calcularTendencias()
+	}
+}
+Tendencia --> TendenciaId : id
+
+
+@enduml

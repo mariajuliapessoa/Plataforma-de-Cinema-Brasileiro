@@ -1,0 +1,160 @@
+Domain Bracine {
+    Subdomain Administracao
+    Subdomain Interacao
+    Subdomain Recomendacao
+    Subdomain Discussao
+    Subdomain Tendencia
+}
+
+ContextMap BracineContextMap {
+    contains Administracao
+    contains Interacao
+    contains Recomendacao
+    contains Discussao
+    contains Tendencia
+
+    Administracao Shared-Kernel Interacao
+    Interacao Shared-Kernel Recomendacao
+    Recomendacao Shared-Kernel Tendencia
+}
+
+BoundedContext Administracao implements Administracao {
+    Aggregate Filme {
+        Service FilmeService {
+            void adicionarFilme(@FilmeId filmeId);
+            void removerFilme(@FilmeId filmeId);
+        }
+        
+        Entity Filme {
+            aggregateRoot
+            
+            -FilmeId id
+            String titulo
+            String diretor
+            String genero
+            String descricao
+            Date anoLancamento
+            String elenco
+            String festivais
+            String localizacao
+            String streamingDisponivel
+            
+            def void atualizarDescricao(@Descricao descricao);
+            def void adicionarFestival(@Festival festival);
+        }
+        
+        ValueObject FilmeId {
+            int id
+        }
+        
+        ValueObject Festival {
+            String nome
+            Date data
+        }
+        
+        ValueObject Descricao {
+            String texto
+        }
+    }
+}
+
+BoundedContext Interacao implements Interacao {
+    Aggregate Usuario {
+        Service UsuarioService {
+            void avaliarFilme(@FilmeId filmeId, @Nota nota);
+            void comentarFilme(@FilmeId filmeId, @Comentario comentario);
+        }
+        
+        Entity Usuario {
+            aggregateRoot
+            
+            -UsuarioId id
+            String nome
+            String email
+            List<FilmeId> filmesAssistidos
+            List<Avaliacao> avaliacoes
+            
+            def void adicionarFilmeAssistido(@FilmeId filmeId);
+            def void adicionarAvaliacao(@Avaliacao avaliacao);
+        }
+        
+        ValueObject UsuarioId {
+            int id
+        }
+        
+        ValueObject Avaliacao {
+            int nota
+            String comentario
+        }
+        
+        ValueObject Comentario {
+            String texto
+        }
+    }
+}
+
+BoundedContext Recomendacao implements Recomendacao {
+    Aggregate Recomendacao {
+        Service RecomendacaoService {
+            List<Filme> recomendarFilmes(@UsuarioId usuarioId);
+        }
+        
+        Entity Recomendacao {
+            aggregateRoot
+            
+            -RecomendacaoId id
+            -UsuarioId usuarioId
+            List<FilmeId> filmesRecomendados
+            
+            def void adicionarFilmeRecomendado(@FilmeId filmeId);
+        }
+        
+        ValueObject RecomendacaoId {
+            int id
+        }
+    }
+}
+
+BoundedContext Discussao implements Discussao {
+    Aggregate SalaDeDiscussao {
+        Service DiscussaoService {
+            void criarSala(@FilmeId filmeId);
+            void comentarSala(@SalaId salaId, @Comentario comentario);
+        }
+        
+        Entity SalaDeDiscussao {
+            aggregateRoot
+            
+            -SalaId id
+            -FilmeId filmeId
+            List<Comentario> comentarios
+            
+            def void adicionarComentario(@Comentario comentario);
+        }
+        
+        ValueObject SalaId {
+            int id
+        }
+    }
+}
+
+BoundedContext Tendencia implements Tendencia {
+    Aggregate Tendencia {
+        Service TendenciaService {
+            List<Filme> calcularTendencias();
+        }
+        
+        Entity Tendencia {
+            aggregateRoot
+            
+            -TendenciaId id
+            List<FilmeId> filmesEmAlta
+            
+            def void adicionarFilmeEmAlta(@FilmeId filmeId);
+        }
+        
+        ValueObject TendenciaId {
+            int id
+        }
+    }
+}

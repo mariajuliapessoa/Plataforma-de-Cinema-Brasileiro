@@ -1,0 +1,25 @@
+@startuml
+
+skinparam componentStyle uml2
+
+package "'Recomendacao' Aggregate" <<Rectangle>> {
+	class Recomendacao <<(A,#fffab8) Aggregate Root>> {
+		List<FilmeId> filmesRecomendados
+		RecomendacaoId id
+		UsuarioId usuarioId
+		void adicionarFilmeRecomendado(FilmeId filmeId)
+	}
+	class RecomendacaoId <<(V,DarkSeaGreen) Value Object>> {
+		int id
+	}
+	class RecomendacaoService <<(S,DarkSeaGreen) Service>> {
+		List<Filme> recomendarFilmes(UsuarioId usuarioId)
+	}
+}
+Recomendacao --> RecomendacaoId : id
+legend left
+  This bounded context implements the subdomain 'Recomendacao'.
+end legend
+
+
+@enduml
