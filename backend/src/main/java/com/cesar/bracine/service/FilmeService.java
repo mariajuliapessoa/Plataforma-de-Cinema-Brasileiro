@@ -20,8 +20,7 @@ public class FilmeService {
         if (busca == null || busca.isBlank()) {
             return filmeRepository.findAll();
         }
-
-        return filmeRepository.findByTituloContainingIgnoreCaseOrDescricaoContainingIgnoreCase(busca, busca);
+        return filmeRepository.buscarPorTermo(busca);
     }
 
     public Optional<Filme> buscarPorId(Long id) {
