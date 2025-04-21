@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/filmes")
@@ -16,10 +17,16 @@ public class FilmeController {
     public FilmeController(FilmeService filmeService) {
         this.filmeService = filmeService;
     }
-
+    
     @GetMapping
-    public List<Filme> listarTodos(@RequestParam(required = false) String busca) {
-        return filmeService.listarFilmes(busca);
+    public ResponseEntity<?> listarTodos(@RequestParam(required = false) String busca) {
+        List<Filme> filmes = filmeService.listarFilmes(busca);
+
+        if (filmes.isEmpty()) {
+            return ResponseEntity.ok(Map.of("mensagem", "Nenhum resultado encontrado"));
+        }
+
+        return ResponseEntity.ok(filmes);
     }
 
     @GetMapping("/{id}")
