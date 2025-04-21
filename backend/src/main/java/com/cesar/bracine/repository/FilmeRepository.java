@@ -14,7 +14,7 @@ public interface FilmeRepository extends JpaRepository<Filme, Long> {
             "OR LOWER(f.descricao) LIKE LOWER(CONCAT('%', :termo, '%')) " +
             "OR LOWER(f.diretor) LIKE LOWER(CONCAT('%', :termo, '%')) " +
             "OR LOWER(f.genero) LIKE LOWER(CONCAT('%', :termo, '%'))")
-    List<Filme> buscarPorTermo(@Param("termo") String termo);;
+    List<Filme> buscarPorTermo(@Param("termo") String termo);
 
     List<Filme> findByGeneroIgnoreCase(String genero);
 
