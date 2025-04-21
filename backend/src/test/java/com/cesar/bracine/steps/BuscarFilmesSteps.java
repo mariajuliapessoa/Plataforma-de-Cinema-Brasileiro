@@ -17,6 +17,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @ActiveProfiles("test")
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.MOCK)
@@ -31,9 +32,12 @@ public class BuscarFilmesSteps {
     private FilmeRepository filmeRepository;
 
     private String resposta;
-
+    
     @Before
-    public void setupDatabase() {
+    public void inicializarContextoETestarInjecao() {
+        System.out.println("mockMvc é nulo? " + (mockMvc == null));
+        System.out.println("filmeRepository é nulo? " + (filmeRepository == null));
+
         filmeRepository.deleteAll();
         filmeRepository.saveAll(List.of(
                 new Filme(null, "Bacurau", "No sertão brasileiro", "Documentário", "Kleber Mendonça Filho", 2019, 4.6),
@@ -47,10 +51,13 @@ public class BuscarFilmesSteps {
 
     @Quando("ele digitar {string} na barra de busca")
     public void digitarNaBarraDeBusca(String termo) throws Exception {
-        MvcResult result = mockMvc.perform(get("/filmes?busca=" + termo)
+        MvcResult result = mockMvc.perform(get("/api/filmes?busca=" + termo)
                         .contentType(MediaType.APPLICATION_JSON))
+        		.andExpect(status().isOk())
                 .andReturn();
         resposta = result.getResponse().getContentAsString();
+
+        System.out.println("Resposta recebida: " + resposta); // ADICIONE ESSA LINHA
     }
 
     @Então("o sistema deve exibir o filme {string}")
@@ -63,10 +70,11 @@ public class BuscarFilmesSteps {
 
     @Quando("ele digitar a palavra {string}")
     public void digitarPalavraChave(String palavra) throws Exception {
-        MvcResult result = mockMvc.perform(get("/filmes?busca=" + palavra)
+        MvcResult result = mockMvc.perform(get("/api/filmes?busca=" + palavra)
                         .contentType(MediaType.APPLICATION_JSON))
                 .andReturn();
         resposta = result.getResponse().getContentAsString();
+        System.out.println("Resposta recebida: " + resposta);
     }
 
     @Então("o sistema deve exibir todos os filmes que contenham essa palavra em seu título ou descrição")
@@ -79,7 +87,7 @@ public class BuscarFilmesSteps {
 
     @Quando("ele selecionar o gênero {string}")
     public void selecionarGenero(String genero) throws Exception {
-        MvcResult result = mockMvc.perform(get("/filmes?genero=" + genero)
+        MvcResult result = mockMvc.perform(get("/api/filmes?genero=" + genero)
                         .contentType(MediaType.APPLICATION_JSON))
                 .andReturn();
         resposta = result.getResponse().getContentAsString();
@@ -95,7 +103,7 @@ public class BuscarFilmesSteps {
 
     @Quando("ele digitar {string} na busca")
     public void buscarPorDiretor(String diretor) throws Exception {
-        MvcResult result = mockMvc.perform(get("/filmes?busca=" + diretor)
+        MvcResult result = mockMvc.perform(get("/api/filmes?busca=" + diretor)
                         .contentType(MediaType.APPLICATION_JSON))
                 .andReturn();
         resposta = result.getResponse().getContentAsString();
@@ -111,7 +119,7 @@ public class BuscarFilmesSteps {
 
     @Quando("ele digita {string} na barra de busca")
     public void digitarTermoInexistente(String termo) throws Exception {
-        MvcResult result = mockMvc.perform(get("/filmes?busca=" + termo)
+        MvcResult result = mockMvc.perform(get("/api/filmes?busca=" + termo)
                         .contentType(MediaType.APPLICATION_JSON))
                 .andReturn();
         resposta = result.getResponse().getContentAsString();
@@ -128,7 +136,7 @@ public class BuscarFilmesSteps {
     @Quando("ele clicar em um filme")
     public void clicarEmUmFilme() throws Exception {
         Long id = filmeRepository.findAll().get(0).getId();
-        MvcResult result = mockMvc.perform(get("/filmes/" + id)
+        MvcResult result = mockMvc.perform(get("/api/filmes/" + id)
                         .contentType(MediaType.APPLICATION_JSON))
                 .andReturn();
         resposta = result.getResponse().getContentAsString();
@@ -144,7 +152,7 @@ public class BuscarFilmesSteps {
 
     @Quando("ele selecionar filtros como {string} e {string}")
     public void selecionarFiltros(String ano, String notaMinima) throws Exception {
-        MvcResult result = mockMvc.perform(get("/filmes?ano=" + ano + "&notaMinima=" + notaMinima)
+        MvcResult result = mockMvc.perform(get("/api/filmes?ano=" + ano + "&notaMinima=" + notaMinima)
                         .contentType(MediaType.APPLICATION_JSON))
                 .andReturn();
         resposta = result.getResponse().getContentAsString();
@@ -160,7 +168,7 @@ public class BuscarFilmesSteps {
 
     @Quando("ele rolar até a seção {string}")
     public void rolarAteSecao(String secao) throws Exception {
-        MvcResult result = mockMvc.perform(get("/filmes/populares")
+        MvcResult result = mockMvc.perform(get("/api/filmes/populares")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andReturn();
         resposta = result.getResponse().getContentAsString();
