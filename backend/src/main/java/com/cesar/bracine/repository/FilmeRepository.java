@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface FilmeRepository extends JpaRepository<Filme, Long> {
@@ -23,5 +24,5 @@ public interface FilmeRepository extends JpaRepository<Filme, Long> {
     @Query("SELECT f FROM Filme f WHERE f.ano = :ano AND f.nota >= :notaMinima")
     List<Filme> buscarPorAnoENota(@Param("ano") Integer ano, @Param("notaMinima") Double notaMinima);
 
-
+    Optional<Filme> findByTitulo(String titulo);
 }

@@ -5,13 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1edcf67e-711c-40c6-8d84-dc4b0627e602" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/model/Avaliacao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/repository/AvaliacaoRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/test/java/com/cesar/bracine/steps/AvaliarFilmesSteps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/cesar/bracine/BracineApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/cesar/bracine/BracineApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/cesar/bracine/RunCucumberTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/cesar/bracine/RunCucumberTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/cesar/bracine/steps/BuscarFilmesSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/cesar/bracine/steps/BuscarFilmesSteps.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/test/resources/application-test.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/resources/application-test.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/test/resources/features/busca_filmes.feature" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/resources/features/busca_filmes.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/model/Filme.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/model/Filme.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +42,9 @@
   &quot;associatedIndex&quot;: 1
 }</component>
   <component name="ProjectId" id="2ue66z2PTrQaclAY118AvaHa7Tw" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -64,7 +66,7 @@
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Vini/Desktop/Plataforma-de-Cinema-Brasileiro",
+    "last_opened_file_path": "C:/Users/Claudio/dev/cesar/Plataforma-de-Cinema-Brasileiro",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -108,13 +110,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="Plataforma-de-Cinema-Brasileiro" />
-      <option name="filePath" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="BracineApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <envs>
         <env name="DATABASE_HOST" value="ep-purple-thunder-a5hhbpng-pooler.us-east-2.aws.neon.tech" />
@@ -143,8 +138,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.26053.27" />
-        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.26053.27" />
+        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
       </set>
     </attachedChunks>
   </component>
@@ -160,6 +155,7 @@
       <workItem from="1744596838629" duration="3388000" />
       <workItem from="1745172343452" duration="7921000" />
       <workItem from="1745184618792" duration="1089000" />
+      <workItem from="1745320905140" duration="1177000" />
     </task>
     <servers />
   </component>

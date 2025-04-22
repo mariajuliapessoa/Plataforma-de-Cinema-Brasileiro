@@ -10,37 +10,32 @@ import java.time.LocalDateTime;
 @Entity
 @Getter
 @Setter
-@Table(name = "avaliacao")
-public class Avaliacao {
+@Table(name = "comentario_lista")
+public class ComentarioLista {
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "filme_id", nullable = false)
-    private Filme filme;
-
+    @JoinColumn(name = "lista_id", nullable = false)
+    private ListaFilmes lista;
+    
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn(name = "usuario_id", nullable = false)
     private User usuario;
-
-    private Integer estrelas;
     
     @Column(nullable = false, length = 500)
-    private String comentario;
-    
-    private Integer curtidas = 0;
+    private String texto;
     
     private LocalDateTime dataHora = LocalDateTime.now();
-
-    public Avaliacao() {
+    
+    public ComentarioLista() {
     }
-
-    public Avaliacao(Filme filme, User usuario, Integer estrelas, String comentario) {
-        this.filme = filme;
+    
+    public ComentarioLista(ListaFilmes lista, User usuario, String texto) {
+        this.lista = lista;
         this.usuario = usuario;
-        this.estrelas = estrelas;
-        this.comentario = comentario;
+        this.texto = texto;
     }
-}
-
+} 
