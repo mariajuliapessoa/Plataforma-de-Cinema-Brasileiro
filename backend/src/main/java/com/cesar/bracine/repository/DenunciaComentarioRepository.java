@@ -2,6 +2,7 @@ package com.cesar.bracine.repository;
 
 import com.cesar.bracine.model.DenunciaComentario;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -54,4 +55,66 @@ public interface DenunciaComentarioRepository extends JpaRepository<DenunciaCome
      * @return Número de denúncias não revisadas
      */
     long countByRevisadaFalse();
+
+    /**
+     * Busca denúncias feitas por um usuário específico, ordenadas pela data mais recente
+     * @param usuarioId ID do usuário
+     * @return Lista de denúncias
+     */
+    List<DenunciaComentario> findByUsuarioIdOrderByDataDenunciaDesc(Long usuarioId);
+
+    /**
+     * Busca denúncias relacionadas a um comentário específico
+     * @param comentarioId ID do comentário
+     * @return Lista de denúncias
+     */
+    List<DenunciaComentario> findByComentarioId(Long comentarioId);
+
+    /**
+     * Busca denúncias não revisadas, ordenadas pela data mais antiga primeiro
+     * @return Lista de denúncias não revisadas
+     */
+    List<DenunciaComentario> findByRevisadaOrderByDataDenunciaAsc(boolean revisada);
+
+    /**
+     * Método conveniente para buscar denúncias não revisadas
+     * @return Lista de denúncias não revisadas
+     */
+    default List<DenunciaComentario> findAllNaoRevisadas() {
+        return findByRevisadaOrderByDataDenunciaAsc(false);
+    }
+
+    /**
+     * Busca denúncias por motivo
+     * @param motivo Motivo da denúncia
+     * @return Lista de denúncias com o motivo especificado
+     */
+    List<DenunciaComentario> findByMotivo(String motivo);
+
+    /**
+     * Busca denúncias por status de revisão
+     * @param revisada Status de revisão
+     * @return Lista de denúncias com o status especificado
+     */
+    List<DenunciaComentario> findByRevisada(boolean revisada);
+
+    /**
+     * Conta denúncias por procedência
+     * @param procedente Status de procedência
+     * @return Número de denúncias
+     */
+    long countByProcedente(boolean procedente);
+
+    /**
+     * Busca motivos distintos de denúncias
+     * @return Lista de motivos distintos
+     */
+    @Query("SELECT DISTINCT d.motivo FROM DenunciaComentario d")
+    List<String> findDistinctMotivos();
+
+    /**
+     * Conta denúncias não revisadas
+     * @return Número de denúncias não revisadas
+     */
+    long countByRevisada(boolean revisada);
 } 
