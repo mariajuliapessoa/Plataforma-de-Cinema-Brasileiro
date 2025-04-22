@@ -165,4 +165,13 @@ public class DenunciaComentarioService {
     public List<DenunciaComentario> listarDenunciasPorUsuario(Long usuarioId) {
         return listarDenunciasPorUsuarioOrdenadas(usuarioId);
     }
+
+    /**
+     * Lista denúncias por motivo específico
+     * @param motivo Motivo da denúncia
+     * @return Lista de denúncias com o motivo especificado
+     */
+    public List<DenunciaComentario> listarDenunciasPorMotivo(String motivo) {
+        return denunciaComentarioRepository.findByMotivo(motivo);
+    }
 } 
