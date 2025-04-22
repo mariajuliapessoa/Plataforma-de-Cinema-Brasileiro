@@ -56,12 +56,15 @@ public class DenunciaComentarioController {
         return ResponseEntity.ok(denuncias);
     }
 
+    /**
+     * Lista denúncias feitas por um usuário específico
+     * @param usuarioId ID do usuário
+     * @return Lista de denúncias feitas pelo usuário
+     */
     @GetMapping("/usuario/{usuarioId}")
     @PreAuthorize("hasRole('ADMIN') or hasRole('MODERADOR') or #usuarioId == authentication.principal.id")
-    public ResponseEntity<List<DenunciaComentario>> listarDenunciasPorUsuario(
-            @PathVariable String usuarioId) {
-        List<DenunciaComentario> denuncias = denunciaComentarioService.listarDenunciasPorUsuario(usuarioId);
-        return ResponseEntity.ok(denuncias);
+    public ResponseEntity<List<DenunciaComentario>> listarDenunciasPorUsuario(@PathVariable Long usuarioId) {
+        return ResponseEntity.ok(denunciaComentarioService.listarDenunciasPorUsuario(usuarioId));
     }
 
     @GetMapping("/{id}")

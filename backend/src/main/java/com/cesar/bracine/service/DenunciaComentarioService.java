@@ -162,7 +162,7 @@ public class DenunciaComentarioService {
      * @param usuarioId ID do usuário
      * @return Lista de denúncias feitas pelo usuário
      */
-    public List<DenunciaComentario> listarDenunciasPorUsuario(String usuarioId) {
-        return listarDenunciasPorUsuarioOrdenadas(Long.parseLong(usuarioId));
+    public List<DenunciaComentario> listarDenunciasPorUsuario(Long usuarioId) {
+        return listarDenunciasPorUsuarioOrdenadas(usuarioId);
     }
 } 

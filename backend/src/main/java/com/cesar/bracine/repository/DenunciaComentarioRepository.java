@@ -57,20 +57,6 @@ public interface DenunciaComentarioRepository extends JpaRepository<DenunciaCome
     long countByRevisadaFalse();
 
     /**
-     * Busca denúncias feitas por um usuário específico, ordenadas pela data mais recente
-     * @param usuarioId ID do usuário
-     * @return Lista de denúncias
-     */
-    List<DenunciaComentario> findByUsuarioIdOrderByDataDenunciaDesc(Long usuarioId);
-
-    /**
-     * Busca denúncias relacionadas a um comentário específico
-     * @param comentarioId ID do comentário
-     * @return Lista de denúncias
-     */
-    List<DenunciaComentario> findByComentarioId(Long comentarioId);
-
-    /**
      * Busca denúncias não revisadas, ordenadas pela data mais antiga primeiro
      * @return Lista de denúncias não revisadas
      */
@@ -111,10 +97,4 @@ public interface DenunciaComentarioRepository extends JpaRepository<DenunciaCome
      */
     @Query("SELECT DISTINCT d.motivo FROM DenunciaComentario d")
     List<String> findDistinctMotivos();
-
-    /**
-     * Conta denúncias não revisadas
-     * @return Número de denúncias não revisadas
-     */
-    long countByRevisada(boolean revisada);
 } 
