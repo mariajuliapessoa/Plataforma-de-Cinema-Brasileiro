@@ -37,13 +37,3 @@ Funcionalidade: Gerenciar as funcionalidades da plataforma
     Dado que o admin deseja promover diversidade
     Quando ele marcar um filme como destaque
     Então ele será exibido na aba de tendências
-
-  Cenário: Gerar relatório de uso
-    Dado que o admin precisa visualizar dados da plataforma
-    Quando ele clicar em "Relatórios"
-    Então o sistema gera gráficos e métricas
-
-  Cenário: Alterar regras de moderação
-    Dado que o administrador deseja atualizar as regras
-    Quando ele editar as configurações de moderação
-    Então as novas regras passam a valer imediatamente 

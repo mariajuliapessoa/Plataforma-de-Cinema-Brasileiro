@@ -31,7 +31,7 @@ Funcionalidade: Avaliar filmes com notas e comentários
 
   Cenário: Remover avaliação
     Dado que o usuário deseja apagar sua avaliação
-    Quando ele clicar em "Remover avaliação"
+    Quando o usuário clicar no botão "Remover avaliação"
     Então o sistema deve excluir a avaliação permanentemente
 
   Cenário: Ver avaliações de outros usuários
@@ -47,4 +47,4 @@ Funcionalidade: Avaliar filmes com notas e comentários
   Cenário: Ver média de avaliações
     Dado que existem avaliações para o filme
     Quando a página do filme for carregada
-    Então o sistema deve exibir a média das notas recebidas 
+    Então o sistema deve exibir a média das notas recebidas

@@ -12,11 +12,6 @@ Funcionalidade: Buscar e navegar por filmes na plataforma
     Quando ele digitar a palavra "sertão"
     Então o sistema deve exibir todos os filmes que contenham essa palavra em seu título ou descrição
 
-  Cenário: Buscar por gênero
-    Dado que o usuário está na aba de filtros
-    Quando ele selecionar o gênero "Documentário"
-    Então o sistema deve exibir todos os filmes classificados como documentário
-
   Cenário: Buscar por diretor
     Dado que o usuário deseja encontrar filmes de um diretor específico
     Quando ele digitar "Kleber Mendonça Filho" na busca

@@ -18,29 +18,33 @@ public class Avaliacao {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "filme_id", nullable = false)
-    private Filme filme;
+    private Filme film;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
-    private User usuario;
+    private User user;
 
-    private Integer estrelas;
+    private Integer stars;
     
     @Column(nullable = false, length = 500)
-    private String comentario;
+    private String comment;
     
-    private Integer curtidas = 0;
+    private Integer likes = 0;
     
-    private LocalDateTime dataHora = LocalDateTime.now();
+    private LocalDateTime hourDate = LocalDateTime.now();
 
     public Avaliacao() {
     }
 
-    public Avaliacao(Filme filme, User usuario, Integer estrelas, String comentario) {
-        this.filme = filme;
-        this.usuario = usuario;
-        this.estrelas = estrelas;
-        this.comentario = comentario;
+    public void like() {
+        this.likes = this.likes == null ? 1 : this.likes + 1;
+    }
+
+    public Avaliacao(Filme film, User user, Integer stars, String comment) {
+        this.film = film;
+        this.user = user;
+        this.stars = stars;
+        this.comment = comment;
     }
 }
 
