@@ -36,6 +36,10 @@ public class Filme {
 
     public Filme() {
     }
+
+    public Filme(String titulo) {
+        this.titulo = titulo;
+    }
     
 
 

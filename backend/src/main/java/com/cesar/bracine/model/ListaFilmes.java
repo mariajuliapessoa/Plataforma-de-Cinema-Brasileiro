@@ -50,7 +50,7 @@ public class ListaFilmes {
     private List<ItemLista> itens = new ArrayList<>();
     
     @OneToMany(mappedBy = "lista", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<ComentarioLista> comentarios = new ArrayList<>();
+    private List<ComentarioList> comentarios = new ArrayList<>();
     
     public ListaFilmes() {
     }

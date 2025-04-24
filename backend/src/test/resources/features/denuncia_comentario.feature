@@ -67,4 +67,4 @@ Funcionalidade: Denunciar comentários de avaliações
     Quando ele acessar o painel de estatísticas de denúncias
     Então ele deve visualizar gráficos com quantidade de denúncias por motivo
     E taxa de denúncias procedentes vs improcedentes
-    E tempo médio de resposta às denúncias 
+    E tempo médio de resposta às denúncias
