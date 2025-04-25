@@ -12,10 +12,10 @@ package "'SalaDeDiscussao' Aggregate" <<Rectangle>> {
 	class SalaId <<(V,DarkSeaGreen) Value Object>> {
 		int id
 	}
-	class DiscussaoService <<(S,DarkSeaGreen) Service>> {
-		void criarSala(FilmeId filmeId)
-		void comentarSala(SalaId salaId, Comentario comentario)
-	}
+}
+class DiscussaoService <<(S,DarkSeaGreen) Service>> {
+	void criarSala(FilmeId filmeId)
+	void comentarSala(SalaId salaId, Comentario comentario)
 }
 SalaDeDiscussao --> SalaId : id
 legend left

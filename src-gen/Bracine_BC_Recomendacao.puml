@@ -12,9 +12,9 @@ package "'Recomendacao' Aggregate" <<Rectangle>> {
 	class RecomendacaoId <<(V,DarkSeaGreen) Value Object>> {
 		int id
 	}
-	class RecomendacaoService <<(S,DarkSeaGreen) Service>> {
-		List<Filme> recomendarFilmes(UsuarioId usuarioId)
-	}
+}
+class RecomendacaoService <<(S,DarkSeaGreen) Service>> {
+	List<Filme> recomendarFilmes(UsuarioId usuarioId)
 }
 Recomendacao --> RecomendacaoId : id
 legend left

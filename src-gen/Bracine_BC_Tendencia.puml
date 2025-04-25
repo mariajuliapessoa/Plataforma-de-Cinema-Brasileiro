@@ -11,9 +11,9 @@ package "'Tendencia' Aggregate" <<Rectangle>> {
 	class TendenciaId <<(V,DarkSeaGreen) Value Object>> {
 		int id
 	}
-	class TendenciaService <<(S,DarkSeaGreen) Service>> {
-		List<Filme> calcularTendencias()
-	}
+}
+class TendenciaService <<(S,DarkSeaGreen) Service>> {
+	List<Filme> calcularTendencias()
 }
 Tendencia --> TendenciaId : id
 legend left

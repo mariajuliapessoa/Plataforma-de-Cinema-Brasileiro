@@ -22,10 +22,10 @@ package "'Usuario' Aggregate" <<Rectangle>> {
 	class Comentario <<(V,DarkSeaGreen) Value Object>> {
 		String texto
 	}
-	class UsuarioService <<(S,DarkSeaGreen) Service>> {
-		void avaliarFilme(FilmeId filmeId, null nota)
-		void comentarFilme(FilmeId filmeId, Comentario comentario)
-	}
+}
+class UsuarioService <<(S,DarkSeaGreen) Service>> {
+	void avaliarFilme(FilmeId filmeId, null nota)
+	void comentarFilme(FilmeId filmeId, Comentario comentario)
 }
 Usuario --> UsuarioId : id
 legend left

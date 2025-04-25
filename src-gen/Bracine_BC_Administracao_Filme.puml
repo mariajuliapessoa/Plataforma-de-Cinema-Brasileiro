@@ -27,10 +27,6 @@ package "'Filme' Aggregate" <<Rectangle>> {
 	class Descricao <<(V,DarkSeaGreen) Value Object>> {
 		String texto
 	}
-	class FilmeService <<(S,DarkSeaGreen) Service>> {
-		void adicionarFilme(FilmeId filmeId)
-		void removerFilme(FilmeId filmeId)
-	}
 }
 Filme --> FilmeId : id
 
