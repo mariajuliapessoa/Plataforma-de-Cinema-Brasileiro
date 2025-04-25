@@ -9,11 +9,6 @@ Funcionalidade: Iniciar e participar de debates sobre filmes
     E que existe um filme "Bacurau" cadastrado no sistema
     E que o usuário está autenticado
 
-  Cenário: Entrar em sala de discussão de um filme
-    Dado que o usuário está na página do filme
-    Quando ele clicar em "Ver discussão"
-    Então será direcionado à sala de debate daquele filme
-
   Cenário: Postar comentário
     Dado que o usuário está em uma sala de discussão
     Quando ele escrever e enviar um comentário
@@ -23,11 +18,6 @@ Funcionalidade: Iniciar e participar de debates sobre filmes
     Dado que há um comentário existente
     Quando o usuário clicar em "Responder"
     Então ele poderá adicionar uma resposta diretamente abaixo
-
-  Cenário: Curtir comentário
-    Dado que o usuário visualiza comentários
-    Quando ele clicar em "Curtir"
-    Então o número de curtidas aumenta em 1
 
   Cenário: Denunciar comentário ofensivo
     Dado que um comentário viola as regras
@@ -47,4 +37,4 @@ Funcionalidade: Iniciar e participar de debates sobre filmes
   Cenário: Receber notificação de novo comentário
     Dado que o usuário participa de uma discussão
     Quando houver um novo comentário
-    Então o sistema deve enviar uma notificação 
+    Então o sistema deve enviar uma notificação

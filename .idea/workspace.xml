@@ -5,62 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1edcf67e-711c-40c6-8d84-dc4b0627e602" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/model/ComentarioBase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/model/ComentarioList.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/test/java/com/cesar/bracine/bdd/CucumberTestRunner.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/test/java/com/cesar/bracine/bdd/config/TestConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/test/java/com/cesar/bracine/bdd/memoria/servico/AvaliacaoServiceBDD.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/test/java/com/cesar/bracine/bdd/memoria/servico/DesafioServiceBDD.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/test/java/com/cesar/bracine/bdd/memoria/servico/FilmeServiceBDD.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/test/java/com/cesar/bracine/bdd/memoria/servico/UserServiceBDD.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/test/java/com/cesar/bracine/bdd/steps/AdministracaoPlataformaSteps.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/test/java/com/cesar/bracine/bdd/steps/AvaliacaoSteps.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/test/java/com/cesar/bracine/bdd/steps/BuscaFilmesSteps.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/model/enums/StatusDenuncia.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/test/java/com/cesar/bracine/bdd/steps/DebateFilmeSteps.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/test/java/com/cesar/bracine/bdd/steps/DenunciaComentarioServiceBDD.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/controller/AvaliacaoController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/controller/DenunciaComentarioController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/controller/DesafioController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/controller/FilmeController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/controller/ListaFilmesController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/exception/GlobalExceptionHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/exception/ResourceNotFoundException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/model/Avaliacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/model/Avaliacao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/model/ComentarioDebate.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/model/ComentarioDebate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/model/ComentarioLista.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/model/DenunciaComentario.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/model/DesafioParticipante.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/model/DesafioParticipante.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/model/user/UserRole.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/model/user/UserRole.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/repository/AvaliacaoRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/repository/ComentarioListaRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/repository/DenunciaComentarioRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/repository/DesafioParticipanteRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/repository/DesafioRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/repository/FilmeRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/repository/ItemListaRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/repository/ListaFilmesRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/repository/NotificacaoRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/service/AvaliacaoService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/service/DenunciaComentarioService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/service/DesafioService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/service/FilmeService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/service/ListaFilmesService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/cesar/bracine/BracineApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/cesar/bracine/RunCucumberTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/cesar/bracine/bdd/runner/CucumberTestRunner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/cesar/bracine/config/CucumberSpringConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/cesar/bracine/bdd/CucumberSpringConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/cesar/bracine/steps/AdministracaoSteps.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/cesar/bracine/steps/AvaliacaoSteps.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/cesar/bracine/steps/BuscarFilmesSteps.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/cesar/bracine/steps/DebateFilmesSteps.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/cesar/bracine/steps/DenunciaComentarioSteps.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/cesar/bracine/steps/DesafiosSteps.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/cesar/bracine/steps/ListaFilmesSteps.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/test/resources/application-test.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/test/resources/features/administracao_plataforma.feature" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/resources/features/administracao_plataforma.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/test/resources/features/avaliacao_filmes.feature" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/resources/features/avaliacao_filmes.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/test/resources/features/busca_filmes.feature" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/resources/features/busca_filmes.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/test/resources/import.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/model/Filme.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/model/Filme.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/model/ListaFilmes.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/model/ListaFilmes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/model/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/model/user/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/resources/features/debate_filmes.feature" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/resources/features/debate_filmes.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/resources/features/denuncia_comentario.feature" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/resources/features/denuncia_comentario.feature" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,10 +23,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
         <option value="Record" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -99,40 +52,40 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.BracineApplication.executor": "Debug",
-    "Cucumber Java.Feature: avaliacao_filmes.executor": "Run",
-    "Cucumber Java.Feature: busca_filmes.executor": "Run",
-    "Cucumber Java.Scenario: Aplicar filtros (ano, nota, etc).executor": "Run",
-    "Cucumber Java.Scenario: Buscar filme pelo título exato.executor": "Run",
-    "JUnit.CucumberTestRunner.executor": "Run",
-    "JUnit.RunCucumberTest (1).executor": "Run",
-    "JUnit.RunCucumberTest.executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "Spring Boot.BracineApplication.executor": "Debug",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Claudio/dev/cesar/Plataforma-de-Cinema-Brasileiro",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.keymap",
-    "ts.external.directory.path": "C:\\Users\\Vini\\Desktop\\Plataforma-de-Cinema-Brasileiro\\frontend\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.BracineApplication.executor&quot;: &quot;Debug&quot;,
+    &quot;Cucumber Java.Feature: avaliacao_filmes.executor&quot;: &quot;Run&quot;,
+    &quot;Cucumber Java.Feature: busca_filmes.executor&quot;: &quot;Run&quot;,
+    &quot;Cucumber Java.Scenario: Aplicar filtros (ano, nota, etc).executor&quot;: &quot;Run&quot;,
+    &quot;Cucumber Java.Scenario: Buscar filme pelo título exato.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CucumberTestRunner.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.RunCucumberTest (1).executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.RunCucumberTest.executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;Spring Boot.BracineApplication.executor&quot;: &quot;Debug&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Claudio/dev/cesar/Plataforma-de-Cinema-Brasileiro&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\Vini\\Desktop\\Plataforma-de-Cinema-Brasileiro\\frontend\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Vinícius\Desktop\Plataforma-de-Cinema-Brasileiro" />
