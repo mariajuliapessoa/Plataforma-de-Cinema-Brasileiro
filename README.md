@@ -35,6 +35,8 @@ Os seguintes artefatos serão disponibilizados:
 
 ✅ **Implementação inicial baseada na Arquitetura Limpa**.
 
+**Documentação:** https://docs.google.com/document/d/1BW_QoJFYYwSnOwjPVm0AmHeAqZEcN3o3PmriGSFQBFk/edit?usp=sharing
+
 ---
 ## **Equipe**
 👥 **Integrantes:**
