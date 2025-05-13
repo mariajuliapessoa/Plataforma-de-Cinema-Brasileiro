@@ -1,0 +1,82 @@
+package com.cesar.bracine.domain.entities;
+
+import org.springframework.security.crypto.password.PasswordEncoder;
+
+import java.util.Objects;
+import java.util.UUID;
+
+public final class Usuario {
+
+    private final UUID id;
+    private final String nome;
+    private final String nomeUsuario;
+    private final String email;
+    private String senhaHash;
+    private int pontos;
+
+    // Construtor privado para evitar criação direta fora da classe
+    private Usuario(UUID id, String nome, String nomeUsuario, String email, String senhaHash) {
+        this.id = Objects.requireNonNull(id);
+        this.nome = validarNome(nome);
+        this.nomeUsuario = nomeUsuario;
+        this.email = email;
+        this.senhaHash = senhaHash;
+        this.pontos = 0;  // Inicializa os pontos como zero
+    }
+
+    // Factory method para criar um novo usuário
+    public static Usuario criar(String nome, String nomeUsuario, String email, String senha, PasswordEncoder encoder) {
+        String id = UUID.randomUUID().toString();
+        return new Usuario(
+                UUID.fromString(id),
+                nome,
+                nomeUsuario,
+                email,
+                encoder.encode(senha)
+        );
+    }
+
+    // Método de domínio para adicionar pontos
+    public void adicionarPontos(int pontos) {
+        if (pontos <= 0) throw new IllegalArgumentException("Pontos devem ser positivos");
+        this.pontos += pontos;
+    }
+
+    // Método de domínio para alterar a senha
+    public void alterarSenha(String novaSenha, PasswordEncoder encoder) {
+        this.senhaHash = encoder.encode(novaSenha);
+    }
+
+    // Validação do nome
+    private String validarNome(String nome) {
+        if (nome == null || nome.trim().isEmpty()) {
+            throw new IllegalArgumentException("Nome inválido");
+        }
+        return nome.trim();
+    }
+
+    // Getters
+    public UUID getId() {
+        return id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public String getNomeUsuario() {
+        return nomeUsuario;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getSenhaHash() {
+        return senhaHash;
+    }
+
+    public int getPontos() {
+        return pontos;
+    }
+}
