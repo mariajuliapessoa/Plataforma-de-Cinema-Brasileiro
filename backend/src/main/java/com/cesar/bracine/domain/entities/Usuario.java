@@ -36,6 +36,12 @@ public final class Usuario {
         );
     }
 
+    public static Usuario reconstruir(UUID id, String nome, String nomeUsuario, String email, String senhaHash, int pontos) {
+        Usuario usuario = new Usuario(id, nome, nomeUsuario, email, senhaHash);
+        usuario.pontos = pontos;
+        return usuario;
+    }
+
     public void editarDados(String novoNome, String novoNomeUsuario, String novoEmail) {
         this.nome = novoNome;
         this.nomeUsuario = novoNomeUsuario;

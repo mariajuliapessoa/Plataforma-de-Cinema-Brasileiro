@@ -1,4 +1,4 @@
-package com.cesar.bracine.infrastructure;
+package com.cesar.bracine.infrastructure.tmdb;
 
 
 import org.springframework.beans.factory.annotation.Value;

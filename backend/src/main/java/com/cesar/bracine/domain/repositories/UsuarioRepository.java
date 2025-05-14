@@ -21,5 +21,5 @@ public interface UsuarioRepository {
     List<Usuario> listarTodos();
 
     // Delete (remover por ID)
-    void remover(UUID id);
+    void deletar(UUID id);
 }

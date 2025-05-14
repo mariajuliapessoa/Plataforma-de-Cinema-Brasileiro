@@ -4,6 +4,7 @@ import com.cesar.bracine.domain.entities.Usuario;
 import com.cesar.bracine.domain.repositories.UsuarioRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -56,5 +57,20 @@ public class UsuarioService {
     // Buscar Usuario por Email
     public Optional<Usuario> buscarUsuarioPorEmail(String email) {
         return usuarioRepository.buscarPorEmail(email);
+    }
+
+    public Optional<Usuario> buscarPorId(UUID id) {
+        return usuarioRepository.buscarPorId(id);
+    }
+
+    public List<Usuario> listarTodos() {
+        return usuarioRepository.listarTodos();
+    }
+
+    public void deletarUsuario(UUID id) {
+        Usuario usuario = usuarioRepository.buscarPorId(id)
+                .orElseThrow(() -> new IllegalArgumentException("Usuário não encontrado"));
+
+        usuarioRepository.deletar(id);
     }
 }
