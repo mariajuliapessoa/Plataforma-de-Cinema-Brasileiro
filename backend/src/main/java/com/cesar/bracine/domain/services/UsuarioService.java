@@ -45,4 +45,9 @@ public class UsuarioService {
         usuario.adicionarPontos(pontos);
         usuarioRepository.salvar(usuario);
     }
+
+    // Buscar Usuario por Email
+    public Optional<Usuario> buscarUsuarioPorEmail(String email) {
+        return usuarioRepository.buscarPorEmail(email);
+    }
 }
