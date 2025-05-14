@@ -8,9 +8,9 @@ import java.util.UUID;
 public final class Usuario {
 
     private final UUID id;
-    private final String nome;
-    private final String nomeUsuario;
-    private final String email;
+    private String nome;
+    private String nomeUsuario;
+    private String email;
     private String senhaHash;
     private int pontos;
 
@@ -34,6 +34,12 @@ public final class Usuario {
                 email,
                 encoder.encode(senha)
         );
+    }
+
+    public void editarDados(String novoNome, String novoNomeUsuario, String novoEmail) {
+        this.nome = novoNome;
+        this.nomeUsuario = novoNomeUsuario;
+        this.email = novoEmail;
     }
 
     // Método de domínio para adicionar pontos

@@ -19,13 +19,20 @@ public class UsuarioService {
 
     // Criar um novo usuário
     public Usuario criarUsuario(String nome, String nomeUsuario, String email, String senha) {
-        if (usuarioRepository.buscarPorEmail(email).get() != null) {
+        if (usuarioRepository.buscarPorEmail(email).isPresent()) {
             throw new IllegalArgumentException("Email já cadastrado");
         }
 
         Usuario usuario = Usuario.criar(nome, nomeUsuario, email, senha, passwordEncoder);
         usuarioRepository.salvar(usuario);
         return usuario;
+    }
+
+    public void editarUsuario(UUID id, String novoNome, String novoNomeUsuario, String novoEmail) {
+        Usuario usuario = usuarioRepository.buscarPorId(id).orElseThrow(() -> new IllegalArgumentException(("Usuário não encontrado")));
+
+        usuario.editarDados(novoNome, novoNomeUsuario, novoEmail);
+        usuarioRepository.salvar(usuario);
     }
 
     // Alterar senha do usuário
