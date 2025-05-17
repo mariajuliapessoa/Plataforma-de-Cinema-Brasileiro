@@ -18,4 +18,6 @@ public interface ComentarioRepository {
 
     // Delete
     void remover(UUID id);
+
+    List<Comentario> buscarPorIdUsuario(UUID id);
 }

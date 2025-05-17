@@ -1,4 +1,4 @@
-package com.cesar.bracine.infrastructure.jpa;
+package com.cesar.bracine.infrastructure.jpa.repository;
 
 import com.cesar.bracine.infrastructure.jpa.entities.FilmeEntity;
 import org.springframework.data.jpa.repository.JpaRepository;

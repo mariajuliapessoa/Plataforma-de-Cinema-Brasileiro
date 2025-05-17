@@ -36,6 +36,10 @@ public class FilmeApplicationService {
         return filmeRepository.listarTodos();
     }
 
+    public Optional<Filme> buscarPorId(UUID id) {
+        return filmeRepository.buscarPorId(id);
+    }
+
     public void removerFilme(UUID id) {
         filmeRepository.remover(id);
     }

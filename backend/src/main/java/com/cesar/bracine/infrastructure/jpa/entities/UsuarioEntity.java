@@ -7,6 +7,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.time.Instant;
 import java.util.*;
 
 @Entity
@@ -33,6 +34,16 @@ public class UsuarioEntity implements UserDetails {
     private String senhaHash;
 
     private int pontos;
+
+    @Column(nullable = false)
+    private Instant dataCriacao;
+
+    @PrePersist
+    public void prePersist() {
+        if (dataCriacao == null) {
+            dataCriacao = Instant.now();
+        }
+    }
 
     // Implementações do UserDetails
 

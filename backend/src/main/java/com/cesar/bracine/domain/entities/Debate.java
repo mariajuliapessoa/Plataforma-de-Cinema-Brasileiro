@@ -7,13 +7,20 @@ import java.util.Objects;
 import java.util.UUID;
 
 public class Debate {
-    private final String id;
+    private final UUID id;
     private final String titulo;
     private final Usuario criador;
     private final List<Comentario> comentarios;
 
-    public Debate(String titulo, Usuario criador) {
-        this.id = UUID.randomUUID().toString();
+    public Debate(UUID id, String titulo, Usuario criador, List<Comentario> comentarios) {
+        this.id = id != null ? id : UUID.randomUUID();
+        this.titulo = validarTitulo(titulo);
+        this.criador = Objects.requireNonNull(criador);
+        this.comentarios = comentarios != null ? new ArrayList<>(comentarios) : new ArrayList<>();
+    }
+
+    public Debate(UUID id, String titulo, Usuario criador) {
+        this.id = id != null ? id : UUID.randomUUID();
         this.titulo = validarTitulo(titulo);
         this.criador = Objects.requireNonNull(criador);
         this.comentarios = new ArrayList<>();
@@ -33,7 +40,7 @@ public class Debate {
         this.comentarios.add(comentario);
     }
 
-    public String getId() {
+    public UUID getId() {
         return id;
     }
 

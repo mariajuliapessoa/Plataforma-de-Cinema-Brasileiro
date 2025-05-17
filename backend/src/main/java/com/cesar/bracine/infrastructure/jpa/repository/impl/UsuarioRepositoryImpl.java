@@ -1,7 +1,8 @@
-package com.cesar.bracine.infrastructure.jpa;
+package com.cesar.bracine.infrastructure.jpa.repository.impl;
 
 import com.cesar.bracine.domain.entities.Usuario;
 import com.cesar.bracine.domain.repositories.UsuarioRepository;
+import com.cesar.bracine.infrastructure.jpa.repository.SpringUsuarioJpaRepository;
 import com.cesar.bracine.infrastructure.mappers.UsuarioMapper;
 import org.springframework.stereotype.Repository;
 

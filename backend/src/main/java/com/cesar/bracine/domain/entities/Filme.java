@@ -15,16 +15,6 @@ public class Filme {
     private final String paisOrigem;
     private final String bannerUrl;
 
-    public Filme(String titulo, String diretor, int anoLancamento, List<String> generos, String paisOrigem, String bannerUrl) {
-        this.id = UUID.randomUUID();
-        this.titulo = validarTitulo(titulo);
-        this.diretor = validarDiretor(diretor);
-        this.anoLancamento = validarAnoLancamento(anoLancamento);
-        this.generos = validarGeneros(generos);
-        this.paisOrigem = validarPaisOrigem(paisOrigem);
-        this.bannerUrl = validarBannerUrl(bannerUrl);
-    }
-
     public Filme(UUID id, String titulo, String diretor, int anoLancamento, List<String> generos, String paisOrigem, String bannerUrl) {
         this.id = id != null ? id : UUID.randomUUID();
         this.titulo = validarTitulo(titulo);
@@ -35,6 +25,9 @@ public class Filme {
         this.bannerUrl = validarBannerUrl(bannerUrl);
     }
 
+    public Filme(String titulo, String diretor, int anoLancamento, List<String> generos, String paisOrigem, String bannerUrl) {
+        this(null, titulo, diretor, anoLancamento, generos, paisOrigem, bannerUrl);
+    }
 
     // Validações
     private String validarTitulo(String titulo) {

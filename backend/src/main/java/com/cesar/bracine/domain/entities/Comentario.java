@@ -5,36 +5,39 @@ import java.util.Objects;
 import java.util.UUID;
 
 public class Comentario {
-    private final String id;
+    private final UUID id;
     private final String texto;
     private final Usuario autor;
     private final Instant dataCriacao;
     private final Filme filme;
     private final Debate debate;
 
-    public Comentario(String texto, Usuario autor, Filme filme, Debate debate) {
-        this.id = UUID.randomUUID().toString();
+    public Comentario(UUID id, String texto, Usuario autor, Filme filme, Debate debate, Instant dataCriacao) {
+        this.id = id != null ? id : UUID.randomUUID();
         this.texto = validarTexto(texto);
         this.autor = Objects.requireNonNull(autor);
-        this.dataCriacao = Instant.now();
+        this.dataCriacao = dataCriacao != null ? dataCriacao : Instant.now();
         this.filme = filme;
         this.debate = debate;
     }
 
     protected Comentario(String texto, Usuario autor, Filme filme, Instant dataCriacao) {
-        this.id = UUID.randomUUID().toString();
-        this.texto = validarTexto(texto);
-        this.autor = Objects.requireNonNull(autor);
-        this.dataCriacao = Objects.requireNonNull(dataCriacao);
-        this.filme = filme;
-        this.debate = null;
+        this(null, texto, autor, filme, null, dataCriacao);
     }
 
+    public Comentario(String texto, Usuario autor, Filme filme, Debate debate) {
+        this(UUID.randomUUID(), texto, autor, filme, debate, Instant.now());
+    }
+    
     private String validarTexto(String texto) {
         if (texto == null || texto.trim().isEmpty()) {
             throw new IllegalArgumentException("Texto do comentário não pode ser vazio");
         }
         return texto.trim();
+    }
+
+    public UUID getId() {
+        return id;
     }
 
     public String getTexto() {

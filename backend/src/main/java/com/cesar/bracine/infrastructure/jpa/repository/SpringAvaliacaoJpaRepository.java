@@ -1,0 +1,11 @@
+package com.cesar.bracine.infrastructure.jpa.repository;
+
+import com.cesar.bracine.infrastructure.jpa.entities.AvaliacaoEntity;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.UUID;
+
+@Repository
+public interface SpringAvaliacaoJpaRepository extends JpaRepository<AvaliacaoEntity, UUID> {
+}

@@ -34,4 +34,8 @@ public class ComentarioService {
     public void removerComentario(UUID id) {
         comentarioRepository.remover(id);
     }
+
+    public List<Comentario> buscarComentarioPorIdUsuario(UUID id) {
+        return comentarioRepository.buscarPorIdUsuario(id);
+    }
 }

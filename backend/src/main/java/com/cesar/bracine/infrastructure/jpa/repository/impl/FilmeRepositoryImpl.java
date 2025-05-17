@@ -1,7 +1,8 @@
-package com.cesar.bracine.infrastructure.jpa;
+package com.cesar.bracine.infrastructure.jpa.repository.impl;
 
 import com.cesar.bracine.domain.entities.Filme;
 import com.cesar.bracine.domain.repositories.FilmeRepository;
+import com.cesar.bracine.infrastructure.jpa.repository.SpringFilmeJpaRepository;
 import com.cesar.bracine.infrastructure.mappers.FilmeMapper;
 import org.springframework.stereotype.Repository;
 import org.slf4j.Logger;

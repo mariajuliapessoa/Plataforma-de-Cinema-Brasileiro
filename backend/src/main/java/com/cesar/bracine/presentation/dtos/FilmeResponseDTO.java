@@ -1,8 +1,10 @@
 package com.cesar.bracine.presentation.dtos;
 
 import java.util.List;
+import java.util.UUID;
 
-public record FilmeRequest(
+public record FilmeResponseDTO(
+        UUID id,
         String titulo,
         String diretor,
         int anoLancamento,

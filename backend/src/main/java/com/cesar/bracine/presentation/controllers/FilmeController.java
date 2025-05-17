@@ -2,12 +2,14 @@ package com.cesar.bracine.presentation.controllers;
 
 import com.cesar.bracine.application.FilmeApplicationService;
 import com.cesar.bracine.domain.entities.Filme;
-import com.cesar.bracine.presentation.dtos.FilmeRequest;
-import com.cesar.bracine.presentation.dtos.FilmeResponse;
+import com.cesar.bracine.infrastructure.jpa.entities.FilmeEntity;
+import com.cesar.bracine.presentation.dtos.FilmeRequestDTO;
+import com.cesar.bracine.presentation.dtos.FilmeResponseDTO;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @RestController
@@ -21,7 +23,7 @@ public class FilmeController {
     }
 
     @PostMapping
-    public ResponseEntity<FilmeResponse> criarFilme(@RequestBody FilmeRequest request) {
+    public ResponseEntity<FilmeResponseDTO> criarFilme(@RequestBody FilmeRequestDTO request) {
         Filme filme = new Filme(
                 request.titulo(),
                 request.diretor(),
@@ -37,10 +39,17 @@ public class FilmeController {
     }
 
     @GetMapping
-    public List<FilmeResponse> listarFilmes() {
+    public List<FilmeResponseDTO> listarFilmes() {
         return filmeApplicationService.listarTodosFilmes().stream()
                 .map(this::toResponse)
                 .toList();
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Filme> buscarFilmePorId(@PathVariable UUID id) {
+        return filmeApplicationService.buscarPorId(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
     }
 
     @DeleteMapping("/{id}")
@@ -50,15 +59,15 @@ public class FilmeController {
     }
 
     @PostMapping("/importar")
-    public List<FilmeResponse> importarFilmesBrasileiros() {
+    public List<FilmeResponseDTO> importarFilmesBrasileiros() {
         List<Filme> importados = filmeApplicationService.importarFilmesBrasileiros();
         return importados.stream()
                 .map(this::toResponse)
                 .toList();
     }
 
-    private FilmeResponse toResponse(Filme filme) {
-        return new FilmeResponse(
+    private FilmeResponseDTO toResponse(Filme filme) {
+        return new FilmeResponseDTO(
                 filme.getId(),
                 filme.getTitulo(),
                 filme.getDiretor(),

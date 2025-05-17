@@ -15,15 +15,19 @@ public class Desafio {
     private final LocalDate prazo;
     private boolean concluido;
 
-    public Desafio(String titulo, String descricao, int pontos, Usuario destinatario, LocalDate prazo) {
-        this.id = UUID.randomUUID();
+    public Desafio(UUID id, String titulo, String descricao, int pontos, Usuario destinatario, LocalDate dataCriacao, LocalDate prazo, boolean concluido) {
+        this.id = id != null ? id : UUID.randomUUID();
         this.titulo = validarTitulo(titulo);
         this.descricao = validarDescricao(descricao);
         this.pontos = validarPontos(pontos);
-        this.destinatario = Objects.requireNonNull(destinatario, "Destinatário não pode ser nulo");
+        this.destinatario = Objects.requireNonNull(destinatario);
+        this.dataCriacao = dataCriacao != null ? dataCriacao : LocalDate.now();
         this.prazo = prazo;
-        this.dataCriacao = LocalDate.now();
-        this.concluido = false;
+        this.concluido = concluido;
+    }
+
+    public Desafio(String titulo, String descricao, int pontos, Usuario destinatario, LocalDate prazo) {
+        this(null, titulo, descricao, pontos, destinatario, LocalDate.now(), prazo, false);
     }
 
     private String validarTitulo(String titulo) {
