@@ -1,0 +1,41 @@
+package com.cesar.bracine.infrastructure.jpa.entities;
+
+import jakarta.persistence.*;
+import lombok.*;
+
+import java.util.List;
+import java.util.UUID;
+
+@Entity
+@Table(name = "filmes")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class FilmeEntity {
+
+    @Id
+    @GeneratedValue
+    private UUID id;
+
+    @Column(nullable = false)
+    private String titulo;
+
+    @Column(nullable = false)
+    private String diretor;
+
+    @Column(nullable = false)
+    private int anoLancamento;
+
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name = "filme_generos", joinColumns = @JoinColumn(name = "filme_id"))
+    @Column(name = "genero")
+    private List<String> generos;
+
+    @Column(nullable = false)
+    private String paisOrigem;
+
+    @Column(nullable = false)
+    private String bannerUrl;
+}

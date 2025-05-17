@@ -15,7 +15,7 @@ public class JwtUtil {
 
     private static final long EXPIRATION_TIME = 86400000; // 24 horas
 
-    public String generateToken(String username) {
+    public String gerarToken(String username) {
         return Jwts.builder()
                 .setSubject(username)
                 .setIssuedAt(new Date())
@@ -24,16 +24,16 @@ public class JwtUtil {
                 .compact();
     }
 
-    public String extractUsername(String token) {
+    public String extrairNomeUsuario(String token) {
         return Jwts.parser().setSigningKey(SECRET_KEY).parseClaimsJws(token).getBody().getSubject();
     }
 
-    public boolean validateToken(String token, String username) {
-        final String extractedUsername = extractUsername(token);
-        return (extractedUsername.equals(username) && !isTokenExpired(token));
+    public boolean validarToken(String token, String username) {
+        final String extractedUsername = extrairNomeUsuario(token);
+        return (extractedUsername.equals(username) && !isTokenExpirado(token));
     }
 
-    private boolean isTokenExpired(String token) {
+    private boolean isTokenExpirado(String token) {
         return Jwts.parser()
                 .setSigningKey(SECRET_KEY)
                 .parseClaimsJws(token)

@@ -5,15 +5,48 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1edcf67e-711c-40c6-8d84-dc4b0627e602" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/model/enums/StatusDenuncia.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/test/java/com/cesar/bracine/bdd/steps/DebateFilmeSteps.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/test/java/com/cesar/bracine/bdd/steps/DenunciaComentarioServiceBDD.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/application/AvaliacaoApplicationService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/application/ComentarioApplicationService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/application/DebateApplicationService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/jpa/entities/AvaliacaoEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/jpa/entities/ComentarioEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/jpa/entities/DebateEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/jpa/repository/SpringAvaliacaoJpaRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/jpa/repository/SpringComentarioJpaRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/jpa/repository/SpringDebateJpaRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/jpa/repository/impl/AvaliacaoRepositoryImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/jpa/repository/impl/ComentarioRepositoryImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/jpa/repository/impl/DebateRepositoryImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/mappers/AvaliacaoMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/mappers/ComentarioMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/mappers/DebateMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/presentation/controllers/AvaliacaoController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/presentation/controllers/ComentarioController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/presentation/controllers/DebateController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/presentation/dtos/AvaliacaoRequestDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/presentation/dtos/AvaliacaoResponseDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/presentation/dtos/ComentarioRequestDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/presentation/dtos/ComentarioResponseDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/presentation/dtos/DebateRequestDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/presentation/dtos/DebateResponseDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/model/Filme.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/model/Filme.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/model/ListaFilmes.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/model/ListaFilmes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/model/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/model/user/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/test/resources/features/debate_filmes.feature" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/resources/features/debate_filmes.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/test/resources/features/denuncia_comentario.feature" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/resources/features/denuncia_comentario.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/application/FilmeApplicationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/application/FilmeApplicationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/config/DomainServiceConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/config/DomainServiceConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/domain/entities/Comentario.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/domain/entities/Comentario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/domain/entities/Debate.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/domain/entities/Debate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/domain/entities/Desafio.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/domain/entities/Desafio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/domain/entities/Filme.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/domain/entities/Filme.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/domain/entities/Notificacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/domain/entities/Notificacao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/domain/repositories/ComentarioRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/domain/repositories/ComentarioRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/domain/services/ComentarioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/domain/services/ComentarioService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/jpa/FilmeRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/jpa/repository/impl/FilmeRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/jpa/SpringFilmeJpaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/jpa/repository/SpringFilmeJpaRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/jpa/SpringUsuarioJpaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/jpa/repository/SpringUsuarioJpaRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/jpa/UsuarioRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/jpa/repository/impl/UsuarioRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/jpa/entities/UsuarioEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/jpa/entities/UsuarioEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/presentation/controllers/FilmeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/presentation/controllers/FilmeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/presentation/dtos/FilmeRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/presentation/dtos/FilmeRequestDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/presentation/dtos/FilmeResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/presentation/dtos/FilmeResponseDTO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,10 +56,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Record" />
-        <option value="Interface" />
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Interface" />
+        <option value="Record" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -52,40 +85,41 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.BracineApplication.executor&quot;: &quot;Debug&quot;,
-    &quot;Cucumber Java.Feature: avaliacao_filmes.executor&quot;: &quot;Run&quot;,
-    &quot;Cucumber Java.Feature: busca_filmes.executor&quot;: &quot;Run&quot;,
-    &quot;Cucumber Java.Scenario: Aplicar filtros (ano, nota, etc).executor&quot;: &quot;Run&quot;,
-    &quot;Cucumber Java.Scenario: Buscar filme pelo título exato.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CucumberTestRunner.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.RunCucumberTest (1).executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.RunCucumberTest.executor&quot;: &quot;Run&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;Spring Boot.BracineApplication.executor&quot;: &quot;Debug&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Claudio/dev/cesar/Plataforma-de-Cinema-Brasileiro&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\Vini\\Desktop\\Plataforma-de-Cinema-Brasileiro\\frontend\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.BracineApplication.executor": "Debug",
+    "Cucumber Java.Feature: avaliacao_filmes.executor": "Run",
+    "Cucumber Java.Feature: busca_filmes.executor": "Run",
+    "Cucumber Java.Scenario: Aplicar filtros (ano, nota, etc).executor": "Run",
+    "Cucumber Java.Scenario: Buscar filme pelo título exato.executor": "Run",
+    "JUnit.CucumberTestRunner (1).executor": "Run",
+    "JUnit.CucumberTestRunner.executor": "Run",
+    "JUnit.RunCucumberTest (1).executor": "Run",
+    "JUnit.RunCucumberTest.executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "Spring Boot.BracineApplication.executor": "Run",
+    "git-widget-placeholder": "reestruturacao",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Claudio/dev/cesar/Plataforma-de-Cinema-Brasileiro",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.keymap",
+    "ts.external.directory.path": "C:\\Users\\Vini\\Desktop\\Plataforma-de-Cinema-Brasileiro\\frontend\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Vinícius\Desktop\Plataforma-de-Cinema-Brasileiro" />
@@ -94,7 +128,7 @@
       <recent name="com.cesar.bracine" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.CucumberTestRunner">
+  <component name="RunManager" selected="Spring Boot.BracineApplication">
     <configuration name="Feature: avaliacao_filmes" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
       <option name="FILE_PATH" value="$PROJECT_DIR$/backend/src/test/resources/features/avaliacao_filmes.feature" />
@@ -129,6 +163,21 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CucumberTestRunner (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="bracine" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.cesar.bracine.bdd.runner.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.cesar.bracine.bdd.runner" />
+      <option name="MAIN_CLASS_NAME" value="com.cesar.bracine.bdd.runner.CucumberTestRunner" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -180,6 +229,7 @@
         <env name="DATABASE_PORT" value="5432" />
         <env name="DATABASE_USER" value="bracinebd_owner" />
         <env name="JWT_SECRET_KEY" value="OEFoIVMqUDlqeEx6S1hxOUQ2S216UXEzVGY2dkJxWnNVNE5kUjBhV3pYa0xtT2VIblZ5R3RCcFRjUXNSd1V6WHk=" />
+        <env name="TMDB_API_KEY" value="4517133a042a415c2bffe672b68610e1" />
       </envs>
       <module name="bracine" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.cesar.bracine.BracineApplication" />
@@ -190,15 +240,15 @@
     <list>
       <item itemvalue="Cucumber Java.Feature: avaliacao_filmes" />
       <item itemvalue="Cucumber Java.Feature: busca_filmes" />
+      <item itemvalue="JUnit.CucumberTestRunner (1)" />
       <item itemvalue="JUnit.CucumberTestRunner" />
       <item itemvalue="JUnit.RunCucumberTest" />
       <item itemvalue="Spring Boot.BracineApplication" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.CucumberTestRunner (1)" />
         <item itemvalue="JUnit.CucumberTestRunner" />
-        <item itemvalue="Cucumber Java.Feature: busca_filmes" />
-        <item itemvalue="Cucumber Java.Feature: avaliacao_filmes" />
         <item itemvalue="JUnit.RunCucumberTest" />
       </list>
     </recent_temporary>
@@ -225,10 +275,25 @@
       <workItem from="1745184618792" duration="1089000" />
       <workItem from="1745320905140" duration="1802000" />
       <workItem from="1745360408654" duration="6743000" />
+      <workItem from="1747229172108" duration="9953000" />
+      <workItem from="1747397499421" duration="7469000" />
+      <workItem from="1747445300303" duration="7987000" />
+      <workItem from="1747502127573" duration="10830000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/presentation/controllers/ComentarioController.java</url>
+          <line>26</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
