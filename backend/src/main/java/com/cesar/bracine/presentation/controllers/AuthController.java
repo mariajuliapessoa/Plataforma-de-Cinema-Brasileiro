@@ -1,8 +1,6 @@
 package com.cesar.bracine.presentation.controllers;
 
 import com.cesar.bracine.application.UsuarioApplicationService;
-import com.cesar.bracine.domain.entities.Usuario;
-import com.cesar.bracine.infrastructure.mapper.UsuarioMapper;
 import com.cesar.bracine.presentation.dtos.UsuarioLoginDTO;
 import com.cesar.bracine.presentation.dtos.UsuarioLoginResponseDTO;
 import com.cesar.bracine.presentation.dtos.UsuarioRegisterRequestDTO;
@@ -11,7 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -34,23 +31,24 @@ public class AuthController {
         this.passwordEncoder = passwordEncoder;
     }
 
-    @PostMapping("/login")
-    public ResponseEntity<UsuarioLoginResponseDTO> login(@RequestBody UsuarioLoginDTO loginRequest) {
+    @PostMapping("/entrar")
+    public ResponseEntity<String> login(@RequestBody UsuarioLoginDTO loginRequest) {
         Authentication authentication = new UsernamePasswordAuthenticationToken(loginRequest.nomeUsuario(), loginRequest.senha());
         Authentication authResult = authenticationManager.authenticate(authentication);
         String token = jwtUtil.gerarToken(loginRequest.nomeUsuario());
 
-        return ResponseEntity.ok(new UsuarioLoginResponseDTO(token));
+        return ResponseEntity.ok(token);
 
     }
 
-    @PostMapping("/register")
+    @PostMapping("/registrar")
     public ResponseEntity<String> register(@RequestBody UsuarioRegisterRequestDTO registerRequest) {
         try {
             userService.criarUsuario(
                     registerRequest.nome(),
                     registerRequest.nomeUsuario(),
                     registerRequest.email(),
+                    registerRequest.cargo(),
                     registerRequest.senha()
             );
             return ResponseEntity.ok("Usuário registrado com sucesso!");

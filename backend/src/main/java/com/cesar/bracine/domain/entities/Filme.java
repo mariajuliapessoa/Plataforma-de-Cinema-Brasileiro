@@ -3,7 +3,6 @@ package com.cesar.bracine.domain.entities;
 import java.time.Year;
 import java.util.Collections;
 import java.util.List;
-import java.util.Objects;
 import java.util.UUID;
 
 public class Filme {
@@ -14,15 +13,28 @@ public class Filme {
     private final int anoLancamento;
     private final List<String> generos;
     private final String paisOrigem;
+    private final String bannerUrl;
 
-    public Filme(String titulo, String diretor, int anoLancamento, List<String> generos, String paisOrigem) {
+    public Filme(String titulo, String diretor, int anoLancamento, List<String> generos, String paisOrigem, String bannerUrl) {
         this.id = UUID.randomUUID();
         this.titulo = validarTitulo(titulo);
         this.diretor = validarDiretor(diretor);
         this.anoLancamento = validarAnoLancamento(anoLancamento);
         this.generos = validarGeneros(generos);
         this.paisOrigem = validarPaisOrigem(paisOrigem);
+        this.bannerUrl = validarBannerUrl(bannerUrl);
     }
+
+    public Filme(UUID id, String titulo, String diretor, int anoLancamento, List<String> generos, String paisOrigem, String bannerUrl) {
+        this.id = id != null ? id : UUID.randomUUID();
+        this.titulo = validarTitulo(titulo);
+        this.diretor = validarDiretor(diretor);
+        this.anoLancamento = validarAnoLancamento(anoLancamento);
+        this.generos = validarGeneros(generos);
+        this.paisOrigem = validarPaisOrigem(paisOrigem);
+        this.bannerUrl = validarBannerUrl(bannerUrl);
+    }
+
 
     // Validações
     private String validarTitulo(String titulo) {
@@ -47,7 +59,7 @@ public class Filme {
     private List<String> validarGeneros(List<String> generos) {
         if (generos == null || generos.isEmpty())
             throw new IllegalArgumentException("O filme deve conter ao menos um gênero");
-        return List.copyOf(generos); // Cria lista imutável defensivamente
+        return List.copyOf(generos);
     }
 
     private String validarPaisOrigem(String pais) {
@@ -56,12 +68,17 @@ public class Filme {
         return pais.trim();
     }
 
-    // Métodos de Domínio
+    private String validarBannerUrl(String bannerUrl) {
+        if (bannerUrl == null || bannerUrl.trim().isEmpty())
+            throw new IllegalArgumentException("Banner do filme é obrigatório");
+        return bannerUrl.trim();
+    }
+
+    // Método de domínio
     public boolean ehClassico() {
         return (Year.now().getValue() - anoLancamento) > 20;
     }
 
-    // Getters
     public UUID getId() {
         return id;
     }
@@ -84,5 +101,9 @@ public class Filme {
 
     public String getPaisOrigem() {
         return paisOrigem;
+    }
+
+    public String getBannerUrl() {
+        return bannerUrl;
     }
 }

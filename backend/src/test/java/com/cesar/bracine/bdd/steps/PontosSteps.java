@@ -1,6 +1,7 @@
 package com.cesar.bracine.bdd.steps;
 
 import com.cesar.bracine.domain.entities.Usuario;
+import com.cesar.bracine.domain.enums.TipoUsuario;
 import com.cesar.bracine.domain.services.UsuarioService;
 import io.cucumber.java.en.*;
 import org.junit.jupiter.api.Assertions;
@@ -22,7 +23,7 @@ public class PontosSteps {
     @Given("que o sistema possui um usuário {string} com email {string}")
     public void que_o_sistema_possui_um_usuario_com_email(String nome, String email) {
         Optional<Usuario> existente = usuarioService.buscarUsuarioPorEmail(email);
-        usuario = existente.orElseGet(() -> usuarioService.criarUsuario(nome, "usuarioPontos123", email, "senha123"));
+        usuario = existente.orElseGet(() -> usuarioService.criarUsuario(nome, "usuarioPontos123", TipoUsuario.USER ,email, "senha123"));
     }
 
     @When("ele recebe {int} pontos")

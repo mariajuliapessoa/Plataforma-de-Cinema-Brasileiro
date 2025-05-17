@@ -1,6 +1,7 @@
 package com.cesar.bracine.domain.services;
 
 import com.cesar.bracine.domain.entities.Usuario;
+import com.cesar.bracine.domain.enums.TipoUsuario;
 import com.cesar.bracine.domain.repositories.UsuarioRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
@@ -19,12 +20,16 @@ public class UsuarioService {
     }
 
     // Criar um novo usuário
-    public Usuario criarUsuario(String nome, String nomeUsuario, String email, String senha) {
+    public Usuario criarUsuario(String nome, String nomeUsuario, TipoUsuario cargo, String email, String senha) {
         if (usuarioRepository.buscarPorEmail(email).isPresent()) {
             throw new IllegalArgumentException("Email já cadastrado");
         }
 
-        Usuario usuario = Usuario.criar(nome, nomeUsuario, email, senha, passwordEncoder);
+        if (usuarioRepository.buscarPorNomeUsuario(nomeUsuario).isPresent()) {
+            throw new IllegalArgumentException("Nome de usuário já cadastrado");
+        }
+
+        Usuario usuario = Usuario.criar(nome, nomeUsuario, email, cargo, senha, passwordEncoder);
         usuarioRepository.salvar(usuario);
         return usuario;
     }

@@ -5,21 +5,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1edcf67e-711c-40c6-8d84-dc4b0627e602" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/src/test/java/com/cesar/bracine/bdd/steps/UsuarioSteps.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/test/resources/features/avaliacao.feature" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/test/resources/features/usuario.feature" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/application/FilmeApplicationService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/domain/enums/TipoUsuario.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/jpa/FilmeRepositoryImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/jpa/SpringFilmeJpaRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/jpa/entities/FilmeEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/mappers/FilmeMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/presentation/controllers/FilmeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/presentation/dtos/FilmeRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/presentation/dtos/FilmeResponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/application/UsuarioApplicationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/application/UsuarioApplicationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/config/DomainServiceConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/config/DomainServiceConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/config/JwtRequestFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/config/JwtRequestFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/domain/entities/Filme.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/domain/entities/Filme.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/domain/entities/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/domain/entities/Usuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/domain/repositories/FilmeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/domain/repositories/FilmeRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/domain/repositories/UsuarioRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/domain/repositories/UsuarioRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/domain/services/FilmeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/domain/services/FilmeService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/domain/services/UsuarioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/domain/services/UsuarioService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/cesar/bracine/bdd/CucumberTestRunner.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/cesar/bracine/bdd/config/TestConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/cesar/bracine/bdd/config/TestConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/cesar/bracine/bdd/runner/CucumberTestRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/cesar/bracine/bdd/runner/CucumberTestRunner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/test/resources/features/administracao_plataforma.feature" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/test/resources/features/avaliacao_filmes.feature" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/test/resources/features/busca_filmes.feature" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/test/resources/features/debate_filmes.feature" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/test/resources/features/denuncia_comentario.feature" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/test/resources/features/desafios.feature" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/test/resources/features/lista_filmes.feature" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/jpa/SpringUsuarioJpaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/jpa/SpringUsuarioJpaRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/jpa/UsuarioRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/jpa/UsuarioRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/jpa/entities/UsuarioEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/jpa/entities/UsuarioEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/mapper/UsuarioMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/mappers/UsuarioMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/tmdb/TMDBClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/tmdb/TMDBClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/presentation/controllers/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/presentation/controllers/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/presentation/controllers/UsuarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/presentation/controllers/UsuarioController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/presentation/dtos/UsuarioRegisterRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/presentation/dtos/UsuarioRegisterRequestDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/presentation/dtos/UsuarioResponseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/presentation/dtos/UsuarioResponseDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/cesar/bracine/bdd/steps/PontosSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/cesar/bracine/bdd/steps/PontosSteps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/cesar/bracine/bdd/steps/UsuarioSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/cesar/bracine/bdd/steps/UsuarioSteps.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,10 +45,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Record" />
-        <option value="Enum" />
         <option value="Interface" />
+        <option value="Enum" />
         <option value="Class" />
+        <option value="Record" />
       </list>
     </option>
   </component>
@@ -101,7 +117,7 @@
       <recent name="com.cesar.bracine" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.CucumberTestRunner (1)">
+  <component name="RunManager" selected="Spring Boot.BracineApplication">
     <configuration name="Feature: avaliacao_filmes" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
       <option name="FILE_PATH" value="$PROJECT_DIR$/backend/src/test/resources/features/avaliacao_filmes.feature" />
@@ -202,6 +218,7 @@
         <env name="DATABASE_PORT" value="5432" />
         <env name="DATABASE_USER" value="bracinebd_owner" />
         <env name="JWT_SECRET_KEY" value="OEFoIVMqUDlqeEx6S1hxOUQ2S216UXEzVGY2dkJxWnNVNE5kUjBhV3pYa0xtT2VIblZ5R3RCcFRjUXNSd1V6WHk=" />
+        <env name="TMDB_API_KEY" value="4517133a042a415c2bffe672b68610e1" />
       </envs>
       <module name="bracine" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.cesar.bracine.BracineApplication" />
@@ -210,9 +227,12 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Cucumber Java.Feature: avaliacao_filmes" />
+      <item itemvalue="Cucumber Java.Feature: busca_filmes" />
       <item itemvalue="JUnit.CucumberTestRunner (1)" />
       <item itemvalue="JUnit.CucumberTestRunner" />
       <item itemvalue="JUnit.RunCucumberTest" />
+      <item itemvalue="Spring Boot.BracineApplication" />
     </list>
     <recent_temporary>
       <list>
@@ -221,6 +241,14 @@
         <item itemvalue="JUnit.RunCucumberTest" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.26053.27" />
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.26053.27" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -236,6 +264,9 @@
       <workItem from="1745184618792" duration="1089000" />
       <workItem from="1745320905140" duration="1802000" />
       <workItem from="1745360408654" duration="6743000" />
+      <workItem from="1747229172108" duration="9953000" />
+      <workItem from="1747397499421" duration="7469000" />
+      <workItem from="1747445300303" duration="6714000" />
     </task>
     <servers />
   </component>

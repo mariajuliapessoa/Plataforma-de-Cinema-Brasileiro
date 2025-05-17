@@ -2,7 +2,7 @@ package com.cesar.bracine.infrastructure.jpa;
 
 import com.cesar.bracine.domain.entities.Usuario;
 import com.cesar.bracine.domain.repositories.UsuarioRepository;
-import com.cesar.bracine.infrastructure.mapper.UsuarioMapper;
+import com.cesar.bracine.infrastructure.mappers.UsuarioMapper;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -31,6 +31,11 @@ public class UsuarioRepositoryImpl implements UsuarioRepository {
     @Override
     public Optional<Usuario> buscarPorEmail(String email) {
         return jpa.findByEmail(email).map(UsuarioMapper::toDomain);
+    }
+
+    @Override
+    public Optional<Usuario> buscarPorNomeUsuario(String nomeUsuario) {
+        return jpa.findByNomeUsuario(nomeUsuario).map(UsuarioMapper::toDomain);
     }
 
     @Override

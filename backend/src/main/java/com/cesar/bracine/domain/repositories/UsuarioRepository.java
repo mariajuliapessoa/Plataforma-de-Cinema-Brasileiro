@@ -17,6 +17,9 @@ public interface UsuarioRepository {
     // Read (buscar por email)
     Optional<Usuario> buscarPorEmail(String email);
 
+    // Read (buscar por usuario)
+    Optional<Usuario> buscarPorNomeUsuario(String nomeUsuario);
+
     // ListAll (listar todos os usuários)
     List<Usuario> listarTodos();
 

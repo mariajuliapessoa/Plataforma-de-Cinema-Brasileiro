@@ -1,6 +1,7 @@
 package com.cesar.bracine.bdd.steps;
 
 import com.cesar.bracine.domain.entities.Usuario;
+import com.cesar.bracine.domain.enums.TipoUsuario;
 import com.cesar.bracine.domain.services.UsuarioService;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
@@ -32,7 +33,7 @@ public class UsuarioSteps {
 
     @When("ele fornece o nome {string}, nome de usuário {string}, email {string}, e senha {string}")
     public void ele_fornece_o_nome_nome_de_usuario_email_e_senha(String nome, String nomeUsuario, String email, String senha) {
-        usuario = usuarioService.criarUsuario(nome, nomeUsuario, email, senha);
+        usuario = usuarioService.criarUsuario(nome, nomeUsuario, TipoUsuario.USER,email, senha);
     }
 
     @Then("o sistema deve criar o usuário com sucesso")
@@ -65,13 +66,13 @@ public class UsuarioSteps {
     @Given("que o usuário {string} já está cadastrado com email {string}")
     public void que_o_usuario_ja_esta_cadastrado_com_email(String nome, String email) {
         Optional<Usuario> existente = usuarioService.buscarUsuarioPorEmail(email);
-        usuario = existente.orElseGet(() -> usuarioService.criarUsuario(nome, "usuario123", email, "senha123"));
+        usuario = existente.orElseGet(() -> usuarioService.criarUsuario(nome, "usuario123", TipoUsuario.USER, email, "senha123"));
     }
 
     @When("ele tenta se cadastrar novamente com o mesmo email")
     public void ele_tenta_se_cadastrar_novamente_com_o_mesmo_email() {
         try {
-            usuarioService.criarUsuario("Outro Nome", "outrousuario", usuario.getEmail(), "outrasenha");
+            usuarioService.criarUsuario("Outro Nome", "outrousuario", TipoUsuario.USER, usuario.getEmail(), "outrasenha");
             Assertions.fail("Email já cadastrado");
         } catch (IllegalArgumentException e) {
             erro = e.getMessage();
@@ -86,7 +87,7 @@ public class UsuarioSteps {
     // Cenário 4: Editar dados da conta
     @Given("que o usuário {string} está cadastrado com email {string}")
     public void o_usuario_ja_esta_cadastrado(String nome, String email) {
-        usuario = usuarioService.criarUsuario(nome, "carlosAntes", email, "senha123");
+        usuario = usuarioService.criarUsuario(nome, "carlosAntes", TipoUsuario.USER,email, "senha123");
 
 
     }

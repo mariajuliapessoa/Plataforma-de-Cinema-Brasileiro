@@ -1,8 +1,10 @@
 package com.cesar.bracine.infrastructure.jpa.entities;
 
+import com.cesar.bracine.domain.enums.TipoUsuario;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.*;
@@ -20,9 +22,13 @@ public class UsuarioEntity implements UserDetails {
 
     private String nome;
 
+    @Column(unique = true, nullable = false)
     private String nomeUsuario;
 
     private String email;
+
+    @Enumerated(EnumType.STRING)
+    private TipoUsuario cargo;
 
     private String senhaHash;
 
@@ -32,7 +38,7 @@ public class UsuarioEntity implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return Collections.emptyList();
+        return Collections.singletonList(new SimpleGrantedAuthority(cargo.name()));
     }
 
     @Override

@@ -1,9 +1,10 @@
 package com.cesar.bracine.application;
 
 import com.cesar.bracine.domain.entities.Usuario;
+import com.cesar.bracine.domain.enums.TipoUsuario;
 import com.cesar.bracine.domain.repositories.UsuarioRepository;
 import com.cesar.bracine.domain.services.UsuarioService;
-import com.cesar.bracine.infrastructure.mapper.UsuarioMapper;
+import com.cesar.bracine.infrastructure.mappers.UsuarioMapper;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -24,8 +25,8 @@ public class UsuarioApplicationService implements UserDetailsService {
         this.usuarioRepository = usuarioRepository;
     }
 
-    public Usuario criarUsuario(String nome, String nomeUsuario, String email, String senha) {
-        return usuarioService.criarUsuario(nome, nomeUsuario, email, senha);
+    public Usuario criarUsuario(String nome, String nomeUsuario, String email, TipoUsuario cargo, String senha) {
+        return usuarioService.criarUsuario(nome, nomeUsuario, cargo, email, senha);
     }
 
     public Optional<Usuario> buscarPorEmail(String email) {
@@ -57,8 +58,8 @@ public class UsuarioApplicationService implements UserDetailsService {
     }
 
     @Override
-    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        return usuarioRepository.buscarPorEmail(email)
+    public UserDetails loadUserByUsername(String nomeUsuario) throws UsernameNotFoundException {
+        return usuarioRepository.buscarPorNomeUsuario(nomeUsuario)
                 .map(UsuarioMapper::toEntity)
                 .orElseThrow(() -> new UsernameNotFoundException("Usuário não encontrado"));
     }

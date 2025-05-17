@@ -34,4 +34,13 @@ public class FilmeService {
     public void removerFilme(UUID id) {
         filmeRepository.remover(id);
     }
+
+    public boolean existePorTitulo(String titulo) {
+        return filmeRepository.existePorTitulo(titulo);
+    }
+
+    public boolean existePorTituloEAno(String titulo, int anoLancamento) {
+        return filmeRepository.existePorTituloEAno(titulo, anoLancamento);
+    }
+
 }

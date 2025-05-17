@@ -1,9 +1,7 @@
-package com.cesar.bracine.infrastructure.mapper;
+package com.cesar.bracine.infrastructure.mappers;
 
 import com.cesar.bracine.domain.entities.Usuario;
 import com.cesar.bracine.infrastructure.jpa.entities.UsuarioEntity;
-import com.cesar.bracine.presentation.dtos.UsuarioRegisterRequestDTO;
-import org.springframework.security.crypto.password.PasswordEncoder;
 
 public class UsuarioMapper {
 
@@ -13,6 +11,7 @@ public class UsuarioMapper {
                 .nome(usuario.getNome())
                 .nomeUsuario(usuario.getNomeUsuario())
                 .email(usuario.getEmail())
+                .cargo(usuario.getCargo())
                 .senhaHash(usuario.getSenhaHash())
                 .pontos(usuario.getPontos())
                 .build();
@@ -24,6 +23,7 @@ public class UsuarioMapper {
                 entity.getNome(),
                 entity.getNomeUsuario(),
                 entity.getEmail(),
+                entity.getCargo(),
                 entity.getSenhaHash(),
                 entity.getPontos()
         );

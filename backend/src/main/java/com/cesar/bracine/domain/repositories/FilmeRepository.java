@@ -7,15 +7,15 @@ import java.util.UUID;
 
 public interface FilmeRepository {
 
-    // Create or Edit
     void salvar(Filme filme);
 
-    // Read (buscar por ID)
     Optional<Filme> buscarPorId(UUID id);
 
-    // ListAll
     List<Filme> listarTodos();
 
-    // Delete
     void remover(UUID id);
+
+    boolean existePorTitulo(String titulo);
+
+    boolean existePorTituloEAno(String titulo, int anoLancamento);
 }
