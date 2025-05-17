@@ -12,13 +12,49 @@ A **Plataforma de Cinema Brasileiro** tem como objetivo proporcionar uma experi�
 - **Testes e Automação:** Cenários BDD automatizados
 
 ## **Estrutura do Projeto**
-📂 **backend/** - Implementação do back-end com Spring Boot e JPA.
+### 📁 backend/ – Camada de back-end desenvolvida em Spring Boot, estruturada segundo os princípios de Domain-Driven Design (DDD), com as seguintes camadas:
 
-📂 **frontend/** - Código do front-end desenvolvido com Angular.
+### 📁 domain/ – Núcleo da lógica de negócio. Contém:
 
-📂 **docs/** - Documentação do projeto, incluindo modelos de domínio e BDD.
+*   `entities/` – Entidades ricas em comportamento, representando o modelo de domínio.
+*   `repositories/` – Contratos (interfaces) para persistência de dados.
+*   `services/` – Serviços de domínio responsáveis por regras que envolvem múltiplas entidades.
+*   `enums/` – Tipos enumerados usados pelo domínio (ex: TipoNotificacao, Cargo, etc.).
 
-📂 **tests/** - Testes automatizados baseados em cenários BDD.
+### 📁 application/ – Orquestra os casos de uso da aplicação. Atua como intermediária entre o domínio e a infraestrutura. Define a lógica de aplicação.
+
+### 📁 infrastructure/ – Implementações técnicas. Contém:
+
+*   `jpa/entities/` – Mapeamentos JPA para as entidades persistidas no banco.
+*   `jpa/repository/` – Implementações das interfaces de repositórios com Spring Data JPA.
+*   `mappers/` – Conversores entre entidades do domínio e entidades JPA.
+
+### 📁 presentation/ – Camada de entrada da aplicação (HTTP/REST). Inclui:
+
+*   `controllers/` – Controladores REST que expõem os endpoints da API.
+*   `dtos/` – Objetos de transferência de dados entre cliente e servidor (Request/Response).
+
+### 📁 config/ – Configurações de segurança, CORS, JWT, etc.
+
+---
+
+## 📁 frontend/ – Aplicação cliente desenvolvida em NextJS, responsável pela interface com o usuário.
+
+---
+
+### 📁 docs/ – Documentação geral do projeto:
+
+*   Diagramas de entidade, fluxos de navegação, descrições de modelos de domínio.
+*   Especificações BDD (cenários comportamentais).
+*   Scripts de API (Insomnia, Postman).
+
+---
+
+## 📁 tests/ – Testes automatizados, organizados por:
+
+*   Testes de unidade do domínio.
+*   Testes de integração com o banco de dados.
+*   Testes end-to-end (e2e) baseados em cenários BDD.
 
 ---
 ## **Primeira Entrega**
