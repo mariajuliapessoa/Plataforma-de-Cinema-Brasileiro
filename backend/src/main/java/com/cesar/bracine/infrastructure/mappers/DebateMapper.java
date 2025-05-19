@@ -1,7 +1,8 @@
 package com.cesar.bracine.infrastructure.mappers;
 
 import com.cesar.bracine.domain.entities.Debate;
-import com.cesar.bracine.infrastructure.entities.DebateEntity;
+import com.cesar.bracine.infrastructure.jpa.entities.DebateEntity;
+
 
 public class DebateMapper {
 

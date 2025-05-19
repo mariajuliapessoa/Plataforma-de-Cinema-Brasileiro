@@ -2,8 +2,9 @@ package com.cesar.bracine.infrastructure.jpa.repository.impl;
 
 import com.cesar.bracine.domain.entities.Debate;
 import com.cesar.bracine.domain.repositories.DebateRepository;
+import com.cesar.bracine.infrastructure.jpa.entities.DebateEntity;
 import com.cesar.bracine.infrastructure.jpa.repository.SpringDebateJpaRepository;
-import com.cesar.bracine.infrastructure.entities.DebateEntity;
+
 import com.cesar.bracine.infrastructure.mappers.DebateMapper;
 import org.springframework.stereotype.Repository;
 import java.util.List;
