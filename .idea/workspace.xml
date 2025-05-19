@@ -5,16 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1edcf67e-711c-40c6-8d84-dc4b0627e602" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/application/DesafioApplicationService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/jpa/entities/DesafioEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/jpa/repository/SpringDesafioJpaRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/jpa/repository/impl/DesafioRepositoryImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/mappers/DesafioMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/presentation/controllers/DesafioController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/presentation/dtos/CriarDesafioRequestDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/presentation/dtos/DesafioResponseDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/application/NotificacaoApplicationService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/jpa/entities/NotificacaoEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/jpa/repository/SpringNotificacaoJpaRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/jpa/repository/impl/NotificacaoRepositoryImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/mappers/NotificacaoMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/presentation/controllers/NotificacaoController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/presentation/dtos/NotificacaoRequestDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/presentation/dtos/NotificacaoResponseDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/config/DomainServiceConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/config/DomainServiceConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/domain/repositories/NotificacaoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/domain/repositories/NotificacaoRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -247,7 +248,7 @@
       <workItem from="1747397499421" duration="7469000" />
       <workItem from="1747445300303" duration="7987000" />
       <workItem from="1747502127573" duration="10830000" />
-      <workItem from="1747601391271" duration="7219000" />
+      <workItem from="1747601391271" duration="7772000" />
     </task>
     <servers />
   </component>

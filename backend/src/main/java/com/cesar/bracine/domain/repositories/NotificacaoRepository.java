@@ -13,6 +13,8 @@ public interface NotificacaoRepository {
     // Read (buscar por ID)
     Optional<Notificacao> buscarPorId(UUID id);
 
+    List<Notificacao> buscarPorDestinatario(UUID usuarioId);
+
     // ListAll
     List<Notificacao> listarTodos();
 
