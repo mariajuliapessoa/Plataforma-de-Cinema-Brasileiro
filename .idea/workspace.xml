@@ -5,17 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1edcf67e-711c-40c6-8d84-dc4b0627e602" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/application/NotificacaoApplicationService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/jpa/entities/NotificacaoEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/jpa/repository/SpringNotificacaoJpaRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/jpa/repository/impl/NotificacaoRepositoryImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/mappers/NotificacaoMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/presentation/controllers/NotificacaoController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/presentation/dtos/NotificacaoRequestDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/presentation/dtos/NotificacaoResponseDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/config/DomainServiceConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/config/DomainServiceConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/domain/repositories/NotificacaoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/domain/repositories/NotificacaoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/application/DesafioApplicationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/application/DesafioApplicationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/domain/repositories/DesafioRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/domain/repositories/DesafioRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/jpa/entities/ComentarioEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/jpa/entities/ComentarioEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/jpa/entities/DebateEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/jpa/entities/DebateEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/jpa/repository/SpringDebateJpaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/jpa/repository/SpringDebateJpaRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/jpa/repository/SpringDesafioJpaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/jpa/repository/SpringDesafioJpaRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/jpa/repository/impl/ComentarioRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/jpa/repository/impl/ComentarioRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/jpa/repository/impl/DebateRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/jpa/repository/impl/DebateRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/jpa/repository/impl/DesafioRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/jpa/repository/impl/DesafioRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/mappers/ComentarioMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/mappers/ComentarioMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/mappers/DebateMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/mappers/DebateMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/presentation/controllers/DesafioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/presentation/controllers/DesafioController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/presentation/controllers/NotificacaoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/presentation/controllers/NotificacaoController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -254,16 +257,5 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/presentation/controllers/ComentarioController.java</url>
-          <line>26</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

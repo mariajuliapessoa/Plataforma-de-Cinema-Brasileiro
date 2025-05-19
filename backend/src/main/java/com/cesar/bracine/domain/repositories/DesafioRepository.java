@@ -16,6 +16,8 @@ public interface DesafioRepository {
     // ListAll
     List<Desafio> listarTodos();
 
+    List<Desafio> buscarPorUsuario(UUID id);
+
     // Delete
     void remover(UUID id);
 }

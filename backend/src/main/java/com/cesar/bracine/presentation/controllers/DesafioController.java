@@ -61,6 +61,22 @@ public class DesafioController {
                 .toList();
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Desafio> buscarPorId(@PathVariable UUID id) {
+        return desafioService.buscarPorId(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
+
+    @GetMapping("/usuario/{usuarioId}")
+    public ResponseEntity<List<Desafio>> listarPorUsuario(@PathVariable UUID usuarioId) {
+        List<Desafio> desafiosUsuario = desafioService.buscarPorIdUsuario(usuarioId);
+        if (desafiosUsuario.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(desafiosUsuario);
+    }
+
     @PostMapping("/{id}/concluir")
     public ResponseEntity<Void> concluir(@PathVariable UUID id) {
         desafioService.concluirDesafio(id);

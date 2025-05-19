@@ -37,6 +37,13 @@ public class DesafioRepositoryImpl implements DesafioRepository {
     }
 
     @Override
+    public List<Desafio> buscarPorUsuario(UUID id) {
+        return jpa.findAllByDestinatarioId(id)
+                .stream()
+                .map(DesafioMapper::toDomain).toList();
+    }
+
+    @Override
     public void remover(UUID id) {
         jpa.deleteById(id);
     }

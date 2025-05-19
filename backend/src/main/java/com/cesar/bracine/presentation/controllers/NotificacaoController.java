@@ -54,18 +54,20 @@ public class NotificacaoController {
                 .toList();
     }
 
+    @GetMapping("/{notificacaoId}")
+    public ResponseEntity<Notificacao> exibirNotificacaoPorId(@PathVariable UUID notificacaoId) {
+        return notificacaoService.buscarPorId(notificacaoId)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
+
     @GetMapping("/usuario/{usuarioId}")
-    public List<NotificacaoResponseDTO> listarPorUsuario(@PathVariable UUID usuarioId) {
-        return notificacaoService.listarPorDestinatario(usuarioId).stream()
-                .map(n -> new NotificacaoResponseDTO(
-                        n.getId(),
-                        n.getDestinatario().getId(),
-                        n.getMensagem(),
-                        n.getTipo(),
-                        n.getDataCriacao(),
-                        n.estaLida()
-                ))
-                .toList();
+    public ResponseEntity<List<Notificacao>> listarPorUsuario(@PathVariable UUID usuarioId) {
+        List<Notificacao> notificacaosUsuario = notificacaoService.listarPorDestinatario(usuarioId);
+        if (notificacaosUsuario.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(notificacaosUsuario);
     }
 
     @PostMapping("/{id}/ler")

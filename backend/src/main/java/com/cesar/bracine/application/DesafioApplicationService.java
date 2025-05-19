@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -43,6 +44,14 @@ public class DesafioApplicationService {
     // Listar desafios
     public List<Desafio> listarDesafios() {
         return desafioRepository.listarTodos();
+    }
+
+    public Optional<Desafio> buscarPorId(UUID id) {
+        return desafioRepository.buscarPorId(id);
+    }
+
+    public List<Desafio> buscarPorIdUsuario(UUID id) {
+        return desafioRepository.buscarPorUsuario(id);
     }
 
     // Remover desafio
