@@ -1,7 +1,5 @@
 package com.cesar.bracine.infrastructure.jpa.entities;
 
-import com.cesar.bracine.infrastructure.entities.DebateEntity;
-
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;

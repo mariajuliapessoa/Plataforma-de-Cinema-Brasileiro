@@ -3,7 +3,7 @@ package com.cesar.bracine.infrastructure.jpa.repository.impl;
 import com.cesar.bracine.domain.entities.Comentario;
 import com.cesar.bracine.domain.repositories.ComentarioRepository;
 import com.cesar.bracine.infrastructure.jpa.entities.ComentarioEntity;
-import com.cesar.bracine.infrastructure.entities.DebateEntity;
+import com.cesar.bracine.infrastructure.jpa.entities.DebateEntity;
 import com.cesar.bracine.infrastructure.jpa.repository.SpringComentarioJpaRepository;
 import com.cesar.bracine.infrastructure.jpa.repository.SpringDebateJpaRepository;
 import com.cesar.bracine.infrastructure.mappers.ComentarioMapper;
