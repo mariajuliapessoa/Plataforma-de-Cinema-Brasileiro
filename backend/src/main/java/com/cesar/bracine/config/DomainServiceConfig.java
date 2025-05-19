@@ -33,4 +33,9 @@ public class DomainServiceConfig {
     public AvaliacaoService avaliacaoService(AvaliacaoRepository avaliacaoRepository) {
         return new AvaliacaoService(avaliacaoRepository);
     }
+
+    @Bean
+    public DesafioService desafioService(DesafioRepository desafioRepository) {
+        return new DesafioService(desafioRepository);
+    }
 }
