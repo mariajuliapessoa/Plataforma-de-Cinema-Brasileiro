@@ -1,0 +1,19 @@
+@startuml
+
+skinparam componentStyle uml2
+
+package "'SalaDeDiscussao' Aggregate" <<Rectangle>> {
+	class SalaDeDiscussao <<(A,#fffab8) Aggregate Root>> {
+		List<Comentario> comentarios
+		SalaId id
+		FilmeId filmeId
+		void adicionarComentario(Comentario comentario)
+	}
+	class SalaId <<(V,DarkSeaGreen) Value Object>> {
+		int id
+	}
+}
+SalaDeDiscussao --> SalaId : id
+
+
+@enduml

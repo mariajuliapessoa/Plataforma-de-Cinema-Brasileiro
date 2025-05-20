@@ -1,0 +1,34 @@
+@startuml
+
+skinparam componentStyle uml2
+
+package "'Filme' Aggregate" <<Rectangle>> {
+	class Filme <<(A,#fffab8) Aggregate Root>> {
+		String titulo
+		String diretor
+		String genero
+		String descricao
+		Date anoLancamento
+		String elenco
+		String festivais
+		String localizacao
+		String streamingDisponivel
+		FilmeId id
+		void atualizarDescricao(Descricao descricao)
+		void adicionarFestival(Festival festival)
+	}
+	class FilmeId <<(V,DarkSeaGreen) Value Object>> {
+		int id
+	}
+	class Festival <<(V,DarkSeaGreen) Value Object>> {
+		String nome
+		Date data
+	}
+	class Descricao <<(V,DarkSeaGreen) Value Object>> {
+		String texto
+	}
+}
+Filme --> FilmeId : id
+
+
+@enduml
