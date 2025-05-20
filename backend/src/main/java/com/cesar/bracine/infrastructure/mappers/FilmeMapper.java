@@ -1,6 +1,7 @@
 package com.cesar.bracine.infrastructure.mappers;
 
 import com.cesar.bracine.domain.entities.Filme;
+import com.cesar.bracine.domain.valueobjects.FilmeId;
 import com.cesar.bracine.infrastructure.jpa.entities.FilmeEntity;
 
 public class FilmeMapper {
@@ -22,7 +23,7 @@ public class FilmeMapper {
         }
 
         return new Filme(
-                entity.getId(),
+                new FilmeId(entity.getId()),
                 entity.getTitulo(),
                 entity.getDiretor(),
                 entity.getAnoLancamento(),

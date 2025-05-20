@@ -1,13 +1,14 @@
 package com.cesar.bracine.infrastructure.mappers;
 
 import com.cesar.bracine.domain.entities.Usuario;
+import com.cesar.bracine.domain.valueobjects.UsuarioId;
 import com.cesar.bracine.infrastructure.jpa.entities.UsuarioEntity;
 
 public class UsuarioMapper {
 
     public static UsuarioEntity toEntity(Usuario usuario) {
         return UsuarioEntity.builder()
-                .id(usuario.getId())
+                .id(usuario.getId().getValue())
                 .nome(usuario.getNome())
                 .nomeUsuario(usuario.getNomeUsuario())
                 .email(usuario.getEmail())
@@ -19,7 +20,7 @@ public class UsuarioMapper {
 
     public static Usuario toDomain(UsuarioEntity entity) {
         return Usuario.reconstruir(
-                entity.getId(),
+                new UsuarioId(entity.getId()),
                 entity.getNome(),
                 entity.getNomeUsuario(),
                 entity.getEmail(),

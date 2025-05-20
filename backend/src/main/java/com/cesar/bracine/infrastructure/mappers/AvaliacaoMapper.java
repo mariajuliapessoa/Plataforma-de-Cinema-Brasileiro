@@ -9,17 +9,17 @@ public class AvaliacaoMapper {
 
     public static AvaliacaoEntity toEntity(Avaliacao avaliacao) {
         var entity = new AvaliacaoEntity();
-        entity.setId(avaliacao.getId());
+        entity.setId(avaliacao.getId().getValue());
         entity.setTexto(avaliacao.getTexto());
         entity.setNota(avaliacao.getNota());
         entity.setDataCriacao(avaliacao.getDataCriacao());
 
         var autorEntity = new UsuarioEntity();
-        autorEntity.setId(avaliacao.getAutor().getId());
+        autorEntity.setId(avaliacao.getAutor().getValue());
         entity.setAutor(autorEntity);
 
         var filmeEntity = new FilmeEntity();
-        filmeEntity.setId(avaliacao.getFilme().getId());
+        filmeEntity.setId(avaliacao.getFilme().getValue());
         entity.setFilme(filmeEntity);
 
         return entity;
@@ -28,8 +28,8 @@ public class AvaliacaoMapper {
     public static Avaliacao toDomain(AvaliacaoEntity entity) {
         return new Avaliacao(
                 entity.getTexto(),
-                UsuarioMapper.toDomain(entity.getAutor()),
-                FilmeMapper.toDomain(entity.getFilme()),
+                UsuarioMapper.toDomain(entity.getAutor()).getId(),
+                FilmeMapper.toDomain(entity.getFilme()).getId(),
                 entity.getNota()
         );
     }
