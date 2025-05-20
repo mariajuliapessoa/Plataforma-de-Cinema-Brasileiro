@@ -52,7 +52,7 @@ public class UsuarioSteps {
 
     @When("ele altera sua senha para {string}")
     public void ele_altera_sua_senha_para(String novaSenha) {
-        usuarioService.alterarSenha(usuario.getId(), novaSenha);
+        usuarioService.alterarSenha(usuario.getId().getValue(), novaSenha);
     }
 
     @Then("o sistema deve atualizar a senha do usuário")
@@ -94,7 +94,7 @@ public class UsuarioSteps {
 
     @When("ele atualiza seu nome para {string}, nome de usuário para {string}, e email para {string}")
     public void ele_atualiza_seu_nome_para_nome_de_usuario_para_e_email_para(String novoNome, String novoNomeUsuario, String novoEmail) {
-        usuarioService.editarUsuario(usuario.getId(), novoNome, novoNomeUsuario, novoEmail);
+        usuarioService.editarUsuario(usuario.getId().getValue(), novoNome, novoNomeUsuario, novoEmail);
     }
 
     @Then("os dados do usuário devem ser atualizados com sucesso")

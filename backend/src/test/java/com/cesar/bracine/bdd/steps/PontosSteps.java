@@ -28,7 +28,7 @@ public class PontosSteps {
 
     @When("ele recebe {int} pontos")
     public void eleRecebePontos(int pontos) {
-        usuarioService.adicionarPontos(usuario.getId(), pontos);
+        usuarioService.adicionarPontos(usuario.getId().getValue(), pontos);
     }
 
     @Then("o sistema deve registrar os pontos corretamente com total de {int}")
