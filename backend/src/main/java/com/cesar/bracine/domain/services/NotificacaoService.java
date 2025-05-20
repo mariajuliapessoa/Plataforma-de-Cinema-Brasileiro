@@ -1,7 +1,10 @@
 package com.cesar.bracine.domain.services;
 
 import com.cesar.bracine.domain.entities.Notificacao;
+import com.cesar.bracine.domain.entities.Usuario;
 import com.cesar.bracine.domain.repositories.NotificacaoRepository;
+import com.cesar.bracine.domain.repositories.UsuarioRepository;
+
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -9,14 +12,19 @@ import java.util.UUID;
 public class NotificacaoService {
 
     private final NotificacaoRepository notificacaoRepository;
+    private final UsuarioRepository usuarioRepository;
 
-    public NotificacaoService(NotificacaoRepository notificacaoRepository) {
+    public NotificacaoService(NotificacaoRepository notificacaoRepository, UsuarioRepository usuarioRepository) {
         this.notificacaoRepository = notificacaoRepository;
+        this.usuarioRepository = usuarioRepository;
     }
 
     // Criar ou Editar uma notificação
     public Notificacao salvarNotificacao(Notificacao notificacao) {
-        notificacaoRepository.salvar(notificacao);
+        Usuario usuario = usuarioRepository.buscarPorId(notificacao.getDestinatario().getValue())
+                .orElseThrow(() -> new IllegalArgumentException("Usuário não encontrado"));
+
+        notificacaoRepository.salvar(notificacao, usuario);
         return notificacao;
     }
 

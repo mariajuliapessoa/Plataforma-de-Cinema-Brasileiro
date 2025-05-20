@@ -25,8 +25,6 @@ public class FilmeApplicationService {
         this.filmeRepository = filmeRepository;
     }
 
-    // 🔄 CRUD Básico movido aqui
-
     public Filme salvarFilme(Filme filme) {
         filmeRepository.salvar(filme);
         return filme;
@@ -44,7 +42,7 @@ public class FilmeApplicationService {
         filmeRepository.remover(id);
     }
 
-    // 🌐 Importação da TMDB
+    // Importação do TMDB
     public List<Filme> importarFilmesBrasileiros() {
         try {
             Map<Integer, String> mapaGeneros = tmdbClient.buscarMapaGeneros();

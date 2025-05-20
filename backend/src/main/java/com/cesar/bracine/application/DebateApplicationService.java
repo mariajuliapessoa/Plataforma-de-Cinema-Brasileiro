@@ -2,6 +2,7 @@ package com.cesar.bracine.application;
 
 import com.cesar.bracine.domain.entities.Debate;
 import com.cesar.bracine.domain.entities.Usuario;
+import com.cesar.bracine.domain.valueobjects.UsuarioId;
 import com.cesar.bracine.domain.services.DebateService;
 import com.cesar.bracine.domain.repositories.UsuarioRepository;
 import org.springframework.stereotype.Service;
@@ -22,11 +23,12 @@ public class DebateApplicationService {
     }
 
     public Debate criarDebate(String titulo, UUID usuarioId) {
-        Usuario criador = usuarioRepository.buscarPorId(usuarioId)
-                .orElseThrow(() -> new IllegalArgumentException("Usuário não encontrado"));
+        Usuario usuario = usuarioRepository.buscarPorId(usuarioId).orElseThrow(() -> new IllegalArgumentException("Usuário não encontrado"));
 
-        Debate debate = new Debate(criador.getId(), titulo, criador);
-        return debateService.salvarDebate(debate);
+        UsuarioId criadorId = new UsuarioId(usuarioId);
+
+        Debate debate = new Debate(titulo, criadorId);
+        return debateService.salvarDebate(debate, usuario);
     }
 
     public List<Debate> listarDebates() {

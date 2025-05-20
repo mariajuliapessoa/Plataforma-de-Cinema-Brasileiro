@@ -5,6 +5,7 @@ import com.cesar.bracine.domain.entities.Usuario;
 import com.cesar.bracine.domain.enums.TipoNotificacao;
 import com.cesar.bracine.domain.repositories.NotificacaoRepository;
 import com.cesar.bracine.domain.repositories.UsuarioRepository;
+import com.cesar.bracine.domain.valueobjects.UsuarioId;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -26,8 +27,10 @@ public class NotificacaoApplicationService {
         Usuario destinatario = usuarioRepository.buscarPorId(destinatarioId)
                 .orElseThrow(() -> new IllegalArgumentException("Usuário não encontrado"));
 
-        Notificacao notificacao = new Notificacao(destinatario, mensagem, tipo);
-        notificacaoRepository.salvar(notificacao);
+        UsuarioId usuarioIdValueObject = new UsuarioId(destinatario.getId().getValue());
+
+        Notificacao notificacao = new Notificacao(usuarioIdValueObject, mensagem, tipo);
+        notificacaoRepository.salvar(notificacao, destinatario);
         return notificacao;
     }
 
@@ -47,8 +50,13 @@ public class NotificacaoApplicationService {
         Notificacao notificacao = notificacaoRepository.buscarPorId(notificacaoId)
                 .orElseThrow(() -> new IllegalArgumentException("Notificação não encontrada"));
 
+        UsuarioId usuarioId = notificacao.getDestinatario();
+
+        Usuario usuario = usuarioRepository.buscarPorId(usuarioId.getValue())
+                .orElseThrow(() -> new IllegalArgumentException("Usuário não encontrado"));
+
         notificacao.marcarComoLida();
-        notificacaoRepository.salvar(notificacao);
+        notificacaoRepository.salvar(notificacao, usuario);
     }
 
     public void remover(UUID id) {

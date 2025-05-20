@@ -1,6 +1,7 @@
 package com.cesar.bracine.domain.services;
 
 import com.cesar.bracine.domain.entities.Debate;
+import com.cesar.bracine.domain.entities.Usuario;
 import com.cesar.bracine.domain.repositories.DebateRepository;
 import java.util.List;
 import java.util.Optional;
@@ -15,8 +16,8 @@ public class DebateService {
     }
 
     // Criar ou Editar um debate
-    public Debate salvarDebate(Debate debate) {
-        debateRepository.salvar(debate);
+    public Debate salvarDebate(Debate debate, Usuario usuario) {
+        debateRepository.salvar(debate, usuario);
         return debate;
     }
 

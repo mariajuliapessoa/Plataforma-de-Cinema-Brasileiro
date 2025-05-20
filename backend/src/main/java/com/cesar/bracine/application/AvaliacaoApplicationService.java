@@ -1,11 +1,11 @@
 package com.cesar.bracine.application;
 
-import com.cesar.bracine.domain.entities.Avaliacao;
-import com.cesar.bracine.domain.entities.Filme;
-import com.cesar.bracine.domain.entities.Usuario;
+import com.cesar.bracine.domain.entities.*;
 import com.cesar.bracine.domain.repositories.FilmeRepository;
 import com.cesar.bracine.domain.repositories.UsuarioRepository;
 import com.cesar.bracine.domain.services.AvaliacaoService;
+import com.cesar.bracine.domain.valueobjects.FilmeId;
+import com.cesar.bracine.domain.valueobjects.UsuarioId;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -26,13 +26,18 @@ public class AvaliacaoApplicationService {
     }
 
     public Avaliacao criarAvaliacao(String texto, int nota, UUID usuarioId, UUID filmeId) {
-        Usuario autor = usuarioRepository.buscarPorId(usuarioId)
-                .orElseThrow(() -> new IllegalArgumentException("Usuário não encontrado"));
+       if(usuarioRepository.buscarPorId(usuarioId).isEmpty()) {
+           throw new IllegalArgumentException("Usuário não encontrado");
+       }
 
-        Filme filme = filmeRepository.buscarPorId(filmeId)
-                .orElseThrow(() -> new IllegalArgumentException("Filme não encontrado"));
+       if(filmeRepository.buscarPorId(filmeId).isEmpty()) {
+           throw new IllegalArgumentException("Filme não encontrado");
+       }
 
-        Avaliacao avaliacao = new Avaliacao(texto, autor, filme, nota);
+        UsuarioId autorIdValueObject = new UsuarioId(usuarioId);
+        FilmeId filmeIdValueObject = new FilmeId(filmeId);
+
+        Avaliacao avaliacao = new Avaliacao(texto, autorIdValueObject, filmeIdValueObject, nota);
         return avaliacaoService.salvarAvaliacao(avaliacao);
     }
 
@@ -45,6 +50,10 @@ public class AvaliacaoApplicationService {
     }
 
     public void remover(UUID id) {
+        if ((usuarioRepository.buscarPorId(id).isEmpty())) {
+            throw new IllegalArgumentException("Avaliacao não encontrada");
+        }
+
         avaliacaoService.removerAvaliacao(id);
     }
 }

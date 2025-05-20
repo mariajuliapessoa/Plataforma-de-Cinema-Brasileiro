@@ -1,15 +1,13 @@
 package com.cesar.bracine.application;
 
-import aj.org.objectweb.asm.commons.Remapper;
-import com.cesar.bracine.domain.entities.Comentario;
-import com.cesar.bracine.domain.entities.Debate;
-import com.cesar.bracine.domain.entities.Filme;
-import com.cesar.bracine.domain.entities.Usuario;
+import com.cesar.bracine.domain.entities.*;
 import com.cesar.bracine.domain.services.ComentarioService;
 import com.cesar.bracine.domain.repositories.DebateRepository;
 import com.cesar.bracine.domain.repositories.FilmeRepository;
 import com.cesar.bracine.domain.repositories.UsuarioRepository;
-import jakarta.persistence.EntityNotFoundException;
+import com.cesar.bracine.domain.valueobjects.DebateId;
+import com.cesar.bracine.domain.valueobjects.FilmeId;
+import com.cesar.bracine.domain.valueobjects.UsuarioId;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -34,15 +32,24 @@ public class ComentarioApplicationService {
         this.debateRepository = debateRepository;
     }
 
-    public Comentario criarComentario(String texto, UUID autorId, UUID filmeId, UUID debateId) {
-        Usuario autor = usuarioRepository.buscarPorId(autorId)
-                .orElseThrow(() -> new EntityNotFoundException("Autor não encontrado"));
+    public Comentario criarComentario(String texto, UUID usuarioId, UUID filmeId, UUID debateId) {
+        if (usuarioRepository.buscarPorId(usuarioId).isEmpty()) {
+            throw new IllegalArgumentException("Usuário não encontrado");
+        }
 
-        Filme filme = filmeId != null ? filmeRepository.buscarPorId(filmeId).orElse(null) : null;
-        Debate debate = debateId != null ? debateRepository.buscarPorId(debateId)
-                .orElseThrow(() -> new EntityNotFoundException("Debate não encontrado")) : null;
+        if (filmeRepository.buscarPorId(filmeId).isEmpty()) {
+            throw new IllegalArgumentException("Filme não encontrado");
+        }
 
-        Comentario comentario = new Comentario(texto, autor, filme, debate);
+        if (debateRepository.buscarPorId(debateId).isEmpty()) {
+            throw new IllegalArgumentException("Debate não encontrado");
+        }
+
+        UsuarioId autorIdValueObject = new UsuarioId(usuarioId);
+        FilmeId filmeIdValueObject = new FilmeId(filmeId);
+        DebateId debateIdValueObject = new DebateId(debateId);
+
+        Comentario comentario = new Comentario(texto, autorIdValueObject, filmeIdValueObject, debateIdValueObject);
         return comentarioService.salvarComentario(comentario);
     }
 

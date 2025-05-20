@@ -4,6 +4,7 @@ import com.cesar.bracine.domain.entities.Desafio;
 import com.cesar.bracine.domain.entities.Usuario;
 import com.cesar.bracine.domain.repositories.DesafioRepository;
 import com.cesar.bracine.domain.repositories.UsuarioRepository;
+import com.cesar.bracine.domain.valueobjects.UsuarioId;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -23,12 +24,14 @@ public class DesafioApplicationService {
     }
 
     // Criar novo desafio
-    public Desafio criarDesafio(String titulo, String descricao, int pontos, UUID destinatarioId, LocalDate prazo) {
-        Usuario destinatario = usuarioRepository.buscarPorId(destinatarioId)
+    public Desafio criarDesafio(String titulo, String descricao, int pontos, UUID usuarioId, LocalDate prazo) {
+        Usuario destinatario = usuarioRepository.buscarPorId(usuarioId)
                 .orElseThrow(() -> new IllegalArgumentException("Usuário não encontrado"));
 
-        Desafio desafio = new Desafio(titulo, descricao, pontos, destinatario, prazo);
-        desafioRepository.salvar(desafio);
+        UsuarioId usuarioIdValueObject = new UsuarioId(destinatario.getId().getValue());
+
+        Desafio desafio = new Desafio(titulo, descricao, pontos, usuarioIdValueObject, prazo);
+        desafioRepository.salvar(desafio, destinatario);
         return desafio;
     }
 
@@ -37,8 +40,11 @@ public class DesafioApplicationService {
         Desafio desafio = desafioRepository.buscarPorId(desafioId)
                 .orElseThrow(() -> new IllegalArgumentException("Desafio não encontrado"));
 
+        Usuario usuario = usuarioRepository.buscarPorId(desafio.getDestinatario().getValue())
+                .orElseThrow(() -> new IllegalArgumentException("Usuário não encontrado"));
+
         desafio.concluir();
-        desafioRepository.salvar(desafio); // persiste a alteração de status e pontos
+        desafioRepository.salvar(desafio, usuario); // persiste a alteração de status e pontos
     }
 
     // Listar desafios
