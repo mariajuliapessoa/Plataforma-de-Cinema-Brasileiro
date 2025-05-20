@@ -8,7 +8,7 @@ import java.util.UUID;
 public record UsuarioResponseDTO(UUID id, String nome, String nomeUsuario, String email, String senha, TipoUsuario cargo, int pontos) {
     public UsuarioResponseDTO(Usuario usuario) {
         this(
-                usuario.getId(),
+                usuario.getId().getValue(),
                 usuario.getNome(),
                 usuario.getNomeUsuario(),
                 usuario.getEmail(),
