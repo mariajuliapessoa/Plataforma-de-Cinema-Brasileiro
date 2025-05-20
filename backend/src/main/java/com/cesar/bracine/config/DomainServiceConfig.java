@@ -35,12 +35,12 @@ public class DomainServiceConfig {
     }
 
     @Bean
-    public DesafioService desafioService(DesafioRepository desafioRepository) {
-        return new DesafioService(desafioRepository);
+    public DesafioService desafioService(DesafioRepository desafioRepository, UsuarioRepository usuarioRepository) {
+        return new DesafioService(desafioRepository, usuarioRepository);
     }
 
     @Bean
-    public NotificacaoService notificacaoService(NotificacaoRepository notificacaoRepository) {
-        return new NotificacaoService(notificacaoRepository);
+    public NotificacaoService notificacaoService(NotificacaoRepository notificacaoRepository, UsuarioRepository usuarioRepository) {
+        return new NotificacaoService(notificacaoRepository, usuarioRepository);
     }
 }
