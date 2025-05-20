@@ -1,6 +1,7 @@
 package com.cesar.bracine.infrastructure.jpa.repository.impl;
 
 import com.cesar.bracine.domain.entities.Debate;
+import com.cesar.bracine.domain.entities.Usuario;
 import com.cesar.bracine.domain.repositories.DebateRepository;
 import com.cesar.bracine.infrastructure.jpa.entities.DebateEntity;
 import com.cesar.bracine.infrastructure.jpa.repository.SpringDebateJpaRepository;
@@ -22,8 +23,9 @@ public class DebateRepositoryImpl implements DebateRepository {
     }
 
     @Override
-    public void salvar(Debate debate) {
-        DebateEntity entity = DebateMapper.toEntity(debate);
+    public void salvar(Debate debate, Usuario usuario) {
+
+        DebateEntity entity = DebateMapper.toEntity(debate, usuario);
         jpa.save(entity);
     }
 

@@ -30,7 +30,7 @@ public class ComentarioRepositoryImpl implements ComentarioRepository {
         ComentarioEntity entity = ComentarioMapper.toEntity(comentario);
 
         if (comentario.getDebate() != null) {
-            UUID debateId = comentario.getDebate().getId();
+            UUID debateId = comentario.getDebate().getValue();
             DebateEntity debateEntity = jpaDebate.findById(debateId)
                     .orElseThrow(() -> new EntityNotFoundException("Debate não encontrado"));
 

@@ -1,9 +1,11 @@
 package com.cesar.bracine.infrastructure.jpa.repository.impl;
 
 import com.cesar.bracine.domain.entities.Notificacao;
+import com.cesar.bracine.domain.entities.Usuario;
 import com.cesar.bracine.domain.repositories.NotificacaoRepository;
 import com.cesar.bracine.infrastructure.jpa.repository.SpringNotificacaoJpaRepository;
 import com.cesar.bracine.infrastructure.mappers.NotificacaoMapper;
+import com.cesar.bracine.infrastructure.mappers.UsuarioMapper;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -20,8 +22,8 @@ public class NotificacaoRepositoryImpl implements NotificacaoRepository {
     }
 
     @Override
-    public void salvar(Notificacao notificacao) {
-        jpa.save(NotificacaoMapper.toEntity(notificacao));
+    public void salvar(Notificacao notificacao, Usuario usuario) {
+        jpa.save(NotificacaoMapper.toEntity(notificacao, usuario));
     }
 
     @Override

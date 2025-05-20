@@ -2,6 +2,7 @@ package com.cesar.bracine.infrastructure.jpa.repository.impl;
 
 import com.cesar.bracine.domain.entities.Usuario;
 import com.cesar.bracine.domain.repositories.UsuarioRepository;
+import com.cesar.bracine.infrastructure.jpa.entities.UsuarioEntity;
 import com.cesar.bracine.infrastructure.jpa.repository.SpringUsuarioJpaRepository;
 import com.cesar.bracine.infrastructure.mappers.UsuarioMapper;
 import org.springframework.stereotype.Repository;
@@ -26,7 +27,15 @@ public class UsuarioRepositoryImpl implements UsuarioRepository {
 
     @Override
     public Optional<Usuario> buscarPorId(UUID id) {
-        return jpa.findById(id).map(UsuarioMapper::toDomain);
+        Optional<UsuarioEntity> entityOptional = jpa.findById(id);
+
+        if (entityOptional.isEmpty()) {
+            System.out.println("Usuário com ID " + id + " não encontrado no banco."); // ou logger
+            return Optional.empty();
+        }
+
+        Usuario usuario = UsuarioMapper.toDomain(entityOptional.get());
+        return Optional.of(usuario);
     }
 
     @Override
