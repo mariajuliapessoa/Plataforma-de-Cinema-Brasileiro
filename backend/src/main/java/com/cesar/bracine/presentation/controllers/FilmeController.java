@@ -68,7 +68,7 @@ public class FilmeController {
 
     private FilmeResponseDTO toResponse(Filme filme) {
         return new FilmeResponseDTO(
-                filme.getId(),
+                filme.getId().getValue(),
                 filme.getTitulo(),
                 filme.getDiretor(),
                 filme.getAnoLancamento(),

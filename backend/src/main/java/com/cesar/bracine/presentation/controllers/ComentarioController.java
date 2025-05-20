@@ -32,11 +32,11 @@ public class ComentarioController {
         );
 
         return ResponseEntity.ok(new ComentarioResponseDTO(
-                comentario.getId(),
+                comentario.getId().getValue(),
                 comentario.getTexto(),
-                comentario.getAutor().getNome(),
-                comentario.getFilme() != null ? comentario.getFilme().getTitulo() : null,
-                comentario.getDebate() != null ? comentario.getDebate().getTitulo() : null,
+                comentario.getAutor().getValue(),
+                comentario.getFilme() != null ? comentario.getFilme().getValue() : null,
+                comentario.getDebate() != null ? comentario.getDebate().getValue() : null,
                 comentario.getDataCriacao()
         ));
     }
@@ -45,11 +45,11 @@ public class ComentarioController {
     public List<ComentarioResponseDTO> listar() {
         return comentarioService.listarComentarios().stream()
                 .map(c -> new ComentarioResponseDTO(
-                        c.getId(),
+                        c.getId().getValue(),
                         c.getTexto(),
-                        c.getAutor().getNome(),
-                        c.getFilme() != null ? c.getFilme().getTitulo() : null,
-                        c.getDebate() != null ? c.getDebate().getTitulo() : null,
+                        c.getAutor().getValue(),
+                        c.getFilme() != null ? c.getFilme().getValue() : null,
+                        c.getDebate() != null ? c.getDebate().getValue() : null,
                         c.getDataCriacao()
                 ))
                 .toList();

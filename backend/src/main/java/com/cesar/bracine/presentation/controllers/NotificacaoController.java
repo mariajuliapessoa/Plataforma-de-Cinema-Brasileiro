@@ -29,8 +29,8 @@ public class NotificacaoController {
         );
 
         NotificacaoResponseDTO response = new NotificacaoResponseDTO(
-                notificacao.getId(),
-                notificacao.getDestinatario().getId(),
+                notificacao.getId().getValue(),
+                notificacao.getDestinatario().getValue(),
                 notificacao.getMensagem(),
                 notificacao.getTipo(),
                 notificacao.getDataCriacao(),
@@ -44,8 +44,8 @@ public class NotificacaoController {
     public List<NotificacaoResponseDTO> listarTodas() {
         return notificacaoService.listarTodas().stream()
                 .map(n -> new NotificacaoResponseDTO(
-                        n.getId(),
-                        n.getDestinatario().getId(),
+                        n.getId().getValue(),
+                        n.getDestinatario().getValue(),
                         n.getMensagem(),
                         n.getTipo(),
                         n.getDataCriacao(),

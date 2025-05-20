@@ -2,6 +2,9 @@ package com.cesar.bracine.presentation.controllers;
 
 import com.cesar.bracine.application.AvaliacaoApplicationService;
 import com.cesar.bracine.domain.entities.Avaliacao;
+import com.cesar.bracine.domain.valueobjects.ComentarioId;
+import com.cesar.bracine.domain.valueobjects.FilmeId;
+import com.cesar.bracine.domain.valueobjects.UsuarioId;
 import com.cesar.bracine.presentation.dtos.AvaliacaoRequestDTO;
 import com.cesar.bracine.presentation.dtos.AvaliacaoResponseDTO;
 import org.springframework.http.ResponseEntity;
@@ -25,16 +28,16 @@ public class AvaliacaoController {
         Avaliacao avaliacao = avaliacaoService.criarAvaliacao(
                 dto.texto(),
                 dto.nota(),
-                dto.usuarioId(),
-                dto.filmeId()
+                new UsuarioId(dto.usuarioId()).getValue(),
+                new FilmeId(dto.filmeId()).getValue()
         );
 
         return ResponseEntity.ok(new AvaliacaoResponseDTO(
-                avaliacao.getId(),
+                avaliacao.getId().getValue(),
                 avaliacao.getTexto(),
                 avaliacao.getNota(),
-                avaliacao.getAutor().getNome(),
-                avaliacao.getFilme().getTitulo(),
+                avaliacao.getAutor().getValue(),
+                avaliacao.getFilme().getValue(),
                 avaliacao.getDataCriacao()
         ));
     }
@@ -43,11 +46,11 @@ public class AvaliacaoController {
     public List<AvaliacaoResponseDTO> listar() {
         return avaliacaoService.listarAvaliacoes().stream()
                 .map(a -> new AvaliacaoResponseDTO(
-                        a.getId(),
+                        a.getId().getValue(),
                         a.getTexto(),
                         a.getNota(),
-                        a.getAutor().getNome(),
-                        a.getFilme().getTitulo(),
+                        a.getAutor().getValue(),
+                        a.getFilme().getValue(),
                         a.getDataCriacao()
                 ))
                 .toList();
@@ -55,13 +58,13 @@ public class AvaliacaoController {
 
     @GetMapping("/{id}")
     public ResponseEntity<AvaliacaoResponseDTO> buscarPorId(@PathVariable UUID id) {
-        return avaliacaoService.buscarPorId(id)
+        return avaliacaoService.buscarPorId(new ComentarioId(id).getValue())
                 .map(a -> new AvaliacaoResponseDTO(
-                        a.getId(),
+                        a.getId().getValue(),
                         a.getTexto(),
                         a.getNota(),
-                        a.getAutor().getNome(),
-                        a.getFilme().getTitulo(),
+                        a.getAutor().getValue(),
+                        a.getFilme().getValue(),
                         a.getDataCriacao()
                 ))
                 .map(ResponseEntity::ok)
@@ -70,7 +73,7 @@ public class AvaliacaoController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> remover(@PathVariable UUID id) {
-        avaliacaoService.remover(id);
+        avaliacaoService.remover(new ComentarioId(id).getValue());
         return ResponseEntity.noContent().build();
     }
 }

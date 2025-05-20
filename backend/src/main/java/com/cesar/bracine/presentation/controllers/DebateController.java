@@ -26,9 +26,9 @@ public class DebateController {
     public ResponseEntity<DebateResponseDTO> criar(@RequestBody DebateRequestDTO dto) {
         Debate debate = debateService.criarDebate(dto.titulo(), dto.usuarioId());
         return ResponseEntity.ok(new DebateResponseDTO(
-                debate.getId(),
+                debate.getId().getValue(),
                 debate.getTitulo(),
-                debate.getCriador().getNome()
+                debate.getCriador().getValue()
         ));
     }
 
@@ -36,9 +36,9 @@ public class DebateController {
     public List<DebateResponseDTO> listar() {
         return debateService.listarDebates().stream()
                 .map(debate -> new DebateResponseDTO(
-                        debate.getId(),
+                        debate.getId().getValue(),
                         debate.getTitulo(),
-                        debate.getCriador().getNome()
+                        debate.getCriador().getValue()
                 ))
                 .toList();
     }

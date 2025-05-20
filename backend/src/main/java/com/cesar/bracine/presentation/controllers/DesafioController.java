@@ -31,11 +31,11 @@ public class DesafioController {
         );
 
         DesafioResponseDTO response = new DesafioResponseDTO(
-                desafio.getId(),
+                desafio.getId().getValue(),
                 desafio.getTitulo(),
                 desafio.getDescricao(),
                 desafio.getPontos(),
-                desafio.getDestinatario().getId(),
+                desafio.getDestinatario().getValue(),
                 desafio.isConcluido(),
                 desafio.getPrazo(),
                 desafio.getDataCriacao()
@@ -49,11 +49,11 @@ public class DesafioController {
         return desafioService.listarDesafios()
                 .stream()
                 .map(desafio -> new DesafioResponseDTO(
-                        desafio.getId(),
+                        desafio.getId().getValue(),
                         desafio.getTitulo(),
                         desafio.getDescricao(),
                         desafio.getPontos(),
-                        desafio.getDestinatario().getId(),
+                        desafio.getDestinatario().getValue(),
                         desafio.isConcluido(),
                         desafio.getPrazo(),
                         desafio.getDataCriacao()
