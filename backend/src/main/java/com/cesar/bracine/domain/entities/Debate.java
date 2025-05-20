@@ -1,5 +1,9 @@
 package com.cesar.bracine.domain.entities;
 
+import com.cesar.bracine.domain.valueobjects.ComentarioId;
+import com.cesar.bracine.domain.valueobjects.DebateId;
+import com.cesar.bracine.domain.valueobjects.UsuarioId;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -7,23 +11,27 @@ import java.util.Objects;
 import java.util.UUID;
 
 public class Debate {
-    private final UUID id;
+    private final DebateId id;
     private final String titulo;
-    private final Usuario criador;
-    private final List<Comentario> comentarios;
+    private final UsuarioId criador;
+    private final List<ComentarioId> comentarios;
 
-    public Debate(UUID id, String titulo, Usuario criador, List<Comentario> comentarios) {
-        this.id = id != null ? id : UUID.randomUUID();
+    public Debate(DebateId id, String titulo, UsuarioId criador, List<ComentarioId> comentarios) {
+        this.id = id != null ? id : new DebateId(UUID.randomUUID());
         this.titulo = validarTitulo(titulo);
         this.criador = Objects.requireNonNull(criador);
         this.comentarios = comentarios != null ? new ArrayList<>(comentarios) : new ArrayList<>();
     }
 
-    public Debate(UUID id, String titulo, Usuario criador) {
-        this.id = id != null ? id : UUID.randomUUID();
+    public Debate(DebateId id, String titulo, UsuarioId criador) {
+        this.id = id != null ? id : new DebateId(UUID.randomUUID());
         this.titulo = validarTitulo(titulo);
         this.criador = Objects.requireNonNull(criador);
         this.comentarios = new ArrayList<>();
+    }
+
+    public Debate(String titulo, UsuarioId criador) {
+        this(null, titulo, criador);
     }
 
     private String validarTitulo(String titulo) {
@@ -33,14 +41,7 @@ public class Debate {
         return titulo.trim();
     }
 
-    public void adicionarComentario(Comentario comentario) {
-        if (comentario == null) {
-            throw new IllegalArgumentException("Comentário não pode ser nulo");
-        }
-        this.comentarios.add(comentario);
-    }
-
-    public UUID getId() {
+    public DebateId getId() {
         return id;
     }
 
@@ -48,11 +49,11 @@ public class Debate {
         return titulo;
     }
 
-    public Usuario getCriador() {
+    public UsuarioId getCriador() {
         return criador;
     }
 
-    public List<Comentario> getComentarios() {
+    public List<ComentarioId> getComentarios() {
         return Collections.unmodifiableList(comentarios);
     }
 }

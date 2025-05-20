@@ -1,11 +1,14 @@
 package com.cesar.bracine.domain.entities;
 
+import com.cesar.bracine.domain.valueobjects.FilmeId;
+import com.cesar.bracine.domain.valueobjects.UsuarioId;
+
 import java.time.Instant;
 
 public class Avaliacao extends Comentario {
     private int nota;
 
-    public Avaliacao(String texto, Usuario autor, Filme filme, int nota) {
+    public Avaliacao(String texto, UsuarioId autor, FilmeId filme, int nota) {
         super(texto, autor, filme, Instant.now());
         this.nota = validarNota(nota);
     }

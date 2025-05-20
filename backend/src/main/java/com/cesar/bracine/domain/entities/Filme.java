@@ -1,5 +1,7 @@
 package com.cesar.bracine.domain.entities;
 
+import com.cesar.bracine.domain.valueobjects.FilmeId;
+
 import java.time.Year;
 import java.util.Collections;
 import java.util.List;
@@ -7,7 +9,7 @@ import java.util.UUID;
 
 public class Filme {
 
-    private final UUID id;
+    private final FilmeId id;
     private final String titulo;
     private final String diretor;
     private final int anoLancamento;
@@ -15,8 +17,8 @@ public class Filme {
     private final String paisOrigem;
     private final String bannerUrl;
 
-    public Filme(UUID id, String titulo, String diretor, int anoLancamento, List<String> generos, String paisOrigem, String bannerUrl) {
-        this.id = id != null ? id : UUID.randomUUID();
+    public Filme(FilmeId id, String titulo, String diretor, int anoLancamento, List<String> generos, String paisOrigem, String bannerUrl) {
+        this.id = id != null ? id : new FilmeId(UUID.randomUUID());
         this.titulo = validarTitulo(titulo);
         this.diretor = validarDiretor(diretor);
         this.anoLancamento = validarAnoLancamento(anoLancamento);
@@ -72,7 +74,7 @@ public class Filme {
         return (Year.now().getValue() - anoLancamento) > 20;
     }
 
-    public UUID getId() {
+    public FilmeId getId() {
         return id;
     }
 

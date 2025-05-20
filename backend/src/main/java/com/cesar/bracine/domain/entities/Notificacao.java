@@ -1,6 +1,8 @@
 package com.cesar.bracine.domain.entities;
 
 import com.cesar.bracine.domain.enums.TipoNotificacao;
+import com.cesar.bracine.domain.valueobjects.NotificacaoId;
+import com.cesar.bracine.domain.valueobjects.UsuarioId;
 
 import java.time.Instant;
 import java.util.Objects;
@@ -8,15 +10,15 @@ import java.util.UUID;
 
 public class Notificacao {
 
-    private final UUID id;
-    private final Usuario destinatario;
+    private final NotificacaoId id;
+    private final UsuarioId destinatario;
     private final String mensagem;
     private final TipoNotificacao tipo;
     private final Instant dataCriacao;
     private boolean lida;
 
-    public Notificacao(UUID id, Usuario destinatario, String mensagem, TipoNotificacao tipo, Instant dataCriacao, boolean lida) {
-        this.id = id != null ? id : UUID.randomUUID();
+    public Notificacao(NotificacaoId id, UsuarioId destinatario, String mensagem, TipoNotificacao tipo, Instant dataCriacao, boolean lida) {
+        this.id = id != null ? id : new NotificacaoId(UUID.randomUUID());
         this.destinatario = Objects.requireNonNull(destinatario, "Destinatário não pode ser nulo");
         this.mensagem = validarMensagem(mensagem);
         this.tipo = Objects.requireNonNull(tipo, "Tipo de notificação é obrigatório");
@@ -24,7 +26,7 @@ public class Notificacao {
         this.lida = lida;
     }
 
-    public Notificacao(Usuario destinatario, String mensagem, TipoNotificacao tipo) {
+    public Notificacao(UsuarioId destinatario, String mensagem, TipoNotificacao tipo) {
         this(null, destinatario, mensagem, tipo, Instant.now(), false);
     }
 
@@ -48,11 +50,11 @@ public class Notificacao {
     }
 
     // Getters
-    public UUID getId() {
+    public NotificacaoId getId() {
         return id;
     }
 
-    public Usuario getDestinatario() {
+    public UsuarioId getDestinatario() {
         return destinatario;
     }
 

@@ -1,32 +1,37 @@
 package com.cesar.bracine.domain.entities;
 
+import com.cesar.bracine.domain.valueobjects.ComentarioId;
+import com.cesar.bracine.domain.valueobjects.DebateId;
+import com.cesar.bracine.domain.valueobjects.FilmeId;
+import com.cesar.bracine.domain.valueobjects.UsuarioId;
+
 import java.time.Instant;
 import java.util.Objects;
 import java.util.UUID;
 
 public class Comentario {
-    private final UUID id;
+    private final ComentarioId id;
     private final String texto;
-    private final Usuario autor;
+    private final UsuarioId autor;
     private final Instant dataCriacao;
-    private final Filme filme;
-    private final Debate debate;
+    private final FilmeId filme;
+    private final DebateId debateId;
 
-    public Comentario(UUID id, String texto, Usuario autor, Filme filme, Debate debate, Instant dataCriacao) {
-        this.id = id != null ? id : UUID.randomUUID();
+    public Comentario(ComentarioId id, String texto, UsuarioId autor, FilmeId filme, DebateId debateId, Instant dataCriacao) {
+        this.id = id != null ? id : new ComentarioId(UUID.randomUUID());
         this.texto = validarTexto(texto);
         this.autor = Objects.requireNonNull(autor);
         this.dataCriacao = dataCriacao != null ? dataCriacao : Instant.now();
         this.filme = filme;
-        this.debate = debate;
+        this.debateId = debateId;
     }
 
-    protected Comentario(String texto, Usuario autor, Filme filme, Instant dataCriacao) {
+    protected Comentario(String texto, UsuarioId autor, FilmeId filme, Instant dataCriacao) {
         this(null, texto, autor, filme, null, dataCriacao);
     }
 
-    public Comentario(String texto, Usuario autor, Filme filme, Debate debate) {
-        this(UUID.randomUUID(), texto, autor, filme, debate, Instant.now());
+    public Comentario(String texto, UsuarioId autor, FilmeId filme, DebateId debateId) {
+        this(new ComentarioId(UUID.randomUUID()), texto, autor, filme, debateId, Instant.now());
     }
     
     private String validarTexto(String texto) {
@@ -36,7 +41,7 @@ public class Comentario {
         return texto.trim();
     }
 
-    public UUID getId() {
+    public ComentarioId getId() {
         return id;
     }
 
@@ -44,7 +49,7 @@ public class Comentario {
         return texto;
     }
 
-    public Usuario getAutor() {
+    public UsuarioId getAutor() {
         return autor;
     }
 
@@ -52,11 +57,11 @@ public class Comentario {
         return dataCriacao;
     }
 
-    public Filme getFilme() {
+    public FilmeId getFilme() {
         return filme;
     }
 
-    public Debate getDebate() {
-        return debate;
+    public DebateId getDebate() {
+        return debateId;
     }
 }

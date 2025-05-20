@@ -1,22 +1,25 @@
 package com.cesar.bracine.domain.entities;
 
+import com.cesar.bracine.domain.valueobjects.DesafioId;
+import com.cesar.bracine.domain.valueobjects.UsuarioId;
+
 import java.time.LocalDate;
 import java.util.Objects;
 import java.util.UUID;
 
 public class Desafio {
 
-    private final UUID id;
+    private final DesafioId id;
     private final String titulo;
     private final String descricao;
     private final int pontos;
-    private final Usuario destinatario;
+    private final UsuarioId destinatario;
     private final LocalDate dataCriacao;
     private final LocalDate prazo;
     private boolean concluido;
 
-    public Desafio(UUID id, String titulo, String descricao, int pontos, Usuario destinatario, LocalDate dataCriacao, LocalDate prazo, boolean concluido) {
-        this.id = id != null ? id : UUID.randomUUID();
+    public Desafio(DesafioId id, String titulo, String descricao, int pontos, UsuarioId destinatario, LocalDate dataCriacao, LocalDate prazo, boolean concluido) {
+        this.id = id != null ? id : new DesafioId(UUID.randomUUID());
         this.titulo = validarTitulo(titulo);
         this.descricao = validarDescricao(descricao);
         this.pontos = validarPontos(pontos);
@@ -26,8 +29,20 @@ public class Desafio {
         this.concluido = concluido;
     }
 
-    public Desafio(String titulo, String descricao, int pontos, Usuario destinatario, LocalDate prazo) {
+    public Desafio(String titulo, String descricao, int pontos, UsuarioId destinatario, LocalDate prazo) {
         this(null, titulo, descricao, pontos, destinatario, LocalDate.now(), prazo, false);
+    }
+
+    public void concluir() {
+        if (this.concluido) {
+            throw new IllegalStateException("Desafio já está concluído");
+        }
+
+        if (LocalDate.now().isAfter(prazo)) {
+            throw new IllegalStateException("Não é possível concluir um desafio após o prazo");
+        }
+
+        this.concluido = true;
     }
 
     private String validarTitulo(String titulo) {
@@ -45,15 +60,8 @@ public class Desafio {
         return pontos;
     }
 
-    // Regras de domínio
-    public void concluir() {
-        if (this.concluido) throw new IllegalStateException("Desafio já foi concluído");
-        this.concluido = true;
-        this.destinatario.adicionarPontos(pontos);
-    }
-
     // Getters
-    public UUID getId() {
+    public DesafioId getId() {
         return id;
     }
 
@@ -69,7 +77,7 @@ public class Desafio {
         return pontos;
     }
 
-    public Usuario getDestinatario() {
+    public UsuarioId getDestinatario() {
         return destinatario;
     }
 
