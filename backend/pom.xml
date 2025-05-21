@@ -121,6 +121,15 @@
 			<scope>test</scope>
 		</dependency>
 
+
+		<!-- .ENV -->
+
+		<dependency>
+			<groupId>me.paulschwarz</groupId>
+			<artifactId>spring-dotenv</artifactId>
+			<version>2.2.0</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
