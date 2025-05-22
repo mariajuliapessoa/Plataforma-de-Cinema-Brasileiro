@@ -35,7 +35,7 @@ public class TestConfig {
 
         Mockito.doAnswer(invocation -> {
             Usuario usuario = invocation.getArgument(0);
-            bancoUsuarios.put(usuario.getId(), usuario);
+            bancoUsuarios.put(usuario.getId().getValue(), usuario);
             return null;
         }).when(mock).salvar(Mockito.any());
 

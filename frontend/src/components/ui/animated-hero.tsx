@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { MoveRight, PhoneCall } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -46,13 +47,13 @@ function Hero() {
                     animate={
                       titleNumber === index
                         ? {
-                            y: 0,
-                            opacity: 1,
-                          }
+                          y: 0,
+                          opacity: 1,
+                        }
                         : {
-                            y: titleNumber > index ? -150 : 150,
-                            opacity: 0,
-                          }
+                          y: titleNumber > index ? -150 : 150,
+                          opacity: 0,
+                        }
                     }
                   >
                     {title}
@@ -69,9 +70,12 @@ function Hero() {
             <Button size="lg" className="gap-4 cursor-pointer hover:bg-white/20 hover:text-white duration-300 ease-in-out" variant="outline">
               Entre em contato <PhoneCall className="w-4 h-4" />
             </Button>
-            <Button size="lg" className="gap-4 bg-primary hover:bg-primary/90 text-primary-foreground cursor-pointer duration-300 ease-in-out">
-              Cadastre-se aqui <MoveRight className="w-4 h-4" />
-            </Button>
+            <Link href="/register">
+              <Button size="lg" className="gap-4 bg-primary hover:bg-primary/90 text-primary-foreground cursor-pointer duration-300 ease-in-out">
+                Cadastre-se aqui <MoveRight className="w-4 h-4" />
+              </Button>
+            </Link>
+
           </div>
         </div>
       </div>

@@ -44,16 +44,10 @@ export const Header = () => {
         {/* Navegação Desktop */}
         <nav className="hidden lg:flex flex-1 justify-center items-center gap-8 mx-8">
           <Link
-            href="/features"
+            href="/explore"
             className="flex items-center gap-2 text-sm font-medium text-foreground hover:text-primary transition-colors"
           >
-            Recursos
-          </Link>
-          <Link
-            href="/pricing"
-            className="flex items-center gap-2 text-sm font-medium text-foreground hover:text-primary transition-colors"
-          >
-            Preços
+            Explorar
           </Link>
           <Link
             href="/about"

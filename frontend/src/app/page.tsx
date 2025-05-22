@@ -6,6 +6,6 @@ export default function Home() {
     <main className="min-h-screen bg-gradient-to-br from-[#050224] via-[#0A0538] to-[#0F0842]">
       <Header />
       <Hero />
-    </main>
+    </main> 
   );
 }
