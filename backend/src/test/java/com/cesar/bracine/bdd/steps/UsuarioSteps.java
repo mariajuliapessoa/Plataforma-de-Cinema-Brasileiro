@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.Optional;
+import java.util.UUID;
 
 @CucumberContextConfiguration
 @SpringBootTest(classes = com.cesar.bracine.bdd.config.TestConfig.class)
@@ -21,7 +22,7 @@ public class UsuarioSteps {
 
     private final UsuarioService usuarioService;
     private String erro;
-    private Usuario usuario;
+    public Usuario usuario;
 
     public UsuarioSteps(UsuarioService usuarioService) {
         this.usuarioService = usuarioService;
@@ -33,7 +34,12 @@ public class UsuarioSteps {
 
     @When("ele fornece o nome {string}, nome de usuário {string}, email {string}, e senha {string}")
     public void ele_fornece_o_nome_nome_de_usuario_email_e_senha(String nome, String nomeUsuario, String email, String senha) {
-        usuario = usuarioService.criarUsuario(nome, nomeUsuario, TipoUsuario.USER,email, senha);
+        Optional<Usuario> existente = usuarioService.buscarUsuarioPorEmail(email);
+        if (existente.isPresent()) {
+            usuario = existente.get();
+        } else {
+            usuario = usuarioService.criarUsuario(nome, nomeUsuario, TipoUsuario.USER, email, senha);
+        }
     }
 
     @Then("o sistema deve criar o usuário com sucesso")
