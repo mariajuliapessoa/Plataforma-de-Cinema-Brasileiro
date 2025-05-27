@@ -5,7 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1edcf67e-711c-40c6-8d84-dc4b0627e602" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/backend/src/test/java/com/cesar/bracine/bdd/steps/AvaliacaoSteps.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/test/java/com/cesar/bracine/bdd/steps/ComentarioSteps.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/test/java/com/cesar/bracine/bdd/steps/DebateSteps.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/test/java/com/cesar/bracine/bdd/steps/DesafioSteps.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/test/java/com/cesar/bracine/bdd/steps/FilmeSteps.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/test/java/com/cesar/bracine/bdd/steps/NotificacaoSteps.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/test/resources/features/avaliacao.feature" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/test/resources/features/comentario.feature" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/test/resources/features/debate.feature" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/test/resources/features/desafio.feature" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/test/resources/features/filme.feature" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/test/resources/features/notificacao.feature" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/BracineApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/BracineApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/cesar/bracine/bdd/config/TestConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/cesar/bracine/bdd/config/TestConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/cesar/bracine/bdd/steps/UsuarioSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/cesar/bracine/bdd/steps/UsuarioSteps.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +76,7 @@
     &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;Spring Boot.BracineApplication.executor&quot;: &quot;Debug&quot;,
+    &quot;Spring Boot.BracineApplication.executor&quot;: &quot;Run&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
@@ -87,7 +102,7 @@
       <recent name="com.cesar.bracine" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.BracineApplication">
+  <component name="RunManager" selected="JUnit.CucumberTestRunner (1)">
     <configuration name="Feature: avaliacao_filmes" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
       <option name="FILE_PATH" value="$PROJECT_DIR$/backend/src/test/resources/features/avaliacao_filmes.feature" />
@@ -243,6 +258,9 @@
       <workItem from="1747741939037" duration="16763000" />
       <workItem from="1747776174685" duration="1069000" />
       <workItem from="1747857779984" duration="31000" />
+      <workItem from="1747869754832" duration="1027000" />
+      <workItem from="1747876240095" duration="481000" />
+      <workItem from="1748366885948" duration="6537000" />
     </task>
     <servers />
   </component>
