@@ -4,6 +4,7 @@ import com.cesar.bracine.domain.entities.Usuario;
 import com.cesar.bracine.domain.repositories.UsuarioRepository;
 import com.cesar.bracine.infrastructure.jpa.entities.UsuarioEntity;
 import com.cesar.bracine.infrastructure.jpa.repository.SpringUsuarioJpaRepository;
+import com.cesar.bracine.infrastructure.jpa.repository.template.RepositoryAbstratoImpl;
 import com.cesar.bracine.infrastructure.mappers.UsuarioMapper;
 import org.springframework.stereotype.Repository;
 
@@ -12,49 +13,36 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Repository
-public class UsuarioRepositoryImpl implements UsuarioRepository {
-
-    private final SpringUsuarioJpaRepository jpa;
+public class UsuarioRepositoryImpl
+        extends RepositoryAbstratoImpl<Usuario, UsuarioEntity, UUID, SpringUsuarioJpaRepository>
+        implements UsuarioRepository {
 
     public UsuarioRepositoryImpl(SpringUsuarioJpaRepository jpa) {
-        this.jpa = jpa;
+        super(jpa);
     }
 
     @Override
-    public void salvar(Usuario usuario) {
-        jpa.save(UsuarioMapper.toEntity(usuario));
-    }
-
-    @Override
-    public Optional<Usuario> buscarPorId(UUID id) {
-        Optional<UsuarioEntity> entityOptional = jpa.findById(id);
-
-        if (entityOptional.isEmpty()) {
-            System.out.println("Usuário com ID " + id + " não encontrado no banco."); // ou logger
-            return Optional.empty();
-        }
-
-        Usuario usuario = UsuarioMapper.toDomain(entityOptional.get());
-        return Optional.of(usuario);
+    protected void logEntityNotFound(UUID id) {
+        System.out.println("Usuário com ID " + id + " não encontrado no banco.");
     }
 
     @Override
     public Optional<Usuario> buscarPorEmail(String email) {
-        return jpa.findByEmail(email).map(UsuarioMapper::toDomain);
+        return jpaRepository.findByEmail(email).map(this::mapToDomain);
     }
 
     @Override
     public Optional<Usuario> buscarPorNomeUsuario(String nomeUsuario) {
-        return jpa.findByNomeUsuario(nomeUsuario).map(UsuarioMapper::toDomain);
+        return jpaRepository.findByNomeUsuario(nomeUsuario).map(this::mapToDomain);
     }
 
     @Override
-    public List<Usuario> listarTodos() {
-        return jpa.findAll().stream().map(UsuarioMapper::toDomain).toList();
+    protected UsuarioEntity mapToEntity(Usuario usuario) {
+        return UsuarioMapper.toEntity(usuario);
     }
 
     @Override
-    public void deletar(UUID id) {
-        jpa.deleteById(id);
+    protected Usuario mapToDomain(UsuarioEntity entity) {
+        return UsuarioMapper.toDomain(entity);
     }
 }

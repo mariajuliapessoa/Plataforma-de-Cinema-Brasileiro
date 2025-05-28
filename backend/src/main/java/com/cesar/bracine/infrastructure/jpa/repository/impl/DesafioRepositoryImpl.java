@@ -3,7 +3,9 @@ package com.cesar.bracine.infrastructure.jpa.repository.impl;
 import com.cesar.bracine.domain.entities.Desafio;
 import com.cesar.bracine.domain.entities.Usuario;
 import com.cesar.bracine.domain.repositories.DesafioRepository;
+import com.cesar.bracine.infrastructure.jpa.entities.DesafioEntity;
 import com.cesar.bracine.infrastructure.jpa.repository.SpringDesafioJpaRepository;
+import com.cesar.bracine.infrastructure.jpa.repository.template.RepositoryAbstratoImpl;
 import com.cesar.bracine.infrastructure.mappers.DesafioMapper;
 import org.springframework.stereotype.Repository;
 
@@ -12,40 +14,38 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Repository
-public class DesafioRepositoryImpl implements DesafioRepository {
-
-    private final SpringDesafioJpaRepository jpa;
+public class DesafioRepositoryImpl
+        extends RepositoryAbstratoImpl<Desafio, DesafioEntity, UUID, SpringDesafioJpaRepository>
+        implements DesafioRepository {
 
     public DesafioRepositoryImpl(SpringDesafioJpaRepository jpa) {
-        this.jpa = jpa;
+        super(jpa);
+    }
+
+    @Override
+    protected void logEntityNotFound(UUID id) {
+        System.out.println("Desafio com ID " + id + " não encontrado no banco.");
     }
 
     @Override
     public void salvar(Desafio desafio, Usuario usuario) {
-        jpa.save(DesafioMapper.toEntity(desafio, usuario));
-    }
-
-    @Override
-    public Optional<Desafio> buscarPorId(UUID id) {
-        return jpa.findById(id).map(DesafioMapper::toDomain);
-    }
-
-    @Override
-    public List<Desafio> listarTodos() {
-        return jpa.findAll().stream()
-                .map(DesafioMapper::toDomain)
-                .toList();
+        jpaRepository.save(DesafioMapper.toEntity(desafio, usuario));
     }
 
     @Override
     public List<Desafio> buscarPorUsuario(UUID id) {
-        return jpa.findAllByDestinatarioId(id)
+        return jpaRepository.findAllByDestinatarioId(id)
                 .stream()
-                .map(DesafioMapper::toDomain).toList();
+                .map(this::mapToDomain).toList();
     }
 
     @Override
-    public void remover(UUID id) {
-        jpa.deleteById(id);
+    protected DesafioEntity mapToEntity(Desafio desafio) {
+        return DesafioMapper.toEntity(desafio, null);
+    }
+
+    @Override
+    protected Desafio mapToDomain(DesafioEntity entity) {
+        return DesafioMapper.toDomain(entity);
     }
 }

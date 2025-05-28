@@ -76,6 +76,6 @@ public class UsuarioService {
         Usuario usuario = usuarioRepository.buscarPorId(id)
                 .orElseThrow(() -> new IllegalArgumentException("Usuário não encontrado"));
 
-        usuarioRepository.deletar(id);
+        usuarioRepository.remover(id);
     }
 }

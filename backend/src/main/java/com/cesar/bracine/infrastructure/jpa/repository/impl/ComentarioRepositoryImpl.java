@@ -6,6 +6,7 @@ import com.cesar.bracine.infrastructure.jpa.entities.ComentarioEntity;
 import com.cesar.bracine.infrastructure.jpa.entities.DebateEntity;
 import com.cesar.bracine.infrastructure.jpa.repository.SpringComentarioJpaRepository;
 import com.cesar.bracine.infrastructure.jpa.repository.SpringDebateJpaRepository;
+import com.cesar.bracine.infrastructure.jpa.repository.template.RepositoryAbstratoImpl;
 import com.cesar.bracine.infrastructure.mappers.ComentarioMapper;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Repository;
@@ -15,19 +16,20 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Repository
-public class ComentarioRepositoryImpl implements ComentarioRepository {
+public class ComentarioRepositoryImpl
+        extends RepositoryAbstratoImpl<Comentario, ComentarioEntity, UUID, SpringComentarioJpaRepository>
+        implements ComentarioRepository {
 
-    private final SpringComentarioJpaRepository jpaComentario;
     private final SpringDebateJpaRepository jpaDebate;
 
     public ComentarioRepositoryImpl(SpringComentarioJpaRepository jpa, SpringDebateJpaRepository jpaDebate) {
-        this.jpaComentario = jpa;
+        super(jpa);
         this.jpaDebate = jpaDebate;
     }
 
     @Override
     public void salvar(Comentario comentario) {
-        ComentarioEntity entity = ComentarioMapper.toEntity(comentario);
+        ComentarioEntity entity = mapToEntity(comentario);
 
         if (comentario.getDebate() != null) {
             UUID debateId = comentario.getDebate().getValue();
@@ -37,33 +39,28 @@ public class ComentarioRepositoryImpl implements ComentarioRepository {
             entity.setDebate(debateEntity);
         }
 
-        jpaComentario.save(entity);
+        jpaRepository.save(entity);
     }
-
-    @Override
-    public Optional<Comentario> buscarPorId(UUID id) {
-        return jpaComentario.findById(id).map(ComentarioMapper::toDomain);
-    }
-
 
     @Override
     public List<Comentario> buscarPorIdUsuario(UUID id) {
-        return jpaComentario.findAllByAutorId(id).stream()
-                .map(ComentarioMapper::toDomain)
+        return jpaRepository.findAllByAutorId(id).stream()
+                .map(this::mapToDomain)
                 .toList();
     }
 
     @Override
-    public List<Comentario> listarTodos() {
-        return jpaComentario.findAll()
-                .stream()
-                .map(ComentarioMapper::toDomain)
-                .toList();
+    protected ComentarioEntity mapToEntity(Comentario comentario) {
+        return ComentarioMapper.toEntity(comentario);
     }
 
     @Override
-    public void remover(UUID id) {
-        jpaComentario.deleteById(id);
+    protected Comentario mapToDomain(ComentarioEntity entity) {
+        return ComentarioMapper.toDomain(entity);
     }
 
+    @Override
+    protected void logEntityNotFound(UUID id) {
+        System.out.println("Comentário com ID " + id + " não encontrado no banco.");
+    }
 }

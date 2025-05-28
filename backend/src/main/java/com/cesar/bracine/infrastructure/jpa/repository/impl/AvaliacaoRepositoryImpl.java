@@ -2,42 +2,35 @@ package com.cesar.bracine.infrastructure.jpa.repository.impl;
 
 import com.cesar.bracine.domain.entities.Avaliacao;
 import com.cesar.bracine.domain.repositories.AvaliacaoRepository;
+import com.cesar.bracine.infrastructure.jpa.entities.AvaliacaoEntity;
 import com.cesar.bracine.infrastructure.jpa.repository.SpringAvaliacaoJpaRepository;
+import com.cesar.bracine.infrastructure.jpa.repository.template.RepositoryAbstratoImpl;
 import com.cesar.bracine.infrastructure.mappers.AvaliacaoMapper;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
 @Repository
-public class AvaliacaoRepositoryImpl implements AvaliacaoRepository {
-
-    private final SpringAvaliacaoJpaRepository jpa;
+public class AvaliacaoRepositoryImpl
+        extends RepositoryAbstratoImpl<Avaliacao, AvaliacaoEntity, UUID, SpringAvaliacaoJpaRepository>
+        implements AvaliacaoRepository {
 
     public AvaliacaoRepositoryImpl(SpringAvaliacaoJpaRepository jpa) {
-        this.jpa = jpa;
+        super(jpa);
     }
 
     @Override
-    public void salvar(Avaliacao avaliacao) {
-        jpa.save(AvaliacaoMapper.toEntity(avaliacao));
+    protected AvaliacaoEntity mapToEntity(Avaliacao avaliacao) {
+        return AvaliacaoMapper.toEntity(avaliacao);
     }
 
     @Override
-    public Optional<Avaliacao> buscarPorId(UUID id) {
-        return jpa.findById(id).map(AvaliacaoMapper::toDomain);
+    protected Avaliacao mapToDomain(AvaliacaoEntity entity) {
+        return AvaliacaoMapper.toDomain(entity);
     }
 
     @Override
-    public List<Avaliacao> listarTodos() {
-        return jpa.findAll().stream()
-                .map(AvaliacaoMapper::toDomain)
-                .toList();
-    }
-
-    @Override
-    public void remover(UUID id) {
-        jpa.deleteById(id);
+    protected void logEntityNotFound(UUID id) {
+        System.out.println("Avaliação com ID " + id + " não encontrada no banco.");
     }
 }
