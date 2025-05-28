@@ -6,13 +6,17 @@ import com.cesar.bracine.infrastructure.jpa.entities.FilmeEntity;
 import com.cesar.bracine.infrastructure.jpa.repository.SpringFilmeJpaRepository;
 import com.cesar.bracine.infrastructure.jpa.repository.template.RepositoryAbstratoImpl;
 import com.cesar.bracine.infrastructure.mappers.FilmeMapper;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Repository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Repository
 public class FilmeRepositoryImpl
@@ -40,6 +44,27 @@ public class FilmeRepositoryImpl
         } else {
             logger.info("Ignorado (já existe): {} ({})", filme.getTitulo(), filme.getAnoLancamento());
         }
+    }
+
+    @Override
+    public Page<Filme> listarPaginado(Pageable pageable) {
+        Page<FilmeEntity> entidadesPage = jpaRepository.findAll(pageable);
+
+        List<Filme> filmes = entidadesPage.getContent().stream()
+                .map(this::mapToDomain)
+                .collect(Collectors.toList());
+
+        return new PageImpl<>(filmes, pageable, entidadesPage.getTotalElements());
+    }
+
+    @Override
+    public List<Filme> listarTodos() {
+        // Limitar a 100 resultados temporariamente
+        return jpaRepository.findAll(PageRequest.of(0, 100))
+                .getContent()
+                .stream()
+                .map(this::mapToDomain)
+                .collect(Collectors.toList());
     }
 
     @Override

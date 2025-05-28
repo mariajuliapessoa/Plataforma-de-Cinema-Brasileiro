@@ -2,14 +2,15 @@ package com.cesar.bracine.presentation.controllers;
 
 import com.cesar.bracine.application.FilmeApplicationService;
 import com.cesar.bracine.domain.entities.Filme;
-import com.cesar.bracine.infrastructure.jpa.entities.FilmeEntity;
 import com.cesar.bracine.presentation.dtos.FilmeRequestDTO;
 import com.cesar.bracine.presentation.dtos.FilmeResponseDTO;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.PageRequest;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
 @RestController
@@ -37,12 +38,16 @@ public class FilmeController {
 
         return ResponseEntity.ok(toResponse(salvo));
     }
-
+    
     @GetMapping
-    public List<FilmeResponseDTO> listarFilmes() {
-        return filmeApplicationService.listarTodosFilmes().stream()
-                .map(this::toResponse)
-                .toList();
+    public Page<FilmeResponseDTO> listarFilmes(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "50") int size) {
+
+        Pageable pageable = PageRequest.of(page, size);
+        Page<Filme> filmesPage = filmeApplicationService.listarFilmesPaginados(pageable);
+
+        return filmesPage.map(this::toResponse);
     }
 
     @GetMapping("/{id}")

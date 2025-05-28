@@ -2,10 +2,12 @@ package com.cesar.bracine.application;
 
 import com.cesar.bracine.domain.entities.Filme;
 import com.cesar.bracine.domain.repositories.FilmeRepository;
-import com.cesar.bracine.infrastructure.tmdb.TMDBClient;
 import com.cesar.bracine.infrastructure.tmdb.TMDBOperations;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.time.Year;
@@ -33,6 +35,10 @@ public class FilmeApplicationService {
 
     public List<Filme> listarTodosFilmes() {
         return filmeRepository.listarTodos();
+    }
+
+    public Page<Filme> listarFilmesPaginados(Pageable pageable) {
+        return filmeRepository.listarPaginado(pageable);
     }
 
     public Optional<Filme> buscarPorId(UUID id) {
