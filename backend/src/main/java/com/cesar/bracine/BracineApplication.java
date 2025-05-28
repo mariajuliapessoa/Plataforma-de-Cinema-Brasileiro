@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class BracineApplication {
     public static void main(String[] args) {
         Dotenv dotenv = Dotenv.configure()
-                              .directory("./backend")
+                              .directory(".")
                               .load();
 
         dotenv.entries().forEach(entry ->

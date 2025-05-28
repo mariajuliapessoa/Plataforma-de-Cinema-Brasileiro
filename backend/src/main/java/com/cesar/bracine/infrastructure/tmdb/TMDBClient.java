@@ -1,6 +1,5 @@
 package com.cesar.bracine.infrastructure.tmdb;
 
-import com.cesar.bracine.application.FilmeApplicationService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.client.RestClientException;
@@ -11,12 +10,12 @@ import org.slf4j.LoggerFactory;
 import java.util.*;
 
 @Repository
-public class TMDBClient implements TMDBOperations  {
+public class TMDBClient implements TMDBOperations {
 
-    @Value("${TMDB_API_KEY}")
+    @Value("${tmdb.api.key}")  // ⚠️ troquei para minúsculo e padronizado
     private String apiKey;
-    private static final Logger logger = LoggerFactory.getLogger(TMDBClient.class);
 
+    private static final Logger logger = LoggerFactory.getLogger(TMDBClient.class);
     private final RestTemplate restTemplate;
 
     public TMDBClient(RestTemplate restTemplate) {

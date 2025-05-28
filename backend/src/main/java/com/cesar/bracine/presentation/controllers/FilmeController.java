@@ -14,6 +14,7 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/filmes")
+@CrossOrigin(origins = "http://localhost:3000")
 public class FilmeController {
 
     private final FilmeApplicationService filmeApplicationService;
