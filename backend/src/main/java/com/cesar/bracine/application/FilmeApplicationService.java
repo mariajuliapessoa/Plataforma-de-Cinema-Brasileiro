@@ -3,6 +3,7 @@ package com.cesar.bracine.application;
 import com.cesar.bracine.domain.entities.Filme;
 import com.cesar.bracine.domain.repositories.FilmeRepository;
 import com.cesar.bracine.infrastructure.tmdb.TMDBClient;
+import com.cesar.bracine.infrastructure.tmdb.TMDBOperations;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -17,10 +18,10 @@ public class FilmeApplicationService {
     private static final String BASE_IMAGE_URL = "https://image.tmdb.org/t/p/w500";
     private static final String PAIS_PADRAO = "Brasil";
 
-    private final TMDBClient tmdbClient;
+    private final TMDBOperations tmdbClient;
     private final FilmeRepository filmeRepository;
 
-    public FilmeApplicationService(TMDBClient tmdbClient, FilmeRepository filmeRepository) {
+    public FilmeApplicationService(TMDBOperations tmdbClient, FilmeRepository filmeRepository) {
         this.tmdbClient = tmdbClient;
         this.filmeRepository = filmeRepository;
     }

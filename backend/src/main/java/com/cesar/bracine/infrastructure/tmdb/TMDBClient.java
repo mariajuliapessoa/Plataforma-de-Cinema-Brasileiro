@@ -11,7 +11,7 @@ import org.slf4j.LoggerFactory;
 import java.util.*;
 
 @Repository
-public class TMDBClient {
+public class TMDBClient implements TMDBOperations  {
 
     @Value("${TMDB_API_KEY}")
     private String apiKey;
