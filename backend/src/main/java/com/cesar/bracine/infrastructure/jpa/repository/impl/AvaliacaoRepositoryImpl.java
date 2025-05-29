@@ -42,4 +42,12 @@ public class AvaliacaoRepositoryImpl
                 .map(AvaliacaoMapper::toDomain)
                 .toList();
     }
+
+    @Override
+    public List<Avaliacao> buscarPorIdUsuario(UUID id) {
+        return jpaRepository.findByAutorId(id)
+                .stream()
+                .map(AvaliacaoMapper::toDomain)
+                .toList();
+    }
 }

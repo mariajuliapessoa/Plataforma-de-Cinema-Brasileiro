@@ -15,6 +15,8 @@ public interface AvaliacaoRepository {
 
     List<Avaliacao> buscarPorIdFilme(UUID id);
 
+    List<Avaliacao> buscarPorIdUsuario(UUID id);
+
     // ListAll
     List<Avaliacao> listarTodos();
 

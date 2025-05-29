@@ -10,4 +10,5 @@ import java.util.UUID;
 @Repository
 public interface SpringAvaliacaoJpaRepository extends JpaRepository<AvaliacaoEntity, UUID> {
     List<AvaliacaoEntity> findByFilmeId(UUID filmeId);
+    List<AvaliacaoEntity> findByAutorId(UUID autorId);
 }

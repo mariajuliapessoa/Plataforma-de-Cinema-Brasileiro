@@ -53,6 +53,14 @@ public class AvaliacaoApplicationService {
         return avaliacaoService.listarPorFilmeId(filmeId);
     }
 
+    public List<Avaliacao> listarPorUsuario(UUID autorId) {
+        if (usuarioRepository.buscarPorId(autorId).isEmpty()) {
+            throw new IllegalArgumentException("Usuário não encontrado");
+        }
+
+        return avaliacaoService.listarPorUsuarioId(autorId);
+    }
+
     public List<Avaliacao> listarAvaliacoes() {
         return avaliacaoService.listarTodasAvaliacoes();
     }
