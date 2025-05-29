@@ -13,7 +13,7 @@ import { Slider } from "@/components/ui/slider";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Textarea } from "@/components/ui/textarea";
 
-export default function AvaliarForm({ filmeId, userId }: { filmeId: string, userId: string }) {
+export default function AvaliarForm({ filmeId, userId, setOpen }: { filmeId: string, userId: string, setOpen: (open: boolean) => void }) {
 
   const form = useForm<AvaliacaoCreateType>({
     resolver: zodResolver(AvaliacaoCreateSchema),
@@ -33,6 +33,7 @@ export default function AvaliarForm({ filmeId, userId }: { filmeId: string, user
     onSuccess: () => {
       toast.success('Avaliação enviada com sucesso!');
       form.reset();
+      setOpen(false);
     },
     onError: () => {
       toast.error('Erro ao enviar avaliação');
