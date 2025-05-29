@@ -6,11 +6,13 @@ import com.cesar.bracine.presentation.dtos.CriarDesafioRequestDTO;
 import com.cesar.bracine.presentation.dtos.DesafioResponseDTO;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.List;
 import java.util.UUID;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/api/desafios")
 public class DesafioController {
 
@@ -62,19 +64,37 @@ public class DesafioController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Desafio> buscarPorId(@PathVariable UUID id) {
+    public ResponseEntity<DesafioResponseDTO> buscarPorId(@PathVariable UUID id) {
         return desafioService.buscarPorId(id)
+                .map(this::toResponse)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 
     @GetMapping("/usuario/{usuarioId}")
-    public ResponseEntity<List<Desafio>> listarPorUsuario(@PathVariable UUID usuarioId) {
+    public ResponseEntity<List<DesafioResponseDTO>> listarPorUsuario(@PathVariable UUID usuarioId) {
         List<Desafio> desafiosUsuario = desafioService.buscarPorIdUsuario(usuarioId);
         if (desafiosUsuario.isEmpty()) {
             return ResponseEntity.noContent().build();
         }
-        return ResponseEntity.ok(desafiosUsuario);
+        List<DesafioResponseDTO> response = desafiosUsuario.stream()
+                .map(this::toResponse)
+                .toList();
+
+        return ResponseEntity.ok(response);
+    }
+
+    private DesafioResponseDTO toResponse(Desafio desafio) {
+        return new DesafioResponseDTO(
+                desafio.getId().getValue(),
+                desafio.getTitulo(),
+                desafio.getDescricao(),
+                desafio.getPontos(),
+                desafio.getDestinatario().getValue(),
+                desafio.isConcluido(),
+                desafio.getPrazo(),
+                desafio.getDataCriacao()
+        );
     }
 
     @PostMapping("/{id}/concluir")

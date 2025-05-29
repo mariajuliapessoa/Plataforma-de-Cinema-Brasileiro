@@ -6,11 +6,13 @@ import com.cesar.bracine.presentation.dtos.ComentarioRequestDTO;
 import com.cesar.bracine.presentation.dtos.ComentarioResponseDTO;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.List;
 import java.util.UUID;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/api/comentarios")
 public class ComentarioController {
 
@@ -56,19 +58,26 @@ public class ComentarioController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Comentario> buscarPorIdComentario(@PathVariable UUID id) {
+    public ResponseEntity<ComentarioResponseDTO> buscarPorIdComentario(@PathVariable UUID id) {
         return comentarioApplicationService.buscarPorId(id)
+                .map(ComentarioResponseDTO::fromDomain)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 
     @GetMapping("/usuario/{id}")
-    public ResponseEntity<List<Comentario>> buscarPorIdUsuario(@PathVariable UUID id) {
+    public ResponseEntity<List<ComentarioResponseDTO>> buscarPorIdUsuario(@PathVariable UUID id) {
         List<Comentario> comentarios = comentarioApplicationService.buscarPorIdUsuario(id);
+
         if (comentarios.isEmpty()) {
-            return ResponseEntity.noContent().build(); // ou notFound()
+            return ResponseEntity.noContent().build();
         }
-        return ResponseEntity.ok(comentarios);
+
+        List<ComentarioResponseDTO> dtos = comentarios.stream()
+                .map(ComentarioResponseDTO::fromDomain)
+                .toList();
+
+        return ResponseEntity.ok(dtos);
     }
 
     @DeleteMapping("/{id}")

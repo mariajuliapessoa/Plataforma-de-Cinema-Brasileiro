@@ -12,7 +12,7 @@ import java.util.*;
 @Repository
 public class TMDBClient implements TMDBOperations {
 
-    @Value("${tmdb.api.key}")  // ⚠️ troquei para minúsculo e padronizado
+    @Value("${TMDB_API_KEY}")
     private String apiKey;
 
     private static final Logger logger = LoggerFactory.getLogger(TMDBClient.class);
@@ -37,9 +37,20 @@ public class TMDBClient implements TMDBOperations {
                 .queryParam("page", pagina)
                 .build()
                 .toUriString();
-
+    
         try {
-            return restTemplate.getForObject(url, Map.class);
+            Map<String, Object> response = restTemplate.getForObject(url, Map.class);
+    
+            // Extração e modificação dos resultados
+            List<Map<String, Object>> results = (List<Map<String, Object>>) response.get("results");
+            if (results != null) {
+                for (Map<String, Object> filme : results) {
+                    filme.putIfAbsent("vote_average", 0.0);
+                    filme.putIfAbsent("overview", "Sinopse não disponível.");
+                }
+            }
+    
+            return response;
         } catch (RestClientException e) {
             throw new RuntimeException("Erro ao buscar filmes populares brasileiros do TMDB", e);
         }

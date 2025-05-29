@@ -2,6 +2,7 @@ package com.cesar.bracine;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import io.github.cdimascio.dotenv.Dotenv;
 
 @SpringBootApplication
 public class BracineApplication {
@@ -13,8 +14,6 @@ public class BracineApplication {
         dotenv.entries().forEach(entry ->
             System.setProperty(entry.getKey(), entry.getValue())
         );
-
-        // Agora inicia o Spring
         SpringApplication.run(BracineApplication.class, args);
     }
 }

@@ -39,5 +39,3 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-
-REACT_APP_TMDB_API_KEY=F76326dc15462f39110e6811b73b54fd

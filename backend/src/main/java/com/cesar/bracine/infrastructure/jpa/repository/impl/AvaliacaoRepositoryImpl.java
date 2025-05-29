@@ -8,6 +8,7 @@ import com.cesar.bracine.infrastructure.jpa.repository.template.RepositoryAbstra
 import com.cesar.bracine.infrastructure.mappers.AvaliacaoMapper;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.UUID;
 
 @Repository
@@ -32,5 +33,21 @@ public class AvaliacaoRepositoryImpl
     @Override
     protected void logEntityNotFound(UUID id) {
         System.out.println("Avaliação com ID " + id + " não encontrada no banco.");
+    }
+
+    @Override
+    public List<Avaliacao> buscarPorIdFilme(UUID id) {
+        return jpaRepository.findByFilmeId(id)
+                .stream()
+                .map(AvaliacaoMapper::toDomain)
+                .toList();
+    }
+
+    @Override
+    public List<Avaliacao> buscarPorIdUsuario(UUID id) {
+        return jpaRepository.findByAutorId(id)
+                .stream()
+                .map(AvaliacaoMapper::toDomain)
+                .toList();
     }
 }

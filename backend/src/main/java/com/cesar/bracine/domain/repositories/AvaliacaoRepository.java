@@ -13,9 +13,14 @@ public interface AvaliacaoRepository {
     // Read (buscar por ID)
     Optional<Avaliacao> buscarPorId(UUID id);
 
+    List<Avaliacao> buscarPorIdFilme(UUID id);
+
+    List<Avaliacao> buscarPorIdUsuario(UUID id);
+
     // ListAll
     List<Avaliacao> listarTodos();
 
     // Delete
     void remover(UUID id);
+
 }

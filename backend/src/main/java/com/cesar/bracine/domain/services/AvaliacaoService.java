@@ -31,6 +31,14 @@ public class AvaliacaoService {
         return avaliacaoRepository.listarTodos();
     }
 
+    public List<Avaliacao> listarPorFilmeId(UUID id) {
+        return avaliacaoRepository.buscarPorIdFilme(id);
+    }
+
+    public List<Avaliacao> listarPorUsuarioId(UUID id) {
+        return avaliacaoRepository.buscarPorIdUsuario(id);
+    }
+
     // Remover uma avaliação
     public void removerAvaliacao(UUID id) {
         avaliacaoRepository.remover(id);

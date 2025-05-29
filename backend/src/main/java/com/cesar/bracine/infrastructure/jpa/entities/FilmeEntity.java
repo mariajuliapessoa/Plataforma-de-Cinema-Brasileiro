@@ -25,8 +25,14 @@ public class FilmeEntity {
     @Column(nullable = false)
     private String diretor;
 
+    @Column(nullable = false, length = 1000)
+    private String sinopse;
+
     @Column(nullable = false)
     private int anoLancamento;
+
+    @Column(nullable = false)
+    private double avaliacao;
 
     @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "filme_generos", joinColumns = @JoinColumn(name = "filme_id"))

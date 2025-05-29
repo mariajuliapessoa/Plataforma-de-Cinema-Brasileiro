@@ -7,8 +7,9 @@ public record AvaliacaoResponseDTO(
         UUID id,
         String texto,
         int nota,
-        UUID autorNome,
-        UUID filmeTitulo,
+        UUID autorId,
+        String autorNome,
+        UUID filmeId,
         Instant dataCriacao
 ) {
 }

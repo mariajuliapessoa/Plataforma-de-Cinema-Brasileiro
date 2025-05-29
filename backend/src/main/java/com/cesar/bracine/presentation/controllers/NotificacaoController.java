@@ -6,11 +6,13 @@ import com.cesar.bracine.presentation.dtos.NotificacaoRequestDTO;
 import com.cesar.bracine.presentation.dtos.NotificacaoResponseDTO;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.List;
 import java.util.UUID;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/api/notificacoes")
 public class NotificacaoController {
 

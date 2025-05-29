@@ -14,7 +14,7 @@ public class Avaliacao extends Comentario {
     }
 
     private int validarNota(int nota) {
-        if (nota < 1 || nota > 5) throw new IllegalArgumentException("Nota deve ser entre 1 e 5");
+        if (nota < 1 || nota > 10) throw new IllegalArgumentException("Nota deve ser entre 1 e 10");
         return nota;
     }
 

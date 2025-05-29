@@ -25,7 +25,7 @@ public class FilmeSteps {
     @Given("um filme com titulo {string}, diretor {string}, ano {int}, generos {string}, país {string}, banner {string}")
     public void criarFilme(String titulo, String diretor, int ano, String generos, String pais, String banner) {
         List<String> listaGeneros = Arrays.asList(generos.split(","));
-        filmeSalvo = new Filme(null, titulo, diretor, ano, listaGeneros, pais, banner);
+        filmeSalvo = new Filme(null, titulo, diretor, null, ano, 0, listaGeneros, pais, banner);
     }
 
     @When("o filme for salvo")
