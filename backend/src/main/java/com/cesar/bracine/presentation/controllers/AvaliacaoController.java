@@ -1,6 +1,7 @@
 package com.cesar.bracine.presentation.controllers;
 
 import com.cesar.bracine.application.AvaliacaoApplicationService;
+import com.cesar.bracine.application.UsuarioApplicationService;
 import com.cesar.bracine.domain.entities.Avaliacao;
 import com.cesar.bracine.domain.valueobjects.ComentarioId;
 import com.cesar.bracine.domain.valueobjects.FilmeId;
@@ -20,9 +21,11 @@ import java.util.UUID;
 public class AvaliacaoController {
 
     private final AvaliacaoApplicationService avaliacaoService;
+    private final UsuarioApplicationService usuarioService;
 
-    public AvaliacaoController(AvaliacaoApplicationService avaliacaoService) {
+    public AvaliacaoController(AvaliacaoApplicationService avaliacaoService, UsuarioApplicationService usuarioService) {
         this.avaliacaoService = avaliacaoService;
+        this.usuarioService = usuarioService;
     }
 
     @PostMapping
@@ -34,11 +37,16 @@ public class AvaliacaoController {
                 new FilmeId(dto.filmeId()).getValue()
         );
 
+        String nomeUsuario = usuarioService.buscarPorId(dto.usuarioId())
+                .map(u -> u.getNome())
+                .orElse("Desconhecido");
+
         return ResponseEntity.ok(new AvaliacaoResponseDTO(
                 avaliacao.getId().getValue(),
                 avaliacao.getTexto(),
                 avaliacao.getNota(),
                 avaliacao.getAutor().getValue(),
+                nomeUsuario,
                 avaliacao.getFilme().getValue(),
                 avaliacao.getDataCriacao()
         ));
@@ -52,11 +60,14 @@ public class AvaliacaoController {
                         a.getTexto(),
                         a.getNota(),
                         a.getAutor().getValue(),
+                        usuarioService.buscarPorId(a.getAutor().getValue())
+                                .map(u -> u.getNome()).orElse("Desconhecido"),
                         a.getFilme().getValue(),
                         a.getDataCriacao()
                 ))
                 .toList();
     }
+
 
     @GetMapping("/{id}")
     public ResponseEntity<AvaliacaoResponseDTO> buscarPorId(@PathVariable UUID id) {
@@ -66,6 +77,8 @@ public class AvaliacaoController {
                         a.getTexto(),
                         a.getNota(),
                         a.getAutor().getValue(),
+                        usuarioService.buscarPorId(a.getAutor().getValue())
+                                .map(u -> u.getNome()).orElse("Desconhecido"),
                         a.getFilme().getValue(),
                         a.getDataCriacao()
                 ))
@@ -87,6 +100,8 @@ public class AvaliacaoController {
                         a.getTexto(),
                         a.getNota(),
                         a.getAutor().getValue(),
+                        usuarioService.buscarPorId(a.getAutor().getValue())
+                                .map(u -> u.getNome()).orElse("Desconhecido"),
                         a.getFilme().getValue(),
                         a.getDataCriacao()
                 ))
