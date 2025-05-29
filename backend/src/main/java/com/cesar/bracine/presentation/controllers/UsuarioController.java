@@ -2,9 +2,11 @@ package com.cesar.bracine.presentation.controllers;
 
 import com.cesar.bracine.application.UsuarioApplicationService;
 import com.cesar.bracine.domain.entities.Usuario;
+import com.cesar.bracine.infrastructure.jpa.entities.UsuarioEntity;
 import com.cesar.bracine.presentation.dtos.UsuarioRegisterRequestDTO;
 import com.cesar.bracine.presentation.dtos.UsuarioResponseDTO;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
@@ -21,6 +23,21 @@ public class UsuarioController {
 
     public UsuarioController(UsuarioApplicationService usuarioService) {
         this.usuarioService = usuarioService;
+    }
+
+    @GetMapping("/me")
+    public ResponseEntity<UsuarioResponseDTO> getUsuarioAtual() {
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+        if (principal instanceof UsuarioEntity usuarioAutenticado) {
+            UUID id = usuarioAutenticado.getId();
+
+            return usuarioService.buscarPorId(id)
+                    .map(usuario -> ResponseEntity.ok(new UsuarioResponseDTO(usuario)))
+                    .orElse(ResponseEntity.notFound().build());
+        }
+
+        return ResponseEntity.status(401).build();
     }
 
     @PostMapping
