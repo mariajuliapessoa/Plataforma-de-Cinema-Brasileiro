@@ -6,11 +6,13 @@ import com.cesar.bracine.presentation.dtos.CriarDesafioRequestDTO;
 import com.cesar.bracine.presentation.dtos.DesafioResponseDTO;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.List;
 import java.util.UUID;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/api/desafios")
 public class DesafioController {
 

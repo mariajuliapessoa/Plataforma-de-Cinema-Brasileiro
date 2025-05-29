@@ -6,11 +6,13 @@ import com.cesar.bracine.presentation.dtos.ComentarioRequestDTO;
 import com.cesar.bracine.presentation.dtos.ComentarioResponseDTO;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.List;
 import java.util.UUID;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/api/comentarios")
 public class ComentarioController {
 

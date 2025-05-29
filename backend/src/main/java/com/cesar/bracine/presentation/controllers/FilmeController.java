@@ -9,13 +9,14 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.List;
 import java.util.UUID;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/api/filmes")
-@CrossOrigin(origins = "http://localhost:3000")
 public class FilmeController {
 
     private final FilmeApplicationService filmeApplicationService;

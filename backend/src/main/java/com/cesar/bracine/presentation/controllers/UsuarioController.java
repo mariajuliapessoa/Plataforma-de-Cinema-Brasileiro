@@ -6,12 +6,14 @@ import com.cesar.bracine.presentation.dtos.UsuarioRegisterRequestDTO;
 import com.cesar.bracine.presentation.dtos.UsuarioResponseDTO;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/api/usuarios")
 public class UsuarioController {
 

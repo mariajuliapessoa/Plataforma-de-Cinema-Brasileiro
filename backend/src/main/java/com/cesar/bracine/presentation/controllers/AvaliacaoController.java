@@ -9,11 +9,13 @@ import com.cesar.bracine.presentation.dtos.AvaliacaoRequestDTO;
 import com.cesar.bracine.presentation.dtos.AvaliacaoResponseDTO;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.List;
 import java.util.UUID;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/api/avaliacoes")
 public class AvaliacaoController {
 
