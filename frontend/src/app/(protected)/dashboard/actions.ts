@@ -5,7 +5,7 @@ export const pegarFilmes = async () => {
   const cookie = await cookies();
   const token = cookie.get("token")?.value;
 
-  const response = await api(token).get("/filmes?page=0&size=10");
+  const response = await api(token).get("/filmes?page=0&size=30");
 
   return response?.data;
 };

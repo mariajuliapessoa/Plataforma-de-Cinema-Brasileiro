@@ -3,49 +3,49 @@ import {
   InfoIcon,
   HelpCircleIcon,
   HomeIcon,
+  FilmIcon,
+  StarIcon,
+  UsersIcon,
+  BookmarkIcon,
+  ThumbsUpIcon,
+  TicketIcon,
 } from "lucide-react";
 
 export const config = {
   project: {
-    name: "Campanhas",
+    name: "Bracine",
     description:
-      "Plataforma para você criar e gerenciar suas campanhas com segurança e praticidade",
-    prices: [
+      "Sua plataforma de streaming dedicada ao cinema brasileiro, com acesso gratuito aos melhores filmes nacionais",
+    engagement: [
       {
-        title: "Plano Básico",
+        title: "Explorador",
         description:
-          "Plano ideal para quem deseja criar e gerenciar campanhas com segurança e praticidade",
-        monthlyPrice: 10,
-        yearlyPrice: 100,
+          "Descubra o melhor do cinema brasileiro com acesso ilimitado ao nosso catálogo",
         features: [
-          "100 campanhas",
-          "1000000 de visualizações",
-          "1000000 de cliques",
+          "Acesso a todos os filmes",
+          "Recomendações personalizadas",
+          "Participação na comunidade",
         ],
       },
       {
-        title: "Plano Pro",
+        title: "Crítico",
         description:
-          "Plano ideal para quem deseja criar e gerenciar campanhas com segurança e praticidade",
-        monthlyPrice: 20,
-        yearlyPrice: 200,
+          "Participe ativamente da comunidade cinematográfica brasileira avaliando e comentando filmes",
         features: [
-          "1000 campanhas",
-          "1000000 de visualizações",
-          "1000000 de cliques",
+          "Todas as vantagens do Explorador",
+          "Publicação de avaliações detalhadas",
+          "Participação em discussões exclusivas",
         ],
         recommended: true,
       },
       {
-        title: "Plano Enterprise",
+        title: "Cinéfilo",
         description:
-          "Plano ideal para quem deseja criar e gerenciar campanhas com segurança e praticidade",
-        monthlyPrice: 30,
-        yearlyPrice: 300,
+          "Torne-se um verdadeiro conhecedor do cinema nacional com acesso a conteúdos exclusivos",
         features: [
-          "10000 campanhas",
-          "10000000 de visualizações",
-          "10000000 de cliques",
+          "Todas as vantagens do Crítico",
+          "Notificações sobre lançamentos",
+          "Acesso a documentários exclusivos sobre a produção nacional",
         ],
       },
     ],
@@ -54,9 +54,14 @@ export const config = {
     navigation: {
       navbarLinks: [
         {
-          icon: CreditCardIcon,
-          label: "Preços",
-          href: "/pricing",
+          icon: FilmIcon,
+          label: "Catálogo",
+          href: "/catalog",
+        },
+        {
+          icon: StarIcon,
+          label: "Destaques",
+          href: "/featured",
         },
         {
           icon: InfoIcon,
@@ -66,28 +71,28 @@ export const config = {
         {
           icon: HelpCircleIcon,
           label: "Comunidade",
-          href: "/blog",
+          href: "/community",
         },
       ],
       footerSections: [
         {
-          title: "Páginas",
+          title: "Navegação",
           links: [
             {
               label: "Início",
               href: "/",
             },
             {
-              label: "Preços  ",
-              href: "/pricing",
+              label: "Catálogo",
+              href: "/catalog",
             },
             {
-              label: "Sobre",
-              href: "/about",
+              label: "Destaques",
+              href: "/featured",
             },
             {
-              label: "Comunidade",
-              href: "/blog",
+              label: "Diretores",
+              href: "/directors",
             },
             {
               label: "Termos de uso",
@@ -100,15 +105,19 @@ export const config = {
           ],
         },
         {
-          title: "Ajuda",
+          title: "Suporte",
           links: [
             {
               label: "Central de ajuda",
               href: "/support",
             },
             {
-              label: "Dúvidas frequentes",
+              label: "Perguntas frequentes",
               href: "/faq",
+            },
+            {
+              label: "Contato",
+              href: "/contact",
             },
           ],
         },
@@ -116,16 +125,16 @@ export const config = {
           title: "Redes sociais",
           links: [
             {
-              label: "Facebook",
-              href: "/facebook",
-            },
-            {
               label: "Instagram",
-              href: "/instagram",
+              href: "https://instagram.com/bracine",
             },
             {
               label: "Twitter",
-              href: "/twitter",
+              href: "https://twitter.com/bracine",
+            },
+            {
+              label: "YouTube",
+              href: "https://youtube.com/bracine",
             },
           ],
         },
@@ -137,9 +146,14 @@ export const config = {
           href: "/",
         },
         {
-          icon: CreditCardIcon,
-          label: "Preços",
-          href: "/pricing",
+          icon: FilmIcon,
+          label: "Catálogo",
+          href: "/catalog",
+        },
+        {
+          icon: StarIcon,
+          label: "Destaques",
+          href: "/featured",
         },
         {
           icon: InfoIcon,
@@ -149,149 +163,161 @@ export const config = {
         {
           icon: HelpCircleIcon,
           label: "Comunidade",
-          href: "/blog",
+          href: "/community",
         },
       ],
     },
     hero: {
-      title: "Love what you do and make money too",
+      title: "Descubra o melhor do cinema brasileiro",
       description:
-        "Join all types of creators getting donations, memberships and sales from their fans!",
+        "Acesso gratuito a filmes nacionais de todos os gêneros e épocas, desde clássicos até produções contemporâneas",
       image: {
-        src: "/hero.png",
-        alt: "Hero image",
-        text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.",
+        src: "https://images.pexels.com/photos/7991579/pexels-photo-7991579.jpeg",
+        alt: "Cinema brasileiro em destaque",
+        text: "Seu portal para a rica cultura cinematográfica brasileira.",
       },
       button: {
-        label: "Crie sua conta agora!",
-        href: "/pricing",
+        label: "Explorar filmes",
+        href: "/catalog",
       },
     },
     faq: {
       title: "Perguntas frequentes",
       description:
-        "Veja as perguntas frequentes sobre o sistema e como ele funciona",
+        "Tire suas dúvidas sobre o Bracine e como aproveitar ao máximo nossa plataforma",
       items: [
         {
-          question: "Como funciona o sistema?",
+          question: "O Bracine é realmente gratuito?",
           answer:
-            "O sistema funciona de forma simples e intuitiva, você pode criar campanhas, gerenciar campanhas e visualizar campanhas.",
+            "Sim! O Bracine é uma plataforma totalmente gratuita dedicada à divulgação e valorização do cinema brasileiro.",
         },
         {
-          question: "Como funciona o sistema?",
+          question: "Como posso avaliar os filmes que assisti?",
           answer:
-            "O sistema funciona de forma simples e intuitiva, você pode criar campanhas, gerenciar campanhas e visualizar campanhas.",
+            "Após criar sua conta, você pode deixar avaliações e comentários em todos os filmes disponíveis na plataforma.",
         },
         {
-          question: "Como funciona o sistema?",
+          question: "Com qual frequência novos filmes são adicionados?",
           answer:
-            "O sistema funciona de forma simples e intuitiva, você pode criar campanhas, gerenciar campanhas e visualizar campanhas.",
+            "Atualizamos nosso catálogo semanalmente com novas produções nacionais, desde clássicos restaurados até lançamentos recentes.",
         },
         {
-          question: "Como funciona o sistema?",
+          question: "Posso assistir aos filmes em dispositivos móveis?",
           answer:
-            "O sistema funciona de forma simples e intuitiva, você pode criar campanhas, gerenciar campanhas e visualizar campanhas.",
+            "Sim, o Bracine é responsivo e funciona em qualquer dispositivo com acesso à internet, incluindo smartphones, tablets, computadores e smart TVs.",
         },
         {
-          question: "Como funciona o sistema?",
+          question: "Como posso sugerir um filme para o catálogo?",
           answer:
-            "O sistema funciona de forma simples e intuitiva, você pode criar campanhas, gerenciar campanhas e visualizar campanhas.",
+            "Você pode enviar sugestões através da seção 'Contato' ou participar ativamente na comunidade onde realizamos enquetes periódicas.",
         },
       ],
     },
     bento: {
-      title: "Build the perfect customer-facing AI agent",
+      title: "Explore o universo do cinema brasileiro",
       description:
-        "Chatbase gives you all the tools you need to train your perfect AI agent and connect it to your systems.",
+        "Descubra filmes de todos os gêneros, épocas e regiões do Brasil em nossa plataforma.",
       items: [
         {
-          title: "Como criar uma campanha",
+          title: "Cinema Novo",
           description:
-            "Aprenda a criar uma campanha de forma simples e intuitiva",
-          href: "/blog/como-criar-uma-campanha",
-          image: "/ocean.png",
+            "Explore o movimento que revolucionou o cinema brasileiro nos anos 60 e 70",
+          href: "/category/cinema-novo",
+          image: "https://images.pexels.com/photos/7234213/pexels-photo-7234213.jpeg",
         },
         {
-          title: "Como criar uma campanha",
+          title: "Documentários Nacionais",
           description:
-            "Aprenda a criar uma campanha de forma simples e intuitiva",
-          href: "/blog/como-criar-uma-campanha",
-          image: "/ocean.png",
+            "Conheça a realidade brasileira através de documentários premiados",
+          href: "/category/documentarios",
+          image: "https://images.pexels.com/photos/3945313/pexels-photo-3945313.jpeg",
         },
         {
-          title: "Como criar uma campanha",
+          title: "Comédias Brasileiras",
           description:
-            "Aprenda a criar uma campanha de forma simples e intuitiva",
-          href: "/blog/como-criar-uma-campanha",
-          image: "/ocean.png",
+            "Divirta-se com as melhores comédias produzidas no Brasil",
+          href: "/category/comedias",
+          image: "https://images.pexels.com/photos/7991438/pexels-photo-7991438.jpeg",
         },
         {
-          title: "Como criar uma campanha",
+          title: "Cinema Contemporâneo",
           description:
-            "Aprenda a criar uma campanha de forma simples e intuitiva",
-          href: "/blog/como-criar-uma-campanha",
-          image: "/ocean.png",
+            "Descubra as novas vozes e tendências do cinema nacional atual",
+          href: "/category/contemporaneo",
+          image: "https://images.pexels.com/photos/7991160/pexels-photo-7991160.jpeg",
         },
       ],
     },
     cta: {
-      title: "Crie sua campanha agora",
-      description: "Crie sua campanha de forma simples e intuitiva",
+      title: "Junte-se à comunidade Bracine",
+      description: "Participe de discussões, avalie filmes e compartilhe suas opiniões sobre o cinema brasileiro",
       button: {
-        label: "Criar campanha",
-        href: "/pricing",
+        label: "Criar conta gratuita",
+        href: "/register",
       },
     },
     blog: {
-      title: "Últimas atualizações",
-      description: "Veja as últimas notícias e dicas do nossa comunidade",
+      title: "Notícias e Artigos",
+      description: "Fique por dentro das novidades do cinema brasileiro e análises exclusivas",
     },
     pricing: {
-      title: "Planos",
-      description: "Veja os planos disponíveis para você",
+      title: "Formas de Participação",
+      description: "Escolha como você deseja participar da comunidade Bracine",
     },
     hiw: {
-      title: "Como funciona o sistema?",
-      description: "Veja como funciona o sistema e como ele funciona",
+      title: "Como funciona o Bracine?",
+      description: "Descubra como aproveitar ao máximo a nossa plataforma de cinema brasileiro",
       items: [
         {
-          title: "Build & deploy your agent",
+          title: "Explore o catálogo",
           description:
-            "Train an agent on your business data, configure the actions it can take, then deploy it for your customers.",
-          image: "/bg.jpg",
+            "Navegue por nossa extensa coleção de filmes brasileiros organizados por gênero, diretor, época e região",
+          image: "https://images.pexels.com/photos/7991579/pexels-photo-7991579.jpeg",
         },
         {
-          title: "Agent solves your customers' problems ",
+          title: "Assista e avalie",
           description:
-            "The agent will answer questions and access external systems to gather data and take actions.",
-          image: "/hero.png",
+            "Assista aos filmes gratuitamente e compartilhe sua opinião através de avaliações e comentários",
+          image: "https://images.pexels.com/photos/7991631/pexels-photo-7991631.jpeg",
         },
         {
-          title: "Refine & optimize",
-          description: "This ensures your agent is improving over time.",
-          image: "/ocean.png",
+          title: "Participe da comunidade",
+          description: "Interaja com outros amantes do cinema brasileiro em discussões e eventos online",
+          image: "https://images.pexels.com/photos/8107191/pexels-photo-8107191.jpeg",
         },
       ],
     },
     login: {
-      title: "Bem-vindo de volta!",
-      description: "Insira suas informações abaixo para entrar na sua conta",
+      title: "Bem-vindo de volta ao Bracine!",
+      description: "Entre na sua conta para continuar explorando o melhor do cinema brasileiro",
     },
     register: {
-      title: "Crie sua conta",
-      description: "Insira suas informações abaixo para criar uma conta",
+      title: "Junte-se ao Bracine",
+      description: "Crie sua conta gratuita e tenha acesso ao melhor do cinema brasileiro",
     },
   },
   protected: {
     navigation: {
       navbarLinks: [
         {
+          icon: FilmIcon,
           label: "Filmes",
           href: "/dashboard",
         },
         {
+          icon: StarIcon,
           label: "Avaliações",
           href: "/dashboard/avaliacoes",
+        },
+        {
+          icon: BookmarkIcon,
+          label: "Minha Lista",
+          href: "/dashboard/lista",
+        },
+        {
+          icon: ThumbsUpIcon,
+          label: "Recomendações",
+          href: "/dashboard/recomendacoes",
         },
       ],
     },
