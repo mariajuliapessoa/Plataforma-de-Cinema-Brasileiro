@@ -73,6 +73,29 @@ public class AvaliacaoController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+    @GetMapping("/filme/{filmeId}")
+    public ResponseEntity<List<AvaliacaoResponseDTO>> buscarPorFilme(@PathVariable UUID filmeId) {
+        List<Avaliacao> avaliacoes = avaliacaoService.listarPorFilme(filmeId);
+
+        if (avaliacoes.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
+
+        List<AvaliacaoResponseDTO> dtos = avaliacoes.stream()
+                .map(a -> new AvaliacaoResponseDTO(
+                        a.getId().getValue(),
+                        a.getTexto(),
+                        a.getNota(),
+                        a.getAutor().getValue(),
+                        a.getFilme().getValue(),
+                        a.getDataCriacao()
+                ))
+                .toList();
+
+        return ResponseEntity.ok(dtos);
+    }
+
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> remover(@PathVariable UUID id) {
         avaliacaoService.remover(new ComentarioId(id).getValue());

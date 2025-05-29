@@ -6,9 +6,17 @@
   <component name="ChangeListManager">
     <list default="true" id="1edcf67e-711c-40c6-8d84-dc4b0627e602" name="Changes" comment="feat: implementação do padrão template method">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/tmdb/TMDBClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/tmdb/TMDBClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/util/JwtUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/util/JwtUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/BracineApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/BracineApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/application/AvaliacaoApplicationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/application/AvaliacaoApplicationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/domain/repositories/AvaliacaoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/domain/repositories/AvaliacaoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/domain/services/AvaliacaoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/domain/services/AvaliacaoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/jpa/repository/SpringAvaliacaoJpaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/jpa/repository/SpringAvaliacaoJpaRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/jpa/repository/impl/AvaliacaoRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/jpa/repository/impl/AvaliacaoRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/presentation/controllers/AvaliacaoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/presentation/controllers/AvaliacaoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/presentation/controllers/ComentarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/presentation/controllers/ComentarioController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/presentation/controllers/DesafioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/presentation/controllers/DesafioController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/presentation/dtos/ComentarioResponseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/presentation/dtos/ComentarioResponseDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/presentation/dtos/DesafioResponseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/presentation/dtos/DesafioResponseDTO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -264,16 +272,5 @@
     <MESSAGE value="feat: implementando padrão proxy" />
     <MESSAGE value="feat: implementação do padrão template method" />
     <option name="LAST_COMMIT_MESSAGE" value="feat: implementação do padrão template method" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/presentation/controllers/ComentarioController.java</url>
-          <line>66</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
