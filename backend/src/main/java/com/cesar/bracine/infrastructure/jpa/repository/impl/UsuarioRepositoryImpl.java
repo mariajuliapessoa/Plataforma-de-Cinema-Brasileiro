@@ -26,6 +26,10 @@ public class UsuarioRepositoryImpl
         System.out.println("Usuário com ID " + id + " não encontrado no banco.");
     }
 
+    public void salvar(Usuario usuario) {
+        jpaRepository.save(UsuarioMapper.toEntity(usuario));
+    }
+
     @Override
     public Optional<Usuario> buscarPorEmail(String email) {
         return jpaRepository.findByEmail(email).map(this::mapToDomain);

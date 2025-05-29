@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1edcf67e-711c-40c6-8d84-dc4b0627e602" name="Changes" comment="feat: implementação do padrão template method" />
+    <list default="true" id="1edcf67e-711c-40c6-8d84-dc4b0627e602" name="Changes" comment="feat: implementação do padrão template method">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/jpa/repository/impl/UsuarioRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/jpa/repository/impl/UsuarioRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/presentation/controllers/UsuarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/presentation/controllers/UsuarioController.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -205,6 +209,14 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.26053.27" />
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.26053.27" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -231,6 +243,9 @@
       <workItem from="1747869754832" duration="1027000" />
       <workItem from="1747876240095" duration="481000" />
       <workItem from="1748366885948" duration="6537000" />
+      <workItem from="1748464508043" duration="6682000" />
+      <workItem from="1748485553073" duration="1521000" />
+      <workItem from="1748487083666" duration="309000" />
     </task>
     <task id="LOCAL-00001" summary="feat: implementando padrão proxy">
       <option name="closed" value="true" />
