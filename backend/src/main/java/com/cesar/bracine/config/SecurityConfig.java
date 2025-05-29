@@ -61,9 +61,4 @@ public class SecurityConfig {
     public JwtRequestFilter jwtRequestFilter(JwtUtil jwtUtil, UserDetailsService userDetailsService) {
         return new JwtRequestFilter(jwtUtil, userDetailsService);
     }
-
-    @Bean
-    public RestTemplate restTemplate() {
-        return new RestTemplate();
-    }
 }

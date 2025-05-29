@@ -25,7 +25,7 @@ public class FilmeEntity {
     @Column(nullable = false)
     private String diretor;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 1000)
     private String sinopse;
 
     @Column(nullable = false)

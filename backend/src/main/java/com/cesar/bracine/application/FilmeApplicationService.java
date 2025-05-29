@@ -1,5 +1,6 @@
 package com.cesar.bracine.application;
 
+import com.cesar.bracine.application.tmdbtransaction.FilmeTransactionalSaver;
 import com.cesar.bracine.domain.entities.Filme;
 import com.cesar.bracine.domain.repositories.FilmeRepository;
 import com.cesar.bracine.infrastructure.tmdb.TMDBOperations;
@@ -8,6 +9,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.Year;
 import java.util.*;
@@ -19,10 +22,12 @@ public class FilmeApplicationService {
     private static final String BASE_IMAGE_URL = "https://image.tmdb.org/t/p/w500";
     private static final String PAIS_PADRAO = "Brasil";
 
+    private final FilmeTransactionalSaver transactionalSaver;
     private final TMDBOperations tmdbClient;
     private final FilmeRepository filmeRepository;
 
-    public FilmeApplicationService(TMDBOperations tmdbClient, FilmeRepository filmeRepository) {
+    public FilmeApplicationService(FilmeTransactionalSaver transactionalSaver, TMDBOperations tmdbClient, FilmeRepository filmeRepository) {
+        this.transactionalSaver = transactionalSaver;
         this.tmdbClient = tmdbClient;
         this.filmeRepository = filmeRepository;
     }
@@ -49,30 +54,32 @@ public class FilmeApplicationService {
     }
 
     // Importação do TMDB
+    @Transactional(propagation = Propagation.NOT_SUPPORTED)
     public List<Filme> importarFilmesBrasileiros() {
-        try {
-            Map<Integer, String> mapaGeneros = tmdbClient.buscarMapaGeneros();
-            if (mapaGeneros.isEmpty()) {
-                logger.warn("Nenhum gênero encontrado na API do TMDB");
-                return Collections.emptyList();
+        List<Filme> filmesSalvos = new ArrayList<>();
+
+        Map<Integer, String> mapaGeneros = tmdbClient.buscarMapaGeneros();
+
+        for (int pagina = 1; pagina <= 10; pagina++) {
+            Map<String, Object> resultados = tmdbClient.buscarFilmesPopularesBrasileiros(pagina);
+
+            List<Map<String, Object>> filmes = (List<Map<String, Object>>) resultados.get("results");
+
+            for (Map<String, Object> json : filmes) {
+                Optional<Filme> optionalFilme = processarFilme(json, mapaGeneros);
+
+                optionalFilme.ifPresent(filme -> {
+                    try {
+                        transactionalSaver.salvarFilme(filme); // SALVA UM POR UM COM TRANSAÇÃO CURTA
+                        filmesSalvos.add(filme);
+                    } catch (Exception e) {
+                        logger.warn("Erro ao salvar filme '{}': {}", filme.getTitulo(), e.getMessage());
+                    }
+                });
             }
-
-            List<Filme> filmesImportados = new ArrayList<>();
-            int pagina = 1;
-            int totalPaginas = 1;
-
-            do {
-                Map<String, Object> resposta = tmdbClient.buscarFilmesPopularesBrasileiros(pagina);
-                totalPaginas = (int) resposta.getOrDefault("total_pages", 1);
-                filmesImportados.addAll(processarPaginaDeFilmes(resposta, mapaGeneros));
-                pagina++;
-            } while (pagina <= totalPaginas);
-
-            return filmesImportados;
-        } catch (Exception e) {
-            logger.error("Falha ao importar filmes brasileiros", e);
-            return Collections.emptyList();
         }
+
+        return filmesSalvos;
     }
     
     @SuppressWarnings("unchecked")

@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.List;
 import java.util.UUID;
@@ -35,14 +34,13 @@ public class FilmeController {
                 request.avaliacao(),
                 request.generos(),
                 request.paisOrigem(),
-                request.bannerUrl()
-        );
+                request.bannerUrl());
 
         Filme salvo = filmeApplicationService.salvarFilme(filme);
 
         return ResponseEntity.ok(toResponse(salvo));
     }
-    
+
     @GetMapping
     public Page<FilmeResponseDTO> listarFilmes(
             @RequestParam(defaultValue = "0") int page,
@@ -55,9 +53,9 @@ public class FilmeController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Filme> buscarFilmePorId(@PathVariable UUID id) {
+    public ResponseEntity<FilmeResponseDTO> buscarFilmePorId(@PathVariable UUID id) {
         return filmeApplicationService.buscarPorId(id)
-                .map(ResponseEntity::ok)
+                .map(filme -> ResponseEntity.ok(toResponse(filme)))
                 .orElse(ResponseEntity.notFound().build());
     }
 
@@ -85,7 +83,6 @@ public class FilmeController {
                 filme.getAvaliacao(),
                 filme.getGeneros(),
                 filme.getPaisOrigem(),
-                filme.getBannerUrl()
-        );
+                filme.getBannerUrl());
     }
 }
