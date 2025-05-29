@@ -4,7 +4,9 @@ export const AvaliacaoSchema = z.object({
   id: z.string(),
   texto: z.string(),
   nota: z.number(),
+  autorId: z.string(),
   autorNome: z.string(),
+  filmeId: z.string(),
   filmeTitulo: z.string(),
   dataCriacao: z.string(),
 });

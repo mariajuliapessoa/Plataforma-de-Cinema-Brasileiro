@@ -36,7 +36,8 @@ const Avaliacoes = ({ avaliacoes }: { avaliacoes: AvaliacaoType[] }) => {
 const Avaliacao = ({ avaliacao }: { avaliacao: AvaliacaoType }) => {
   return (
     <div key={avaliacao.id} className="border rounded-md p-2">
-      <p>{avaliacao.texto}</p>
+      <p>Usuário: {avaliacao.autorNome}</p>
+      <p>Comentário: {avaliacao.texto}</p>
       <p>Nota: {avaliacao.nota}</p>
       <p>Data: {new Date(avaliacao.dataCriacao).toLocaleDateString()}</p>
     </div>

@@ -7,7 +7,5 @@ export const pegarFilmes = async () => {
 
   const response = await api(token).get("/filmes?page=0&size=10");
 
-  console.log(response?.data);
-
   return response?.data;
 };

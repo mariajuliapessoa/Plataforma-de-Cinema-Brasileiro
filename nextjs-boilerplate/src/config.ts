@@ -289,6 +289,10 @@ export const config = {
           label: "Filmes",
           href: "/dashboard",
         },
+        {
+          label: "Avaliações",
+          href: "/dashboard/avaliacoes",
+        },
       ],
     },
   },
