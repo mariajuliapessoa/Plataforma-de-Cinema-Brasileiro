@@ -7,7 +7,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.time.Year;
@@ -75,7 +74,8 @@ public class FilmeApplicationService {
             return Collections.emptyList();
         }
     }
-
+    
+    @SuppressWarnings("unchecked")
     private List<Filme> processarPaginaDeFilmes(Map<String, Object> resposta, Map<Integer, String> mapaGeneros) {
         List<Map<String, Object>> resultados = Optional.ofNullable((List<Map<String, Object>>) resposta.get("results"))
                 .orElse(Collections.emptyList());
@@ -109,14 +109,31 @@ public class FilmeApplicationService {
             int tmdbId = (int) resultado.get("id");
             String diretor = tmdbClient.buscarDiretorDoFilme(tmdbId);
 
+            // Novos campos
+            String sinopse = Optional.ofNullable((String) resultado.get("overview"))
+                    .filter(s -> !s.isBlank())
+                    .orElse("Sinopse não disponível.");
+            double avaliacao = Optional.ofNullable(resultado.get("vote_average"))
+                    .map(val -> {
+                        if (val instanceof Number)
+                            return ((Number) val).doubleValue();
+                        try {
+                            return Double.parseDouble(val.toString());
+                        } catch (NumberFormatException e) {
+                            return 0.0;
+                        }
+                    })
+                    .orElse(0.0);
+
             Filme filme = new Filme(
                     titulo,
                     diretor,
+                    sinopse,
                     ano,
+                    avaliacao,
                     generos,
                     PAIS_PADRAO,
-                    bannerUrl
-            );
+                    bannerUrl);
 
             return Optional.of(filme);
         } catch (Exception e) {
@@ -125,6 +142,7 @@ public class FilmeApplicationService {
         }
     }
 
+    @SuppressWarnings("unchecked")
     private List<String> extrairGeneros(Map<String, Object> resultado, Map<Integer, String> mapaGeneros) {
         try {
             List<Integer> idsGeneros = (List<Integer>) resultado.get("genre_ids");

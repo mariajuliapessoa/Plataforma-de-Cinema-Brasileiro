@@ -10,7 +10,9 @@ public class FilmeMapper {
         FilmeEntity entity = new FilmeEntity();
         entity.setTitulo(filme.getTitulo());
         entity.setDiretor(filme.getDiretor());
+        entity.setSinopse(filme.getSinopse());
         entity.setAnoLancamento(filme.getAnoLancamento());
+        entity.setAvaliacao(filme.getAvaliacao());
         entity.setGeneros(filme.getGeneros());
         entity.setPaisOrigem(filme.getPaisOrigem());
         entity.setBannerUrl(filme.getBannerUrl());
@@ -26,7 +28,9 @@ public class FilmeMapper {
                 new FilmeId(entity.getId()),
                 entity.getTitulo(),
                 entity.getDiretor(),
+                entity.getSinopse(),
                 entity.getAnoLancamento(),
+                entity.getAvaliacao(),
                 entity.getGeneros(),
                 entity.getPaisOrigem(),
                 entity.getBannerUrl()

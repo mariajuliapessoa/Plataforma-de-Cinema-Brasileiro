@@ -30,7 +30,9 @@ public class FilmeController {
         Filme filme = new Filme(
                 request.titulo(),
                 request.diretor(),
+                request.sinopse(),
                 request.anoLancamento(),
+                request.avaliacao(),
                 request.generos(),
                 request.paisOrigem(),
                 request.bannerUrl()
@@ -78,7 +80,9 @@ public class FilmeController {
                 filme.getId().getValue(),
                 filme.getTitulo(),
                 filme.getDiretor(),
+                filme.getSinopse(),
                 filme.getAnoLancamento(),
+                filme.getAvaliacao(),
                 filme.getGeneros(),
                 filme.getPaisOrigem(),
                 filme.getBannerUrl()

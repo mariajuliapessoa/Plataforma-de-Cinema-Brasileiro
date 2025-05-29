@@ -12,23 +12,27 @@ public class Filme {
     private final FilmeId id;
     private final String titulo;
     private final String diretor;
+    private final String sinopse;
     private final int anoLancamento;
+    private final double avaliacao;
     private final List<String> generos;
     private final String paisOrigem;
     private final String bannerUrl;
 
-    public Filme(FilmeId id, String titulo, String diretor, int anoLancamento, List<String> generos, String paisOrigem, String bannerUrl) {
+    public Filme(FilmeId id, String titulo, String diretor, String sinopse, int anoLancamento, double avaliacao, List<String> generos, String paisOrigem, String bannerUrl) {
         this.id = id != null ? id : new FilmeId(UUID.randomUUID());
         this.titulo = validarTitulo(titulo);
         this.diretor = validarDiretor(diretor);
+        this.sinopse = validarSinopse(sinopse);
         this.anoLancamento = validarAnoLancamento(anoLancamento);
+        this.avaliacao = validarAvaliacao(avaliacao);
         this.generos = validarGeneros(generos);
         this.paisOrigem = validarPaisOrigem(paisOrigem);
         this.bannerUrl = validarBannerUrl(bannerUrl);
     }
 
-    public Filme(String titulo, String diretor, int anoLancamento, List<String> generos, String paisOrigem, String bannerUrl) {
-        this(null, titulo, diretor, anoLancamento, generos, paisOrigem, bannerUrl);
+    public Filme(String titulo, String diretor, String descricao, int anoLancamento, double avaliacao, List<String> generos, String paisOrigem, String bannerUrl) {
+        this(null, titulo, diretor, descricao, anoLancamento, avaliacao, generos, paisOrigem, bannerUrl);
     }
 
     // Validações
@@ -42,6 +46,19 @@ public class Filme {
         if (diretor == null || diretor.trim().isEmpty())
             throw new IllegalArgumentException("Diretor é obrigatório");
         return diretor.trim();
+    }
+
+    private double validarAvaliacao(double avaliacao) {
+        if (avaliacao < 0)
+            throw new IllegalArgumentException("Avaliação deve ser maior que zero");
+        return avaliacao;
+    }
+
+    private String validarSinopse(String descricao) {
+        if (descricao == null || descricao.trim().isEmpty()) {
+            throw new IllegalArgumentException("Descrição é obrigatório");
+        }
+        return descricao.trim();
     }
 
     private int validarAnoLancamento(int ano) {
@@ -100,5 +117,13 @@ public class Filme {
 
     public String getBannerUrl() {
         return bannerUrl;
+    }
+
+    public String getSinopse() {
+        return sinopse;
+    }
+
+    public double getAvaliacao() {
+        return avaliacao;
     }
 }
