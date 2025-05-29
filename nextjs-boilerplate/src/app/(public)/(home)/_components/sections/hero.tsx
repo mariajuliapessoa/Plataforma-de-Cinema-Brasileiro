@@ -13,7 +13,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
-        className="w-full flex flex-col gap-12 items-center justify-center xl:max-w-5xl">
+        className="w-full flex flex-col gap-12 items-center justify-center xl:max-w-7xl">
         <HeroHeader title={config.public.hero.title} description={config.public.hero.description} />
         <motion.div
           initial={{ opacity: 0 }}

@@ -1,16 +1,12 @@
-"use client";
-
-import { useAuth } from "@/hooks/use-auth";
+import { FilmesLista } from "./_components/filmes/filmes-lista";
+import { SearchBar } from "./_components/filmes/search-bar";
 
 export default function Dashboard() {
-  const { user } = useAuth();
-
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <h1>Dashboard</h1>
-        <pre>{user?.name}</pre>
-      </main>
-    </div>
+    <main className="flex flex-col gap-4">
+      <h1 className="text-2xl font-bold">Dashboard</h1>
+      <SearchBar />
+      <FilmesLista />
+    </main>
   );
 }

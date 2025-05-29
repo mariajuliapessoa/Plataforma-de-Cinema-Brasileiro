@@ -11,9 +11,13 @@ export const useAuth = () => {
     const getUser = async () => {
       setIsAuthenticated(true);
 
-      const user = await Auth.getUser();
+      const token = Auth.getTokenFromCookies(document.cookie);
 
-      setUser(user);
+      if (token) {
+        const user = await Auth.getSession(token);
+        setUser(user);
+      }
+
       setLoading(false);
     };
 

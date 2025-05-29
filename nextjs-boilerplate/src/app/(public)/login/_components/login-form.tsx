@@ -22,14 +22,14 @@ export default function LoginForm() {
   const form = useForm<LoginSchemaType>({
     resolver: zodResolver(LoginSchema),
     defaultValues: {
-      email: "",
-      password: "",
+      nomeUsuario: "",
+      senha: "",
     }
   });
 
   const { mutateAsync, isPending } = useMutation({
     mutationFn: async (data: LoginSchemaType) => {
-      return await Auth.login(data.email, data.password);
+      return await Auth.login(data.nomeUsuario, data.senha);
     },
     onSuccess: (data) => {
       if (data.status === 'error') {
@@ -54,14 +54,14 @@ export default function LoginForm() {
         <LoginHeader />
         <form className="flex flex-col gap-4" onSubmit={form.handleSubmit(onSubmit)}>
           <Input
-            type="email"
-            placeholder="Email"
-            {...form.register('email')}
+            type="text"
+            placeholder="Nome de usuário"
+            {...form.register('nomeUsuario')}
           />
           <Input
             type="password"
             placeholder="Senha"
-            {...form.register('password')}
+            {...form.register('senha')}
           />
           <Button size="lg" type="submit" disabled={isPending}>
             {isPending ? <Loader className="w-4 h-4 animate-spin" /> : 'Entrar'}

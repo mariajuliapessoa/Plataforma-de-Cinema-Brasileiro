@@ -1,14 +1,14 @@
-import { api, authApi } from "./api";
+import { api } from "./api";
 
 export class Auth {
-  static async login(email: string, password: string) {
-    const response = await api.post("/auth/login", {
-      email,
-      password,
+  static async login(nomeUsuario: string, senha: string) {
+    const response = await api().post("/auth/entrar", {
+      nomeUsuario,
+      senha,
     });
 
-    if (response.status === 201) {
-      document.cookie = `token=${response.data.data.token}; path=/; max-age=2592000; SameSite=Strict; Secure`;
+    if (response.status === 200) {
+      document.cookie = `token=${response.data}; path=/; max-age=2592000; SameSite=Strict; Secure`;
     }
 
     return response.data;
@@ -19,35 +19,16 @@ export class Auth {
     password: string;
     name: string;
   }) {
-    const response = await api.post("/auth/register", params);
+    const response = await api().post("/auth/registrar", params);
 
     return response.data;
   }
 
-  static async logout() {
-    document.cookie =
-      "token=; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT; SameSite=Strict; Secure";
-  }
-
-  static async getUser() {
-    const response = await authApi.get("/me");
+  static async getSession(token?: string) {
+    const response = await api(token).get("/usuarios/me");
 
     if (response.status === 200) {
-      return response.data.data;
-    }
-
-    return null;
-  }
-
-  static async getSession(token: string) {
-    const response = await api.get("/me", {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-
-    if (response.status === 200) {
-      return response.data.data;
+      return response.data;
     }
 
     return null;
