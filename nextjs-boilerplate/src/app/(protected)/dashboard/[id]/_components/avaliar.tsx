@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/dialog"
 import AvaliarForm from "./avaliar-form";
 import { useAuth } from "@/hooks/use-auth";
+import { useState } from "react";
 
 export default function Avaliar({ filmeId }: { filmeId: string }) {
   const { user } = useAuth();
@@ -23,8 +24,10 @@ export default function Avaliar({ filmeId }: { filmeId: string }) {
 }
 
 export function AvaliarDialog({ filmeId, userId }: { filmeId: string, userId: string }) {
+  const [open, setOpen] = useState(false);
+
   return (
-    <Dialog>
+    <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         <Button variant="outline">Avaliar</Button>
       </DialogTrigger>
@@ -35,7 +38,7 @@ export function AvaliarDialog({ filmeId, userId }: { filmeId: string, userId: st
             Avalie o filme aqui.
           </DialogDescription>
         </DialogHeader>
-        <AvaliarForm filmeId={filmeId} userId={userId} />
+        <AvaliarForm filmeId={filmeId} userId={userId} setOpen={setOpen} />
       </DialogContent>
     </Dialog>
   )

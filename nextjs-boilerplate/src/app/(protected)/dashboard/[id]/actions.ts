@@ -18,7 +18,7 @@ export const pegarAvaliacoes = async (id: string): Promise<AvaliacaoType[]> => {
   const cookie = await cookies();
   const token = cookie.get("token")?.value;
 
-  const response = await api(token).get(`/avaliacoes/${id}`);
+  const response = await api(token).get(`/avaliacoes/filme/${id}`);
 
   return response?.data;
 };
@@ -28,8 +28,6 @@ export const avaliarFilme = async (data: AvaliacaoCreateType) => {
   const token = cookie.get("token")?.value;
 
   const response = await api(token).post(`/avaliacoes`, data);
-
-  console.log(response);
 
   return response?.data;
 };
