@@ -282,4 +282,18 @@ export const config = {
       description: "Insira suas informações abaixo para criar uma conta",
     },
   },
+  protected: {
+    navigation: {
+      navbarLinks: [
+        {
+          label: "Filmes",
+          href: "/dashboard",
+        },
+        {
+          label: "Avaliações",
+          href: "/dashboard/avaliacoes",
+        },
+      ],
+    },
+  },
 };
