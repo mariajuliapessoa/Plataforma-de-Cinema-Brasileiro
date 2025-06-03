@@ -11,6 +11,16 @@ export const DebateCreateSchema = z.object({
   usuarioId: z.string(),
 });
 
-export type DebateResponse = z.infer<typeof DebateSchema>;
 export type DebateCreateType = z.infer<typeof DebateCreateSchema>;
 
+export interface DebateResponse {
+  id: {
+    value: string;
+  };
+  titulo: string;
+  descricao?: string;
+  criador: {
+    value: string;
+  };
+  comentarios: unknown[];
+}
