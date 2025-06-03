@@ -52,28 +52,6 @@ export const config = {
   },
   public: {
     navigation: {
-      navbarLinks: [
-        {
-          icon: FilmIcon,
-          label: "Catálogo",
-          href: "/catalog",
-        },
-        {
-          icon: StarIcon,
-          label: "Destaques",
-          href: "/featured",
-        },
-        {
-          icon: InfoIcon,
-          label: "Sobre",
-          href: "/about",
-        },
-        {
-          icon: HelpCircleIcon,
-          label: "Comunidade",
-          href: "/community",
-        },
-      ],
       footerSections: [
         {
           title: "Navegação",
@@ -302,22 +280,22 @@ export const config = {
         {
           icon: FilmIcon,
           label: "Filmes",
-          href: "/dashboard",
+          href: "/explore",
         },
         {
           icon: StarIcon,
-          label: "Avaliações",
-          href: "/dashboard/avaliacoes",
+          label: "Comunidade",
+          href: "/explore/comunidade",
         },
         {
           icon: BookmarkIcon,
           label: "Minha Lista",
-          href: "/dashboard/lista",
+          href: "/explore/lista",
         },
         {
           icon: ThumbsUpIcon,
-          label: "Recomendações",
-          href: "/dashboard/recomendacoes",
+          label: "Desafios",
+          href: "/explore/desafios",
         },
       ],
     },

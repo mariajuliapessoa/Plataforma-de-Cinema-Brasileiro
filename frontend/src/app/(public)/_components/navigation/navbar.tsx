@@ -21,18 +21,11 @@ export default function NavBar() {
           <HamburgerSheet />
         </div>
         <div className="md:flex gap-4 hidden">
-          {config.public.navigation.navbarLinks.map((link) => (
-            <Button variant={isActive(link.href) ? "active" : "ghost"} asChild key={link.href}>
-              <Link href={link.href}>{link.label}</Link>
-            </Button>
-          ))}
-        </div>
-        <div className="md:flex gap-4 hidden">
           <Button size="lg" variant="link" asChild>
             <Link href="/login">{user ? "Sair" : "Login"}</Link>
           </Button>
           <Button size="lg" variant="default" asChild>
-            <Link href={user ? "/dashboard" : "/register"}>{user ? "Dashboard" : "Cadastrar"}</Link>
+            <Link href={user ? "/explore" : "/register"}>{user ? "Explorar" : "Cadastrar"}</Link>
           </Button>
         </div>
       </div>

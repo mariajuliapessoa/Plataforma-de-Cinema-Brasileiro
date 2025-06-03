@@ -36,7 +36,7 @@ export default function LoginForm() {
         toast.error(data.message);
       } else {
         toast.success('Login realizado com sucesso!');
-        router.push('/dashboard');
+        router.push('/explore');
       }
     },
     onError: () => {

@@ -30,7 +30,7 @@ export default function NavBar() {
             <Link href={user ? "/logout" : "/login"}>{user ? "Sair" : "Login"}</Link>
           </Button>
           <Button size="lg" variant="default" asChild>
-            <Link href={user ? "/dashboard" : "/register"}>{user ? "Dashboard" : "Cadastrar"}</Link>
+            <Link href={user ? "/explore" : "/register"}>{user ? "Explorar" : "Cadastrar"}</Link>
           </Button>
         </div>
       </div>

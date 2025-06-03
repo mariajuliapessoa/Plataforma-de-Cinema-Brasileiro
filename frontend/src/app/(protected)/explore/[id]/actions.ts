@@ -14,15 +14,21 @@ export const pegarFilme = async (id: string): Promise<FilmeType> => {
   return response?.data;
 };
 
-export const pegarAvaliacoes = async (id: string): Promise<AvaliacaoType[]> => {
+export const pegarAvaliacoes = async (filmeId: string): Promise<AvaliacaoType[]> => {
   const cookie = await cookies();
   const token = cookie.get("token")?.value;
 
-  const response = await api(token).get(`/avaliacoes/filme/${id}`);
+  const response = await api(token).get(`/avaliacoes/filme/${filmeId}`);
 
-  return response?.data;
+  const data = response.data;
+
+  if (!Array.isArray(data)) {
+    console.warn("Resposta inesperada em pegarAvaliacoes:", data);
+    return [];
+  }
+
+  return data;
 };
-
 export const avaliarFilme = async (data: AvaliacaoCreateType) => {
   const cookie = await cookies();
   const token = cookie.get("token")?.value;

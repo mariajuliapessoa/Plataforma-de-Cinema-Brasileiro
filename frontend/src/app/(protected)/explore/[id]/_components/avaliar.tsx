@@ -29,17 +29,17 @@ export function AvaliarDialog({ filmeId, userId }: { filmeId: string, userId: st
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button variant="outline">Avaliar</Button>
+        <Button className="w-full font-semibold text-white bg-primary hover:bg-primary/90 transition-colors" variant="default">
+          Avaliar
+        </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
           <DialogTitle>Avaliar</DialogTitle>
-          <DialogDescription>
-            Avalie o filme aqui.
-          </DialogDescription>
+          <DialogDescription>Deixe sua avaliação sobre o filme.</DialogDescription>
         </DialogHeader>
         <AvaliarForm filmeId={filmeId} userId={userId} setOpen={setOpen} />
       </DialogContent>
     </Dialog>
-  )
+  );
 }

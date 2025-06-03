@@ -15,9 +15,11 @@ export class Auth {
   }
 
   static async register(params: {
+    nome: string;
+    nomeUsuario: string;
     email: string;
-    password: string;
-    name: string;
+    cargo: "USER";
+    senha: string;
   }) {
     const response = await api().post("/auth/registrar", params);
 
