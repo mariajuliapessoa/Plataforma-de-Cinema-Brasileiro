@@ -44,22 +44,24 @@ export async function criarComentario({
   autorId,
   debateId,
   filmeId,
+  comentarioPaiId, 
 }: {
   texto: string;
   autorId: string;
   debateId: string;
   filmeId: string;
+  comentarioPaiId?: string | null;  
 }) {
 
   const token = Auth.getTokenFromCookies(
     typeof document !== "undefined" ? document.cookie : null
   ) ?? undefined;
 
-
   return api(token).post("/comentarios", {
     texto,
     autorId,
     debateId,
     filmeId,
+    comentarioPaiId, 
   });
 }
