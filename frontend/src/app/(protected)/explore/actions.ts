@@ -25,3 +25,9 @@ export const getFilmes = async (
 
   return response.data;
 };
+
+  export const getFilmeById = async (id: string): Promise<FilmeType> => {
+    const token = Auth.getTokenFromCookies(typeof document !== "undefined" ? document.cookie : null) ?? undefined;
+    const resposta = await api(token).get(`/filmes/${id}`);
+    return resposta.data;
+  };

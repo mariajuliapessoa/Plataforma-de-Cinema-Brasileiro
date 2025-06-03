@@ -43,10 +43,12 @@ export async function criarComentario({
   texto,
   autorId,
   debateId,
+  filmeId,
 }: {
   texto: string;
   autorId: string;
   debateId: string;
+  filmeId: string;
 }) {
 
   const token = Auth.getTokenFromCookies(
@@ -58,6 +60,6 @@ export async function criarComentario({
     texto,
     autorId,
     debateId,
-    filmeId: null,
+    filmeId,
   });
 }
