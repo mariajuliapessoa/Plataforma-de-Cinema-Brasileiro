@@ -11,9 +11,7 @@ import com.cesar.bracine.infrastructure.mappers.ComentarioMapper;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
+import java.util.*;
 
 @Repository
 public class ComentarioRepositoryImpl
@@ -64,7 +62,8 @@ public class ComentarioRepositoryImpl
 
     @Override
     protected Comentario mapToDomain(ComentarioEntity entity) {
-        return ComentarioMapper.toDomain(entity);
+        Set<UUID> comentariosProcessados = new HashSet<>();
+        return ComentarioMapper.toDomain(entity, comentariosProcessados);
     }
 
     @Override

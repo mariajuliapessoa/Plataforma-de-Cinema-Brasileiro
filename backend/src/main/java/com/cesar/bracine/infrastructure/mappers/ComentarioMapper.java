@@ -7,6 +7,9 @@ import com.cesar.bracine.infrastructure.jpa.entities.DebateEntity;
 import com.cesar.bracine.infrastructure.jpa.entities.FilmeEntity;
 import com.cesar.bracine.infrastructure.jpa.entities.UsuarioEntity;
 
+import java.util.Set;
+import java.util.UUID;
+
 public class ComentarioMapper {
 
     public static ComentarioEntity toEntity(Comentario comentario) {
@@ -39,10 +42,20 @@ public class ComentarioMapper {
         return entity;
     }
 
-    public static Comentario toDomain(ComentarioEntity entity) {
+    public static Comentario toDomain(ComentarioEntity entity, Set<UUID> comentariosProcessados) {
+        if (entity == null) {
+            return null;
+        }
+
+        if (comentariosProcessados.contains(entity.getId())) {
+            return null;
+        }
+
+        comentariosProcessados.add(entity.getId());
+
         Comentario comentarioPaiDomain = null;
         if (entity.getComentarioPai() != null) {
-            comentarioPaiDomain = toDomain(entity.getComentarioPai());
+            comentarioPaiDomain = toDomain(entity.getComentarioPai(), comentariosProcessados);
         }
 
         Comentario comentario = new Comentario(
@@ -66,9 +79,12 @@ public class ComentarioMapper {
 
         if (entity.getRespostas() != null && !entity.getRespostas().isEmpty()) {
             for (ComentarioEntity respostaEntity : entity.getRespostas()) {
-                Comentario respostaDomain = toDomain(respostaEntity);
-                // Aqui usa método para adicionar resposta na lista (assumindo que exista)
-                comentario.adicionarResposta(respostaDomain);
+                if (respostaEntity != null) {
+                    Comentario respostaDomain = toDomain(respostaEntity, comentariosProcessados);
+                    if (respostaDomain != null) {
+                        comentario.adicionarResposta(respostaDomain);
+                    }
+                }
             }
         }
 
