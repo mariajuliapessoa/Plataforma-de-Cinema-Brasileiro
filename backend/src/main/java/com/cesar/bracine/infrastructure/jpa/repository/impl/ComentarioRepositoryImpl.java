@@ -43,6 +43,14 @@ public class ComentarioRepositoryImpl
     }
 
     @Override
+    public List<Comentario> buscarPorDebate(UUID debateId) {
+        List<ComentarioEntity> entities = jpaRepository.findAllRaizesByDebateIdWithRespostas(debateId);
+        return entities.stream()
+                .map(this::mapToDomain)
+                .toList();
+    }
+
+    @Override
     public List<Comentario> buscarPorIdUsuario(UUID id) {
         return jpaRepository.findAllByAutorId(id).stream()
                 .map(this::mapToDomain)

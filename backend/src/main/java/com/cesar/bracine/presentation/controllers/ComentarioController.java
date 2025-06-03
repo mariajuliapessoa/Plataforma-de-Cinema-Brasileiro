@@ -30,7 +30,8 @@ public class ComentarioController {
                 dto.texto(),
                 dto.autorId(),
                 dto.filmeId(),
-                dto.debateId()
+                dto.debateId(),
+                dto.comentarioPaiId()
         );
 
         return ResponseEntity.ok(new ComentarioResponseDTO(

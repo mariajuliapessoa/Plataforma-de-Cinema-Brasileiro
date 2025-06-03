@@ -16,6 +16,8 @@ public interface ComentarioRepository {
     // ListAll
     List<Comentario> listarTodos();
 
+    List<Comentario> buscarPorDebate(UUID debateId);
+
     // Delete
     void remover(UUID id);
 

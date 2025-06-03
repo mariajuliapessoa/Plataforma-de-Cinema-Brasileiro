@@ -32,7 +32,7 @@ public class ComentarioApplicationService {
         this.debateRepository = debateRepository;
     }
 
-    public Comentario criarComentario(String texto, UUID usuarioId, UUID filmeId, UUID debateId) {
+    public Comentario criarComentario(String texto, UUID usuarioId, UUID filmeId, UUID debateId, UUID comentarioPaiId) {
         if (usuarioRepository.buscarPorId(usuarioId).isEmpty()) {
             throw new IllegalArgumentException("Usuário não encontrado");
         }
@@ -49,10 +49,18 @@ public class ComentarioApplicationService {
         FilmeId filmeIdValueObject = new FilmeId(filmeId);
         DebateId debateIdValueObject = new DebateId(debateId);
 
-        Comentario comentario = new Comentario(texto, autorIdValueObject, filmeIdValueObject, debateIdValueObject);
+        Comentario comentarioPai = null;
+        if (comentarioPaiId != null) {
+            Optional<Comentario> comentarioPaiOpt = comentarioService.buscarComentarioPorId(comentarioPaiId);
+            if (comentarioPaiOpt.isEmpty()) {
+                throw new IllegalArgumentException("Comentário pai não encontrado");
+            }
+            comentarioPai = comentarioPaiOpt.get();
+        }
+
+        Comentario comentario = new Comentario(texto, autorIdValueObject, filmeIdValueObject, debateIdValueObject, comentarioPai);
         return comentarioService.salvarComentario(comentario);
     }
-
     public List<Comentario> listarComentarios() {
         return comentarioService.listarTodosComentarios();
     }

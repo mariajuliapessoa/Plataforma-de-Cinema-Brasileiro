@@ -30,6 +30,10 @@ public class ComentarioService {
         return comentarioRepository.listarTodos();
     }
 
+    public List<Comentario> listarTodosComentariosComRespostas(UUID id) {
+        return comentarioRepository.buscarPorDebate(id);
+    }
+
     // Remover um comentário
     public void removerComentario(UUID id) {
         comentarioRepository.remover(id);

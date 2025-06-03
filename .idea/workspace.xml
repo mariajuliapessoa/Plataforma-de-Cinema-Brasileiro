@@ -5,22 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1edcf67e-711c-40c6-8d84-dc4b0627e602" name="Changes" comment="feat: implementação do padrão template method">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/BracineApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/BracineApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/application/ComentarioApplicationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/application/ComentarioApplicationService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/domain/entities/Comentario.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/domain/entities/Comentario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/domain/repositories/ComentarioRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/domain/repositories/ComentarioRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/domain/services/ComentarioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/domain/services/ComentarioService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/jpa/entities/ComentarioEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/jpa/entities/ComentarioEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/jpa/repository/SpringComentarioJpaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/jpa/repository/SpringComentarioJpaRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/jpa/repository/impl/ComentarioRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/jpa/repository/impl/ComentarioRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/mappers/ComentarioMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/mappers/ComentarioMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/presentation/controllers/ComentarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/presentation/controllers/ComentarioController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/presentation/controllers/DebateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/presentation/controllers/DebateController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/presentation/controllers/DesafioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/presentation/controllers/DesafioController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/presentation/dtos/ComentarioRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/presentation/dtos/ComentarioRequestDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/.next/trace" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.next/trace" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/(protected)/debates/[id]/page.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/(protected)/explore/comunidade/_components/avaliacoes/actions.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/(protected)/explore/comunidade/_components/debates/actionts.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/(protected)/explore/comunidade/_components/debates/criar-debate.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/(protected)/explore/comunidade/_components/debates/debate-create-form.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/(protected)/explore/comunidade/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/(protected)/explore/comunidade/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/schemas/debate.schema.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/schemas/debate.schema.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/(protected)/explore/comunidade/debates/[id]/debate/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/(protected)/explore/comunidade/debates/[id]/debate/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/(protected)/explore/comunidade/debates/actions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/(protected)/explore/comunidade/debates/actions.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/(protected)/explore/desafios/components/desafios-lista.tsx" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -257,6 +259,7 @@
       <workItem from="1747876240095" duration="481000" />
       <workItem from="1748366885948" duration="6537000" />
       <workItem from="1748493044133" duration="3757000" />
+      <workItem from="1748979490811" duration="3894000" />
     </task>
     <task id="LOCAL-00001" summary="feat: implementando padrão proxy">
       <option name="closed" value="true" />

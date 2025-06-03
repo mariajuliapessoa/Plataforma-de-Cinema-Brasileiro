@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.Instant;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -30,6 +32,11 @@ public class ComentarioEntity {
     @ManyToOne
     private DebateEntity debate;
 
+    @ManyToOne
+    private ComentarioEntity comentarioPai;
+
+    @OneToMany(mappedBy = "comentarioPai", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<ComentarioEntity> respostas = new ArrayList<>();
 
     @PrePersist
     public void prePersist() {
