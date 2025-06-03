@@ -46,9 +46,13 @@ public class DebateController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Debate> buscarDebatePorId(@PathVariable UUID id) {
+    public ResponseEntity<DebateResponseDTO> buscarDebatePorId(@PathVariable UUID id) {
         return debateApplicationService.buscarPorId(id)
-                .map(ResponseEntity::ok)
+                .map(debate -> ResponseEntity.ok(new DebateResponseDTO(
+                        debate.getId().getValue(),
+                        debate.getTitulo(),
+                        debate.getCriador().getValue()
+                )))
                 .orElse(ResponseEntity.notFound().build());
     }
 
