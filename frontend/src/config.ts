@@ -156,7 +156,7 @@ export const config = {
       },
       button: {
         label: "Explorar filmes",
-        href: "/catalog",
+        href: "/explore",
       },
     },
     faq: {
@@ -256,12 +256,12 @@ export const config = {
           title: "Assista e avalie",
           description:
             "Assista aos filmes gratuitamente e compartilhe sua opinião através de avaliações e comentários",
-          image: "https://images.pexels.com/photos/7991631/pexels-photo-7991631.jpeg",
+          image: "https://images.pexels.com/photos/6893955/pexels-photo-6893955.jpeg",
         },
         {
           title: "Participe da comunidade",
           description: "Interaja com outros amantes do cinema brasileiro em discussões e eventos online",
-          image: "https://images.pexels.com/photos/8107191/pexels-photo-8107191.jpeg",
+          image: "https://images.pexels.com/photos/4353619/pexels-photo-4353619.jpeg",
         },
       ],
     },
