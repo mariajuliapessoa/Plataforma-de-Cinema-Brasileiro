@@ -7,39 +7,20 @@
     <list default="true" id="1edcf67e-711c-40c6-8d84-dc4b0627e602" name="Changes" comment="feat: implementação do padrão template method">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/BracineApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/BracineApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/application/FilmeApplicationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/application/FilmeApplicationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/domain/repositories/FilmeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/domain/repositories/FilmeRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/jpa/repository/SpringFilmeJpaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/jpa/repository/SpringFilmeJpaRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/jpa/repository/impl/FilmeRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/jpa/repository/impl/FilmeRepositoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/presentation/controllers/FilmeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/presentation/controllers/FilmeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/application/ComentarioApplicationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/application/ComentarioApplicationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/domain/entities/Comentario.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/domain/entities/Comentario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/jpa/entities/ComentarioEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/infrastructure/jpa/entities/ComentarioEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/presentation/controllers/ComentarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/presentation/controllers/ComentarioController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/presentation/controllers/DebateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/presentation/controllers/DebateController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/presentation/dtos/ComentarioRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/cesar/bracine/presentation/dtos/ComentarioRequestDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/.next/trace" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.next/trace" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/(protected)/dashboard/[id]/_components/avaliar-form.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/(protected)/dashboard/[id]/_components/avaliar.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/(protected)/dashboard/[id]/_components/filme.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/(protected)/dashboard/[id]/actions.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/(protected)/dashboard/[id]/layout.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/(protected)/dashboard/[id]/page.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/(protected)/dashboard/_components/filmes/filmes-lista.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/(protected)/dashboard/_components/filmes/search-bar.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/(protected)/dashboard/_components/navigation/navbar.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/(protected)/dashboard/actions.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/(protected)/dashboard/avaliacoes/_components/avaliacoes/avaliacoes-lista.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/(protected)/dashboard/avaliacoes/_components/avaliacoes/search-bar.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/(protected)/dashboard/avaliacoes/actions.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/(protected)/dashboard/avaliacoes/page.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/(protected)/dashboard/layout.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/(protected)/dashboard/page.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/(public)/_components/navigation/footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/(public)/_components/navigation/footer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/(public)/_components/navigation/navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/(public)/_components/navigation/navbar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/(public)/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/(public)/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/(public)/login/_components/login-form.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/(public)/login/_components/login-form.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/lib/auth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/lib/auth.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/middleware.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/middleware.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/posts/como-jogar-lol.mdx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/posts/first.mdx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/posts/second.mdx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/posts/terceiro.mdx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/(protected)/debates/[id]/page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/(protected)/explore/comunidade/_components/avaliacoes/actions.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/(protected)/explore/comunidade/_components/debates/actionts.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/(protected)/explore/comunidade/_components/debates/criar-debate.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/(protected)/explore/comunidade/_components/debates/debate-create-form.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/(protected)/explore/comunidade/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/(protected)/explore/comunidade/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/schemas/debate.schema.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/schemas/debate.schema.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,41 +59,41 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.BracineApplication.executor": "Run",
-    "Cucumber Java.Feature: avaliacao_filmes.executor": "Run",
-    "Cucumber Java.Feature: busca_filmes.executor": "Run",
-    "Cucumber Java.Scenario: Aplicar filtros (ano, nota, etc).executor": "Run",
-    "Cucumber Java.Scenario: Buscar filme pelo título exato.executor": "Run",
-    "JUnit.CucumberTestRunner (1).executor": "Run",
-    "JUnit.CucumberTestRunner.executor": "Run",
-    "JUnit.RunCucumberTest (1).executor": "Run",
-    "JUnit.RunCucumberTest.executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "Spring Boot.BracineApplication.executor": "Run",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Claudio/dev/cesar/Plataforma-de-Cinema-Brasileiro",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.keymap",
-    "ts.external.directory.path": "C:\\Users\\Vini\\Desktop\\Plataforma-de-Cinema-Brasileiro\\frontend\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.BracineApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Cucumber Java.Feature: avaliacao_filmes.executor&quot;: &quot;Run&quot;,
+    &quot;Cucumber Java.Feature: busca_filmes.executor&quot;: &quot;Run&quot;,
+    &quot;Cucumber Java.Scenario: Aplicar filtros (ano, nota, etc).executor&quot;: &quot;Run&quot;,
+    &quot;Cucumber Java.Scenario: Buscar filme pelo título exato.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CucumberTestRunner (1).executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CucumberTestRunner.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.RunCucumberTest (1).executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.RunCucumberTest.executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;Spring Boot.BracineApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Claudio/dev/cesar/Plataforma-de-Cinema-Brasileiro&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\Vini\\Desktop\\Plataforma-de-Cinema-Brasileiro\\frontend\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Vinícius\Desktop\Plataforma-de-Cinema-Brasileiro" />

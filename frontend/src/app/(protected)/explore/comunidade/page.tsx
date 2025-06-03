@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 import { useAuth } from "@/hooks/use-auth";
 import { useRouter } from "next/navigation";
 
-import { getDebates } from "./_components/debates/actionts";
-import { getMinhasAvaliacoes } from "./_components/avaliacoes/actions";
+import { getDebates } from "./debates/actions";
+import { getMinhasAvaliacoes } from "./avaliacoes/actions";
 import { getUserById } from "../../actions";
 import { pegarFilme } from "../[id]/actions";
 
@@ -17,7 +17,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Loader, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import CriarDebate from "./_components/debates/criar-debate";
+import CriarDebate from "./debates/criar-debate";
 
 export default function ComunidadePage() {
   const { user } = useAuth();
@@ -112,7 +112,7 @@ export default function ComunidadePage() {
             {debates.map((debate) => (
               <Link
                 key={debate.id}
-                href={`/debates/${debate.id}`}
+                href={`/explore/comunidade/debates/${debate.id}/debate`}
                 className="flex items-center justify-between p-4 rounded-lg border bg-white shadow-sm hover:shadow-md transition"
               >
                 <div className="flex items-center gap-4">

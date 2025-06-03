@@ -9,7 +9,7 @@ import { Input } from "@/components/ui/input";
 import { useMutation } from "@tanstack/react-query";
 import { AnimatedGroup } from "@/components/motion-primitives/animated-group";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import { createDebate } from "../../actions";
+import { createDebate } from "../actions";
 
 const DebateFormSchema = z.object({
   titulo: z.string().min(3, "Título muito curto"),
