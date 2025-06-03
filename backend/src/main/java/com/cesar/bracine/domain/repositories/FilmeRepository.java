@@ -14,6 +14,8 @@ public interface FilmeRepository {
 
     Optional<Filme> buscarPorId(UUID id);
 
+    Page<Filme> buscarPorTitulo(String titulo, Pageable pageable);
+
     List<Filme> listarTodos();
 
     void remover(UUID id);

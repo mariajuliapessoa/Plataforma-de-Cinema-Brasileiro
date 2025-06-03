@@ -59,6 +59,18 @@ public class FilmeController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+    @GetMapping("/buscar")
+    public Page<FilmeResponseDTO> buscarFilmesPorTitulo(
+            @RequestParam String titulo,
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "12") int size) {
+
+        Pageable pageable = PageRequest.of(page, size);
+        Page<Filme> filmesPage = filmeApplicationService.buscarPorTitulo(titulo, pageable);
+
+        return filmesPage.map(this::toResponse);
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> removerFilme(@PathVariable UUID id) {
         filmeApplicationService.removerFilme(id);

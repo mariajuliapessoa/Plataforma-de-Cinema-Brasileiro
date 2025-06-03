@@ -15,6 +15,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
@@ -44,6 +45,17 @@ public class FilmeRepositoryImpl
         } else {
             logger.info("Ignorado (já existe): {} ({})", filme.getTitulo(), filme.getAnoLancamento());
         }
+    }
+
+    @Override
+    public Page<Filme> buscarPorTitulo(String titulo, Pageable pageable) {
+        Page<FilmeEntity> entidadesPage = jpaRepository.findByTituloContainingIgnoreCase(titulo, pageable);
+
+        List<Filme> filmes = entidadesPage.getContent().stream()
+                .map(this::mapToDomain)
+                .collect(Collectors.toList());
+
+        return new PageImpl<>(filmes, pageable, entidadesPage.getTotalElements());
     }
 
     @Override

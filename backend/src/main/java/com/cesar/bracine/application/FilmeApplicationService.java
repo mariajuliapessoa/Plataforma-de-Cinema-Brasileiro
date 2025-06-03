@@ -11,6 +11,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.data.domain.Pageable;
 
 import java.time.Year;
 import java.util.*;
@@ -47,6 +48,10 @@ public class FilmeApplicationService {
 
     public Optional<Filme> buscarPorId(UUID id) {
         return filmeRepository.buscarPorId(id);
+    }
+
+    public Page<Filme> buscarPorTitulo(String titulo, Pageable pageable) {
+        return filmeRepository.buscarPorTitulo(titulo, pageable);
     }
 
     public void removerFilme(UUID id) {
