@@ -1,12 +1,17 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useAuth } from "@/hooks/use-auth";
+import { useRouter } from "next/navigation";
+
 import { getDebates } from "./_components/debates/actionts";
+import { getMinhasAvaliacoes } from "./_components/avaliacoes/actions";
 import { getUserById } from "../../actions";
+import { pegarFilme } from "../[id]/actions";
+
 import { DebateResponse } from "@/schemas/debate.schema";
 import { AvaliacaoType } from "@/schemas/avaliacao.schema";
-import { getMinhasAvaliacoes } from "./_components/avaliacoes/actions";
-import { useAuth } from "@/hooks/use-auth";
+import { FilmeType } from "@/schemas/filme.schema";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -16,9 +21,11 @@ import CriarDebate from "./_components/debates/criar-debate";
 
 export default function ComunidadePage() {
   const { user } = useAuth();
+  const router = useRouter();
+
   const [tab, setTab] = useState<"debates" | "avaliacoes">("debates");
   const [debates, setDebates] = useState<DebateResponse[]>([]);
-  const [avaliacoes, setAvaliacoes] = useState<AvaliacaoType[]>([]);
+  const [avaliacoes, setAvaliacoes] = useState<(AvaliacaoType & { filme?: FilmeType })[]>([]);
   const [users, setUsers] = useState<Record<string, string>>({});
   const [loading, setLoading] = useState(true);
 
@@ -45,7 +52,13 @@ export default function ComunidadePage() {
 
       if (tab === "avaliacoes" && user) {
         const minhas = await getMinhasAvaliacoes(user.id);
-        setAvaliacoes(minhas);
+        const avaliacoesComFilmes = await Promise.all(
+          minhas.map(async (a) => {
+            const filme = await pegarFilme(a.filmeId);
+            return { ...a, filme };
+          })
+        );
+        setAvaliacoes(avaliacoesComFilmes);
       }
 
       setLoading(false);
@@ -123,16 +136,37 @@ export default function ComunidadePage() {
         ) : (
           <div className="grid gap-4">
             {avaliacoes.map((avaliacao) => (
-              <div key={avaliacao.id} className="bg-white border rounded-md p-4 shadow-sm">
-                <div className="flex items-center justify-between">
-                  <span className="font-semibold">{avaliacao.texto}</span>
-                  <span className="text-sm text-muted-foreground">
-                    Nota: <span className="text-yellow-600">{avaliacao.nota}/10</span>
-                  </span>
+              <div
+                key={avaliacao.id}
+                onClick={() => router.push(`/explore/${avaliacao.filme?.id}`)}
+                className="bg-white border rounded-md p-4 shadow-sm hover:shadow transition cursor-pointer flex gap-4"
+              >
+                {/* Imagem do filme */}
+                <div className="relative w-24 h-32 rounded overflow-hidden">
+                  {avaliacao.filme?.bannerUrl && (
+                    <Image
+                      src={avaliacao.filme.bannerUrl}
+                      alt={avaliacao.filme.titulo}
+                      fill
+                      className="object-cover"
+                    />
+                  )}
                 </div>
-                <p className="text-muted-foreground text-sm italic mt-1">
-                  {new Date(avaliacao.dataCriacao).toLocaleDateString()}
-                </p>
+
+                {/* Informações */}
+                <div className="flex flex-col flex-1 justify-between">
+                  <div className="flex flex-col gap-1">
+                    <h3 className="text-lg font-semibold">{avaliacao.filme?.titulo}</h3>
+                    <p className="text-sm text-muted-foreground italic">“{avaliacao.texto}”</p>
+                  </div>
+                  <div className="flex items-center justify-between text-sm text-muted-foreground mt-2">
+                    <span>
+                      Nota:{" "}
+                      <strong className="text-yellow-600">{avaliacao.nota}/10</strong>
+                    </span>
+                    <span>{new Date(avaliacao.dataCriacao).toLocaleDateString()}</span>
+                  </div>
+                </div>
               </div>
             ))}
             {avaliacoes.length === 0 && (

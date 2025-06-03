@@ -288,11 +288,6 @@ export const config = {
           href: "/explore/comunidade",
         },
         {
-          icon: BookmarkIcon,
-          label: "Minha Lista",
-          href: "/explore/lista",
-        },
-        {
           icon: ThumbsUpIcon,
           label: "Desafios",
           href: "/explore/desafios",
