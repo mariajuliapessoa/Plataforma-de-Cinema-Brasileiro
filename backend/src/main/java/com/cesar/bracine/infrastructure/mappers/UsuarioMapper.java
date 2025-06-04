@@ -15,6 +15,7 @@ public class UsuarioMapper {
                 .cargo(usuario.getCargo())
                 .senhaHash(usuario.getSenhaHash())
                 .pontos(usuario.getPontos())
+                .dataCriacao(usuario.getDataCriacao())
                 .build();
     }
 
@@ -26,7 +27,7 @@ public class UsuarioMapper {
                 entity.getEmail(),
                 entity.getCargo(),
                 entity.getSenhaHash(),
-                entity.getPontos()
-        );
+                entity.getPontos(),
+                entity.getDataCriacao());
     }
 }

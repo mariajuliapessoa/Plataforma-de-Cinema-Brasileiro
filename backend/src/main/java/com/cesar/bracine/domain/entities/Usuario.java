@@ -2,8 +2,11 @@ package com.cesar.bracine.domain.entities;
 
 import com.cesar.bracine.domain.enums.TipoUsuario;
 import com.cesar.bracine.domain.valueobjects.UsuarioId;
+
+import org.hibernate.type.descriptor.jdbc.InstantAsTimestampJdbcType;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import java.time.Instant;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -15,6 +18,7 @@ public final class Usuario {
     private String email;
     private String senhaHash;
     private int pontos;
+    private Instant dataCriacao;
     private TipoUsuario cargo;
 
     // Construtor privado para evitar criação direta fora da classe
@@ -25,25 +29,28 @@ public final class Usuario {
         this.email = email;
         this.senhaHash = senhaHash;
         this.cargo = cargo;
-        this.pontos = 0;  // Inicializa os pontos como zero
+        this.pontos = 0;
     }
 
     // Factory method para criar um novo usuário
-    public static Usuario criar(String nome, String nomeUsuario, String email, TipoUsuario cargo,String senha, PasswordEncoder encoder) {
-        String id = UUID.randomUUID().toString();
-        return new Usuario(
+    public static Usuario criar(String nome, String nomeUsuario, String email, TipoUsuario cargo, String senha,
+            PasswordEncoder encoder) {
+        Usuario usuario = new Usuario(
                 new UsuarioId(UUID.randomUUID()),
                 nome,
                 nomeUsuario,
                 email,
                 encoder.encode(senha),
-                cargo
-        );
+                cargo);
+        usuario.dataCriacao = Instant.now();
+        return usuario;
     }
 
-    public static Usuario reconstruir(UsuarioId id, String nome, String nomeUsuario, String email, TipoUsuario cargo, String senhaHash, int pontos) {
+    public static Usuario reconstruir(UsuarioId id, String nome, String nomeUsuario, String email, TipoUsuario cargo,
+            String senhaHash, int pontos, Instant dataCriacao) {
         Usuario usuario = new Usuario(id, nome, nomeUsuario, email, senhaHash, cargo);
         usuario.pontos = pontos;
+        usuario.dataCriacao = dataCriacao;
         return usuario;
     }
 
@@ -55,7 +62,8 @@ public final class Usuario {
 
     // Método de domínio para adicionar pontos
     public void adicionarPontos(int pontos) {
-        if (pontos <= 0) throw new IllegalArgumentException("Pontos devem ser positivos");
+        if (pontos <= 0)
+            throw new IllegalArgumentException("Pontos devem ser positivos");
         this.pontos += pontos;
     }
 
@@ -95,6 +103,10 @@ public final class Usuario {
 
     public int getPontos() {
         return pontos;
+    }
+
+    public Instant getDataCriacao() {
+        return dataCriacao;
     }
 
     public TipoUsuario getCargo() {

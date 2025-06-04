@@ -44,6 +44,8 @@ public class DesafioApplicationService {
                 .orElseThrow(() -> new IllegalArgumentException("Usuário não encontrado"));
 
         desafio.concluir();
+        usuario.adicionarPontos(desafio.getPontos());
+        usuarioRepository.salvar(usuario); 
         desafioRepository.salvar(desafio, usuario); // persiste a alteração de status e pontos
     }
 

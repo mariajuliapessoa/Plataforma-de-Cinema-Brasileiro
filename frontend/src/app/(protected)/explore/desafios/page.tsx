@@ -31,11 +31,19 @@ export default function DesafiosPage() {
 
   return (
     <main className="w-full max-w-6xl mx-auto px-4 py-10 min-h-screen flex flex-col gap-6">
-      <div className="flex flex-col gap-2">
-        <h1 className="text-3xl font-bold">Desafios</h1>
-        <p className="text-muted-foreground">
-          Participe de desafios sobre o cinema brasileiro e ganhe pontos!
-        </p>
+      <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+        <div>
+          <h1 className="text-3xl font-bold">Desafios</h1>
+          <p className="text-muted-foreground">
+            Participe de desafios sobre o cinema brasileiro e ganhe pontos!
+          </p>
+        </div>
+        {user?.pontos !== undefined && (
+          <div className="text-right mt-2 sm:mt-0">
+            <p className="text-muted-foreground text-sm">Sua pontuação:</p>
+            <p className="text-xl font-semibold text-primary">{user.pontos} pontos</p>
+          </div>
+        )}
       </div>
 
       {loading ? (
